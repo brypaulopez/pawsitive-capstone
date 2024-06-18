@@ -52,7 +52,7 @@ Route::get('/select-package', [VetController::class, 'select']);
 Route::get('/package/a', [VetController::class, 'selectA']);
 Route::get('/package/b', [VetController::class, 'selectB']);
 Route::get('/package/c', [VetController::class, 'selectC']);
-Route::post('/vet-admin/finish', [VetController::class, 'create_vet']);
+Route::post('/vet-admin', [VetController::class, 'create_vet']);
 Route::delete('/vet-admin/{id}',[VetController::class, 'delete']);
 
 // adding products

@@ -7,7 +7,7 @@
     @include('layout/nav')
     <h1>Input Vet Details</h1>
     @if ($package == 'a')
-    <form action="/vet-admin/finish" method="POST" enctype="multipart/form-data">
+    <form action="/vet-admin" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1">Vet Name</span>
@@ -60,7 +60,7 @@
         <input type="submit" class="btn bgteal w-100">
     </form>
     @elseif ($package == 'b')
-    <form action="/vet-admin/finish" method="POST" enctype="multipart/form-data">
+    <form action="/vet-admin" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1">Vet Name</span>
@@ -123,7 +123,7 @@
         <input type="submit" class="btn bgteal w-100">
     </form>
     @else
-    <form action="/vet-admin/finish" method="POST" enctype="multipart/form-data">
+    <form action="/vet-admin" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1">Vet Name</span>

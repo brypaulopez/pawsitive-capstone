@@ -31,7 +31,7 @@
                         <td>{{$v -> vet_products}}</td>
                         <td>{{$v -> vet_address}}</td>
                         <td>
-                            <a href="vet-admin/{{$v -> vet_id}}" class="btn bgteal">View</a>
+                            <a href="/vet-admin/{{$v -> vet_id}}" class="btn bgteal">View</a>
                         </td>
                         <td>
                             <form action="vet-admin/{{$v -> vet_id}}" method="post">

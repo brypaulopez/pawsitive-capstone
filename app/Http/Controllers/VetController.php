@@ -44,29 +44,54 @@ class VetController extends Controller
     }
     // Adding Products
     public function create(Request $p, string $id){
-        $vet = VetTable::where('vet_id', '=', $id)
-        ->update(
-            [
-                'vet_products' => $p->input('vet_products'),
-            ]
-        );
-        $product = new ProductTable;
-        $file = $p->file('image');
-        $filenameextension = time() . "." . $p->image->extension();
-        $filename = $p->getSchemeAndHttpHost() . "/img/products/" . $filenameextension;
-        $p->image->move(public_path('/img/products/'), $filename);
+        // $vet = VetTable::where('vet_id', '=', $id)
+        // ->update(
+        //     [
+        //         'vet_products' => $p->input('vet_products'),
+        //     ]
+        // );
+        $vet = VetTable::where('vet_id', '=', $id);
+        $count = ProductTable::where('product_vet_id', '=', $id);
+        if ($vet->vet_package == 'c' && $count->count() <= 20) {
+            $product = new ProductTable;
+            $file = $p->file('image');
+            $filenameextension = time() . "." . $p->image->extension();
+            $filename = $p->getSchemeAndHttpHost() . "/img/products/" . $filenameextension;
+            $p->image->move(public_path('/img/products/'), $filename);
 
-        $product->product_vet_id = $p->input('product_vet_id');
-        $product->vet_name = $p->input('vet_name');
-        $product->product_name = $p->input('product_name');
-        $product->product_details = $p->input('product_details');
-        $product->product_category = $p->input('product_category');
-        $product->product_stock = $p->input('product_stock');
-        $product->product_price = $p->input('product_price');
-        $product->product_image = $filenameextension;
-        $product->save();
+            $product->product_vet_id = $p->input('product_vet_id');
+            $product->vet_name = $p->input('vet_name');
+            $product->product_name = $p->input('product_name');
+            $product->product_details = $p->input('product_details');
+            $product->product_category = $p->input('product_category');
+            $product->product_stock = $p->input('product_stock');
+            $product->product_price = $p->input('product_price');
+            $product->product_image = $filenameextension;
+            $product->save();
 
-        return redirect("/create-products/$id");
+            return redirect("/create-products/$id");
+        } elseif ($vet->vet_package == 'b' && $count->count() <= 10) {
+            $product = new ProductTable;
+            $file = $p->file('image');
+            $filenameextension = time() . "." . $p->image->extension();
+            $filename = $p->getSchemeAndHttpHost() . "/img/products/" . $filenameextension;
+            $p->image->move(public_path('/img/products/'), $filename);
+
+            $product->product_vet_id = $p->input('product_vet_id');
+            $product->vet_name = $p->input('vet_name');
+            $product->product_name = $p->input('product_name');
+            $product->product_details = $p->input('product_details');
+            $product->product_category = $p->input('product_category');
+            $product->product_stock = $p->input('product_stock');
+            $product->product_price = $p->input('product_price');
+            $product->product_image = $filenameextension;
+            $product->save();
+
+            return redirect("/create-products/$id");
+        }
+        else {
+            return redirect("/create-products/$id");
+        }
     }
     // edit products
     public function edit(string $id){
@@ -136,8 +161,7 @@ class VetController extends Controller
         $vet->vet_image = $filenameextension;
         $vet->save();
 
-        $vet = DB::select("SELECT * FROM vet_tables");
-        return view("vet-admin", compact('vet'));
+        return redirect("vet-admin");
     }
     // delete vet partner
     public function delete(string $id){
