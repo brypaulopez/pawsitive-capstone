@@ -76,7 +76,7 @@ class VetController extends Controller
         $count = ProductTable::query()
         ->where('product_vet_id', '=', $id)
         ->count();
-        if ($vet->vet_package == 'b' && $count < 10) {
+        if ($vet->vet_package === 'b' && $count < 10) {
             $product = new ProductTable;
             $file = $p->file('image');
             $filenameextension = time() . "." . $p->image->extension();
@@ -94,7 +94,7 @@ class VetController extends Controller
             $product->save();
             return redirect("/create-products/$id");
         }
-        elseif ($vet->vet_package == 'c' && $count < 20) {
+        elseif ($vet->vet_package === 'c' && $count < 20) {
             $product = new ProductTable;
             $file = $p->file('image');
             $filenameextension = time() . "." . $p->image->extension();
