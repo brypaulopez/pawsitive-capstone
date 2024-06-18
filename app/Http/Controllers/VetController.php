@@ -94,11 +94,7 @@ class VetController extends Controller
             $product->save();
             return redirect("/create-products/$id");
         }
-        else {
-            return redirect("/vet-admin/$id");
-        }
-
-        if ($vet->vet_package == 'c' && $count < 20) {
+        elseif ($vet->vet_package == 'c' && $count < 20) {
             $product = new ProductTable;
             $file = $p->file('image');
             $filenameextension = time() . "." . $p->image->extension();
