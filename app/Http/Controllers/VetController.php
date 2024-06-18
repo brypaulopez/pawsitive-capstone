@@ -136,7 +136,7 @@ class VetController extends Controller
         $vet->vet_image = $filenameextension;
         $vet->save();
 
-        return view('vet-admin');
+        return view('vet-admin', compact('vet'));
     }
     // delete vet partner
     public function delete(string $id){
