@@ -47,6 +47,7 @@ Route::delete('/dogs-admin/{id}',[DogsController::class, 'delete']);
 Route::get('/vet-admin',[VetController::class, 'index']);
 Route::get('/vet-admin/{id}',[VetController::class, 'view']);
 Route::get('/select-package', [VetController::class, 'select']);
+Route::get('/package/n', [VetController::class, 'selectN']);
 Route::get('/package/a', [VetController::class, 'selectA']);
 Route::get('/package/b', [VetController::class, 'selectB']);
 Route::get('/package/c', [VetController::class, 'selectC']);

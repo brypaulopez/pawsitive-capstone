@@ -166,6 +166,10 @@ div.image-container img {
     transform: translate(-2px, -2px) !important;
 }
 #packageC:hover{
+    border: solid 2px #05A3AB !important;
+    transform: translate(-2px, -2px) !important;
+}
+#packageN:hover{
     border: solid 2px #FD8A25 !important;
     transform: translate(-2px, -2px) !important;
 }

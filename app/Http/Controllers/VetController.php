@@ -151,6 +151,10 @@ class VetController extends Controller
     public function select(){
         return view('select-package');
     }
+    public function selectN(){
+        $package = 'n';
+        return view('create-partners', compact('package'));
+    }
     public function selectA(){
         $package = 'a';
         return view('create-partners', compact('package'));
