@@ -137,7 +137,7 @@ class VetController extends Controller
         $vet->save();
 
         $vet = DB::select("SELECT * FROM vet_tables");
-        return view("vet-admin", compact('vets'));
+        return view("vet-admin", compact('vet'));
     }
     // delete vet partner
     public function delete(string $id){
