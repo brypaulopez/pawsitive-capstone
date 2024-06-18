@@ -46,8 +46,6 @@ Route::delete('/dogs-admin/{id}',[DogsController::class, 'delete']);
 // Vet Controller
 Route::get('/vet-admin',[VetController::class, 'index']);
 Route::get('/vet-admin/{id}',[VetController::class, 'view']);
-Route::put('/vet-admin/edit/{id}',[VetController::class, 'update_products']);
-Route::get('/vet-admin/edit/{id}', [VetController::class, 'edit']);
 Route::get('/select-package', [VetController::class, 'select']);
 Route::get('/package/a', [VetController::class, 'selectA']);
 Route::get('/package/b', [VetController::class, 'selectB']);
@@ -58,3 +56,19 @@ Route::delete('/vet-admin/{id}',[VetController::class, 'delete']);
 // adding products
 Route::get('create-products/{id}', [VetController::class, 'create_products']);
 Route::post('create-products/{id}', [VetController::class, 'create']);
+Route::get('/vet-admin/edit/{id}', [VetController::class, 'edit']);
+Route::put('/vet-admin/edit/{id}',[VetController::class, 'update_products']);
+Route::delete('/vet-admin/back/{id}',[VetController::class, 'delete_products']);
+
+// adding grooming
+Route::get('create-groom/{id}', [VetController::class, 'create_groom']);
+Route::post('create-groom/{id}', [VetController::class, 'createG']);
+Route::get('/vet-admin/groom/{id}', [VetController::class, 'editG']);
+Route::put('/vet-admin/groom/{id}',[VetController::class, 'updateG']);
+Route::delete('/vet-admin/groom/{id}',[VetController::class, 'deleteG']);
+
+// adding boarding
+Route::get('create-board/{id}', [VetController::class, 'create_boarding']);
+Route::post('create-board/{id}', [VetController::class, 'createB']);
+Route::get('/vet-admin/board/{id}', [VetController::class, 'editB']);
+Route::put('/vet-admin/board/{id}',[VetController::class, 'updateB']);

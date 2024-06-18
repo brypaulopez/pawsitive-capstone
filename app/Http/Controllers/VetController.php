@@ -5,6 +5,8 @@ use Illuminate\Http\Request;
 use DB;
 use App\Models\VetTable;
 use App\Models\ProductTable;
+use App\Models\GroomTable;
+use App\Models\BoardingTable;
 
 class VetController extends Controller
 {
@@ -25,7 +27,23 @@ class VetController extends Controller
         ->where('product_vet_id', '=', $id)
         ->get();
 
-        return view('vet-view', compact('vet', 'products'));
+        $groom = GroomTable::query()
+        ->select('*')
+        ->join('vet_tables', 'groom_vet_id', '=', 'vet_tables.vet_id')
+        ->where('groom_vet_id', '=', $id)
+        ->get();
+
+        $board = BoardingTable::query()
+        ->select('*')
+        ->join('vet_tables', 'board_vet_id', '=', 'vet_tables.vet_id')
+        ->where('board_vet_id', '=', $id)
+        ->get();
+
+        $count = ProductTable::query()
+        ->where('product_vet_id', '=', $id)
+        ->count();
+
+        return view('vet-view', compact('vet', 'products', 'count', 'groom', 'board'));
     }
     // View of adding products
     public function create_products(Request $v, string $id){
@@ -58,7 +76,7 @@ class VetController extends Controller
         $count = ProductTable::query()
         ->where('product_vet_id', '=', $id)
         ->count();
-        if ($vet->vet_package == 'c' && $count <= 20) {
+        if ($vet->vet_package == 'b' && $count < 10) {
             $product = new ProductTable;
             $file = $p->file('image');
             $filenameextension = time() . "." . $p->image->extension();
@@ -74,29 +92,32 @@ class VetController extends Controller
             $product->product_price = $p->input('product_price');
             $product->product_image = $filenameextension;
             $product->save();
-
-            return redirect("/create-products/$id");
-        } elseif ($vet->vet_package == 'b' && $count <= 10) {
-            $product = new ProductTable;
-            $file = $p->file('image');
-            $filenameextension = time() . "." . $p->image->extension();
-            $filename = $p->getSchemeAndHttpHost() . "/img/products/" . $filenameextension;
-            $p->image->move(public_path('/img/products/'), $filename);
-
-            $product->product_vet_id = $p->input('product_vet_id');
-            $product->vet_name = $p->input('vet_name');
-            $product->product_name = $p->input('product_name');
-            $product->product_details = $p->input('product_details');
-            $product->product_category = $p->input('product_category');
-            $product->product_stock = $p->input('product_stock');
-            $product->product_price = $p->input('product_price');
-            $product->product_image = $filenameextension;
-            $product->save();
-
             return redirect("/create-products/$id");
         }
         else {
+            return redirect("/vet-admin/$id");
+        }
+
+        if ($vet->vet_package == 'c' && $count < 20) {
+            $product = new ProductTable;
+            $file = $p->file('image');
+            $filenameextension = time() . "." . $p->image->extension();
+            $filename = $p->getSchemeAndHttpHost() . "/img/products/" . $filenameextension;
+            $p->image->move(public_path('/img/products/'), $filename);
+
+            $product->product_vet_id = $p->input('product_vet_id');
+            $product->vet_name = $p->input('vet_name');
+            $product->product_name = $p->input('product_name');
+            $product->product_details = $p->input('product_details');
+            $product->product_category = $p->input('product_category');
+            $product->product_stock = $p->input('product_stock');
+            $product->product_price = $p->input('product_price');
+            $product->product_image = $filenameextension;
+            $product->save();
             return redirect("/create-products/$id");
+        }
+        else {
+            return redirect("/vet-admin/$id");
         }
     }
     // edit products
@@ -173,6 +194,140 @@ class VetController extends Controller
     public function delete(string $id){
         $vet = VetTable::where('vet_id', '=', $id)
         ->delete();
-        return redirect("vet-admin");
+        return redirect("/vet-admin");
+    }
+    // delete product for specific vet partner
+    public function delete_products(string $id){
+        $vet = ProductTable::where('product_id', '=', $id)
+        ->delete();
+        return redirect("/vet-admin");
+    }
+    // create groom - view
+    public function create_groom(Request $g, string $id){
+        $vet = VetTable::query()
+        ->select('*')
+        ->where('vet_id', '=', $id)
+        ->get()
+        ->first();
+
+        return view('add-groom', compact('vet'));
+    }
+    // create groom - final
+    public function createG(Request $g, string $id){
+        $vet = VetTable::query()
+        ->select('*')
+        ->where('vet_id', '=', $id)
+        ->get()
+        ->first();
+
+        $groom = new GroomTable;
+        $file = $g->file('image');
+        $filenameextension = time() . "." . $g->image->extension();
+        $filename = $g->getSchemeAndHttpHost() . "/img/groom/" . $filenameextension;
+        $g->image->move(public_path('/img/groom/'), $filename);
+
+        $groom->groom_vet_id = $g->input('product_vet_id');
+        $groom->vet_name = $g->input('vet_name');
+        $groom->groom_details = $g->input('details');
+        $groom->groom_price = $g->input('price');
+        $groom->groom_image = $filenameextension;
+        $groom->save();
+
+        return redirect("/vet-admin");
+    }
+    // edit groom
+    public function editG(string $id){
+        $groom = GroomTable::query()
+        ->select('*')
+        ->join('vet_tables', 'groom_vet_id', '=', 'vet_tables.vet_id')
+        ->where('groom_id', '=', $id)
+        ->get()
+        ->first();
+
+        $vet = VetTable::query()
+        ->select('*')
+        ->where('vet_id', '=', $id)
+        ->get()
+        ->first();
+
+        return view('edit-groom', compact('groom', 'vet'));
+    }
+    // update groom = final
+    public function updateG(Request $g, string $id){
+        $groom = GroomTable::where('groom_id', '=', $id)
+        ->update(
+            [
+            'groom_details' => $g->input('details'),
+            'groom_price' => $g->input('price'),
+            ]
+        );
+        return redirect("/vet-admin/groom/$id");
+    }
+    // delete groom
+    public function deleteG(string $id){
+        $groom = GroomTable::where('groom_id', '=', $id)
+        ->delete();
+        return redirect("/vet-admin");
+    }
+    // create boarding
+    public function create_boarding(string $id){
+        $vet = VetTable::query()
+        ->select('*')
+        ->where('vet_id', '=', $id)
+        ->get()
+        ->first();
+
+        return view('add-board', compact('vet'));
+    }
+    // create boarding - final
+    public function createB(Request $b, string $id){
+        $vet = VetTable::query()
+        ->select('*')
+        ->where('vet_id', '=', $id)
+        ->get()
+        ->first();
+
+        $board = new BoardingTable;
+        $file = $b->file('image');
+        $filenameextension = time() . "." . $b->image->extension();
+        $filename = $b->getSchemeAndHttpHost() . "/img/board/" . $filenameextension;
+        $b->image->move(public_path('/img/board/'), $filename);
+
+        $board->board_vet_id = $b->input('product_vet_id');
+        $board->vet_name = $b->input('vet_name');
+        $board->board_inclusions = $b->input('inclusions');
+        $board->board_price = $b->input('price');
+        $board->board_image = $filenameextension;
+        $board->save();
+
+        return redirect("/vet-admin");
+    }
+    // edit - view
+    public function editB(string $id){
+        $board = BoardingTable::query()
+        ->select('*')
+        ->join('vet_tables', 'board_vet_id', '=', 'vet_tables.vet_id')
+        ->where('board_id', '=', $id)
+        ->get()
+        ->first();
+
+        $vet = VetTable::query()
+        ->select('*')
+        ->where('vet_id', '=', $id)
+        ->get()
+        ->first();
+
+        return view('edit-board', compact('board', 'vet'));
+    }
+    // update board = final
+    public function updateB(Request $b, string $id){
+        $board = BoardingTable::where('board_id', '=', $id)
+        ->update(
+            [
+            'board_inclusions' => $b->input('inclusions'),
+            'board_price' => $b->input('price'),
+            ]
+        );
+        return redirect("/vet-admin/board/$id");
     }
 }
