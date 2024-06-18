@@ -48,7 +48,8 @@ Route::get('/vet-admin',[VetController::class, 'index']);
 Route::get('/vet-admin/{id}',[VetController::class, 'view']);
 Route::put('/vet-admin/edit/{id}',[VetController::class, 'update_products']);
 Route::get('/vet-admin/edit/{id}', [VetController::class, 'edit']);
-Route::get('create-partners', [VetController::class, 'create_vet']);
+Route::get('/create-partners', [VetController::class, 'create_vet']);
+Route::get('/select-package', [VetController::class, 'select']);
 Route::delete('/vet-admin/{id}',[VetController::class, 'delete']);
 
 // adding products

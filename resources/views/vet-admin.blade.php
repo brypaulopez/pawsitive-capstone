@@ -9,7 +9,7 @@
         <div class="container">
             <h1>Partners</h1>
             {{-- Create new partners that adds everything that needs to be added specially products --}}
-            <a class="btn btn-primary" href="/create-partners">Create New Partners</a>
+            <a class="btn btn-primary" href="/select-package">Create New Partners</a>
             <table class="table table-hovered table-bordered my-3">
                 <thead>
                     <tr>

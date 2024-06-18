@@ -31,8 +31,8 @@ class DogsController extends Controller
     public function create(Request $d){
         $dogs = new Dogs;
         $file = $d->file('image');
-        $filenameextentsion = time() . "." . $d->image->extension();
-        $filename = $d->getSchemeAndHttpHost() . "/img/dogs/" . $filenameextentsion;
+        $filenameextension = time() . "." . $d->image->extension();
+        $filename = $d->getSchemeAndHttpHost() . "/img/dogs/" . $filenameextension;
         $d->image->move(public_path('/img/dogs/'), $filename);
         
         $dogs->dog_name = $d->input('dog_name');
@@ -57,7 +57,7 @@ class DogsController extends Controller
         $dogs->trainability_level = $d->input('trainability_level');
         $dogs->barking_level = $d->input('barking_level');
         $dogs->energy_level = $d->input('energy_level');
-        $dogs->dog_image = $filenameextentsion;
+        $dogs->dog_image = $filenameextension;
         $dogs->save();
 
         return redirect("dogs-admin");

@@ -18,7 +18,9 @@ return new class extends Migration
             $table->string('vet_boarding');
             $table->string('vet_products');
             $table->string('vet_city');
+            $table->string('vet_municipality');
             $table->string('vet_state');
+            $table->string('vet_package');
             $table->string('vet_address');
             $table->string('vet_desc');
             $table->string('vet_image');
