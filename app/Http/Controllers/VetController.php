@@ -136,7 +136,7 @@ class VetController extends Controller
         $vet->vet_image = $filenameextension;
         $vet->save();
 
-        $vets = DB::select("SELECT * FROM vet_tables");
+        $vet = DB::select("SELECT * FROM vet_tables");
         return view("vet-admin", compact('vets'));
     }
     // delete vet partner
