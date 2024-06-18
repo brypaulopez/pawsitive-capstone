@@ -157,6 +157,19 @@ div.image-container img {
     background-color: white !important;
     color: #FD8A25 !important;
 }
+#packageA:hover{
+    border: solid 2px #05A3AB;
+    transform: translate(-2px, -2px) !important;
+}
+#packageB:hover{
+    border: solid 2px #FD8A25;
+    transform: translate(-2px, -2px) !important;
+}
+#packageC:hover{
+    border: solid 2px #FD8A25 !important;
+    transform: translate(-2px, -2px) !important;
+}
+
 
 /* box shadow */
 .bsblack {

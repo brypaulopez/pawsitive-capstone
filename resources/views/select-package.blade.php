@@ -5,26 +5,31 @@
 </head>
 <body>
     @include('layout/nav')
-    <div class="container text-center">
-        <h2>Note: After selecting a package you are required to pay the membership fee before proceeding. Thanks!</h2>
-        <h2>Please Select Package</h2>
-        <div class="row">
+    <div class="container">
+        <h2 class="mt-5">Note: After selecting a package you are required to pay the membership fee before proceeding. Thanks!</h2>
+        <div class="row mt-4">
             <div class="col-4">
-                <a href="/package-a">
-                    <div class="card bgorange">
+                <a href="/package/a">
+                    <div class="card bgorange" style="height: 389px;" id="packageA">
                         <div class="card-body">
                             <h2 class="card-title">Package A</h2>
-                            <h3>Inclusions:</h3>
+                            <p><b>Inclusions:</b></p>
+                            <ul>
+                                <li>Payment Method: Card only (monthly)</li>
+                                <li>Show information of grooming and/or boarding details</li>
+                                <li>Unfortunately, no products to be sold. (choose Package A or B)</li>
+                                <li><b>Price:</b> &#8369;300</li>
+                            </ul>
                         </div>
                     </div>        
                 </a>
             </div>
             <div class="col-4">
-                <a href="/package-b">
-                    <div class="card bgteal">
+                <a href="/package/b">
+                    <div class="card bgteal" id="packageB">
                         <div class="card-body">
                             <h2 class="card-title">Package B</h2>
-                            <h3>Inclusions:</h3>
+                            <p><b>Inclusions:</b></p>
                             <ul>
                                 <li>Payment Method: Card only (monthly)</li>
                                 <li>Show information of grooming and/or boarding details</li>
@@ -38,11 +43,11 @@
                 </a>
             </div>
             <div class="col-4">
-                <a href="/package-c">
-                    <div class="card bblack">
+                <a href="/package/c">
+                    <div class="card bblack" id="packageC">
                         <div class="card-body">
                             <h2 class="card-title">Package C</h2>
-                            <h3>Inclusions:</h3>
+                            <p><b>Inclusions:</b></p>
                             <ul>
                                 <li>Payment Method: Card only (monthly)</li>
                                 <li>Show information of grooming and/or boarding details</li>

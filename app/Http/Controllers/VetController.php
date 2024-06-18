@@ -103,29 +103,41 @@ class VetController extends Controller
     public function select(){
         return view('select-package');
     }
-
-    public function create_vet(){
-        return view('create-partners');
+    public function selectA(){
+        $package = 'a';
+        return view('create-partners', compact('package'));
     }
-    // final creation with selected package
-    // public function final(Request $v){
-    //     $vet = new VetTable;
-    //     $file = $v->file('image');
-    //     $filenameextension = time() . "." . $v->image->extension();
-    //     $filename = $v->getSchemeAndHttpHost() . "/img/vets/" . $filenameextension;
-    //     $v->image->move(public_path('/img/vets/'), $filename);
+    public function selectB(){
+        $package = 'b';
+        return view('create-partners', compact('package'));
+    }
+    public function selectC(){
+        $package = 'c';
+        return view('create-partners', compact('package'));
+    }
+    // final creation with package selected
+    public function create_vet(Request $v){
+        $vet = new VetTable;
+        $file = $v->file('image');
+        $filenameextension = time() . "." . $v->image->extension();
+        $filename = $v->getSchemeAndHttpHost() . "/img/vets/" . $filenameextension;
+        $v->image->move(public_path('/img/vets/'), $filename);
 
-    //     $vet->vet_name = $v->input('name');
-    //     $vet->vet_city = $v->input('city');
-    //     $vet->vet_municipality = $v->input('municipality');
-    //     $vet->vet_state = $v->input('state');
-    //     $vet->vet_address = $v->input('address');
-    //     $vet->vet_package = $v->input('package');
-    //     $vet->vet_image = $filenameextension;
-    //     $vet->save();
+        $vet->vet_name = $v->input('name');
+        $vet->vet_groom = $v->input('groom');
+        $vet->vet_boarding = $v->input('boarding');
+        $vet->vet_products = $v->input('products');
+        $vet->vet_city = $v->input('city');
+        $vet->vet_municipality = $v->input('municipality');
+        $vet->vet_state = $v->input('state');
+        $vet->vet_package = $v->input('package');
+        $vet->vet_address = $v->input('address');
+        $vet->vet_desc = $v->input('description');
+        $vet->vet_image = $filenameextension;
+        $vet->save();
 
-    //     return view("dogs-admin", compact('vet'));
-    // }
+        return view('vet-admin');
+    }
     // delete vet partner
     public function delete(string $id){
         $vet = VetTable::where('vet_id', '=', $id)
