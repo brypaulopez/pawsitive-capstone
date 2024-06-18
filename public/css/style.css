@@ -1,0 +1,219 @@
+/* default css */
+footer {
+    background-color: #eba5d2;
+}
+footer a {
+    color: white;
+    font-size: 15px;
+    /* font-weight: bold; */
+}
+footer li {
+    list-style: none;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+label {
+    font-family: "Poppins", sans-serif;
+}
+a {
+    font-family: "Poppins", sans-serif;
+    text-decoration: none !important;
+}
+li {
+    font-family: "Poppins", sans-serif;
+    padding: 5px;
+}
+button {
+    font-family: "Poppins", sans-serif;
+    /* background-color: #96806c !important; */
+    border: 0 !important;
+}
+p {
+    font-family: "Poppins", sans-serif;
+}
+span {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+button , .btn {
+    font-family: "Russo One", sans-serif !important;
+    font-weight: 400;
+    font-style: normal;
+}
+/* general css */
+div.image-container img {
+    width: 100%; height: 100%;
+}
+.lsignup-btn:hover {
+    border: solid 2px #FD8A25 !important;
+    color: #FD8A25 !important;
+}
+.login-btn:hover {
+    color: white !important;
+    background-color: #FD8A25 !important;
+}
+.navi-btn:hover {
+    color: orange !important;
+    background-color: #05A3AB !important;
+}
+.navi-logout:hover {
+    color: #05A3AB !important;
+    background-color: #FD8A25 !important;
+}
+#login,#signup,.navi-logout{
+    -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+}
+.box {
+    --mask:
+      radial-gradient(38.99px at calc(100% + 18px) 50%,#0000 calc(99% - 8px),#000 calc(101% - 8px) 99%,#0000 101%) calc(50% - 19px + .5px) calc(50% - 60px)/ 38px 120px  ,
+      radial-gradient(38.99px at -18px 50%,#0000 calc(99% - 8px),#000 calc(101% - 8px) 99%,#0000 101%) calc(50% + 19px) 50%/38px 120px  ;
+    -webkit-mask: var(--mask);
+            mask: var(--mask);
+  }
+.box1 {
+    --mask:
+      radial-gradient(38.99px at 50% calc(100% + 18px),#0000 calc(99% - 8px),#000 calc(101% - 8px) 99%,#0000 101%) calc(50% - 60px) calc(50% - 19px + .5px)/120px 38px ,
+      radial-gradient(38.99px at 50% -18px,#0000 calc(99% - 8px),#000 calc(101% - 8px) 99%,#0000 101%) 50% calc(50% + 19px)/120px 38px ;
+    -webkit-mask: var(--mask);
+            mask: var(--mask);
+  }
+.signup-row {
+    position: relative;
+}
+.signup-image {
+    position: absolute !important;
+    z-index: 10 !important;
+    bottom: 7%;
+    left: 13%;
+    width: 950px !important;
+    height: 500px !important;
+}
+.form-control:focus {
+    border-color: #05A3AB !important;
+  box-shadow: 0 0 5px rgba(5, 163, 171, 1) !important;
+}
+.image-container {
+    position: relative;
+}
+.overlay {
+    position: absolute;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.5);
+    width: 100%; height: 100%;
+}
+.overlay h1 {
+    -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: white;
+}
+.overlay h2 {
+    -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: white;
+}
+.overlay h3 {
+    -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: white;
+}
+.overlay .text-white.px-5 b {
+    -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: #05A3AB;
+}
+.paragraph {
+    -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: white;
+}
+.home-svc:hover {
+    color: #63D0D0 !important;
+    background-color: white !important;
+    border: solid 2px #63D0D0 !important;
+}
+.home-prdct:hover {
+    color: #FD8A25 !important;
+    background-color: white !important;
+    border: solid 2px #FD8A25 !important;
+}
+.top {
+    height: 300px;
+    clip-path: polygon(0 0,100% 0,100% 100%,0 calc(100% - 50px));
+  }
+.bottom {
+    height: 300px;
+    clip-path: polygon(0 0,100% 50px,100% 100%,0 100%);
+    margin-top: -40px !important;
+}
+#partnership:hover{
+    border: solid 2px #63D0D0 !important;
+    background-color: white !important;
+    color: #63D0D0 !important;
+}
+#registration:hover{
+    border: solid 2px #FD8A25 !important;
+    background-color: white !important;
+    color: #FD8A25 !important;
+}
+
+/* box shadow */
+.bsblack {
+    box-shadow: rgba(255,182,230, 0.4) 5px 5px, rgba(255,182,230, 0.3) 10px 10px, rgba(255,182,230, 0.2) 15px 15px, rgba(255,182,230, 0.1) 20px 20px, rgba(255,182,230, 0.05) 25px 25px;
+}
+.bsorange {
+    box-shadow: rgb(253,138,37, 0.4) 5px 5px, rgb(253,138,37, 0.3) 10px 10px, rgb(253,138,37, 0.2) 15px 15px, rgb(253,138,37, 0.1) 20px 20px, rgb(253,138,37, 0.05)25px 25px;
+}
+.bsteal {
+    box-shadow: rgb(5,163,171, 0.4) 5px 5px, rgb(5,163,171, 0.3) 10px 10px, rgb(5,163,171, 0.2) 15px 15px, rgb(5,163,171, 0.1) 20px 20px, rgb(5,163,171, 0.05) 25px 25px;
+}
+/* borders */
+.bblack {
+    border: solid 2px black !important;
+}
+.bwhite {
+    border: solid 2px white !important;
+}
+.bteal {
+    border: solid 2px #63D0D0 !important;
+}
+.borange {
+    border: solid 2px #FD8A25 !important;
+}
+/* font colors */
+.torange {
+    color: #FD8A25 !important;
+}
+.tteal {
+    color: #63D0D0 !important;
+}
+.tlteal {
+    color: #AAE0E2 !important;
+}
+.tdteal {
+    color: #05A3AB !important;
+}
+.twhite {
+    color: white !important;
+}
+/* bg colors */
+.bgorange {
+    background-color: #FD8A25 !important;
+}
+.bgdorange {
+    background-color: #E58639;
+}
+.bglorange {
+    background-color: #FFCB9C;
+}
+.bgdteal {
+    background-color: #05A3AB;
+}
+.bglteal {
+    background-color: #AAE0E2;
+}
+.bgteal {
+    background-color: #63D0D0 !important;
+}
+/* border styles */
