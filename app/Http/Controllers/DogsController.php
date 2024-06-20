@@ -69,7 +69,7 @@ class DogsController extends Controller
         ->where('dogs_id', '=', $id)
         ->get()
         ->first();
-        if (Session::has('id') && Session::get('role') == 0) {
+        if (Session::has('id') && Session::get('role') == 0 || Session::get('role') == 3) {
             return redirect('/');
         }
         elseif (Session::get('id') == null) {
@@ -87,7 +87,7 @@ class DogsController extends Controller
         ->get()
         ->first();
 
-        if (Session::has('id') && Session::get('role') == 0) {
+        if (Session::has('id') && Session::get('role') == 0 || Session::get('role') == 3) {
             return redirect('/');
         }
         else {

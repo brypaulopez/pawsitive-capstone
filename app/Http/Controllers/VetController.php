@@ -7,6 +7,9 @@ use App\Models\VetTable;
 use App\Models\ProductTable;
 use App\Models\GroomTable;
 use App\Models\BoardingTable;
+use App\Models\UserTable;
+use Session;
+use Illuminate\Support\Facades\Hash;
 
 class VetController extends Controller
 {
@@ -43,7 +46,15 @@ class VetController extends Controller
         ->where('product_vet_id', '=', $id)
         ->count();
 
-        return view('vet-view', compact('vet', 'products', 'count', 'groom', 'board'));
+        if (Session::has('id') && Session::get('role') == 0 || Session::get('role') == 3) {
+            return redirect('/');
+        }
+        elseif (Session::get('id') == null) {
+            return redirect('/');
+        }
+        else {
+            return view('vet-view', compact('vet', 'products', 'count', 'groom', 'board'));
+        }
     }
     // View of adding products
     public function create_products(Request $v, string $id){
@@ -58,7 +69,15 @@ class VetController extends Controller
         ->join('vet_tables', 'product_vet_id', '=', 'vet_tables.vet_id')
         ->get();
 
-        return view('add-products', compact('vet', 'products'));
+        if (Session::has('id') && Session::get('role') == 0 || Session::get('role') == 3) {
+            return redirect('/');
+        }
+        elseif (Session::get('id') == null) {
+            return redirect('/');
+        }
+        else {
+            return view('add-products', compact('vet', 'products'));
+        }
     }
     // Adding Products
     public function create(Request $p, string $id){
@@ -169,26 +188,76 @@ class VetController extends Controller
     }
     // final creation with package selected
     public function create_vet(Request $v){
-        $vet = new VetTable;
-        $file = $v->file('image');
-        $filenameextension = time() . "." . $v->image->extension();
-        $filename = $v->getSchemeAndHttpHost() . "/img/vets/" . $filenameextension;
-        $v->image->move(public_path('/img/vets/'), $filename);
+        if (Session::has('id')) {
+            $vet = new VetTable;
+            $file = $v->file('image');
+            $filenameextension = time() . "." . $v->image->extension();
+            $filename = $v->getSchemeAndHttpHost() . "/img/vets/" . $filenameextension;
+            $v->image->move(public_path('/img/vets/'), $filename);
 
-        $vet->vet_name = $v->input('name');
-        $vet->vet_groom = $v->input('groom');
-        $vet->vet_boarding = $v->input('boarding');
-        $vet->vet_products = $v->input('products');
-        $vet->vet_city = $v->input('city');
-        $vet->vet_municipality = $v->input('municipality');
-        $vet->vet_state = $v->input('state');
-        $vet->vet_package = $v->input('package');
-        $vet->vet_address = $v->input('address');
-        $vet->vet_desc = $v->input('description');
-        $vet->vet_image = $filenameextension;
-        $vet->save();
+            // just to get a similar name input
+            $vetCheck = VetTable::where('vet_name', '=', $v->input('name'))
+            ->get()
+            ->first();
 
-        return redirect("vet-admin");
+            // just to transfer proper data
+            $vet = VetTable::where('vet_id', '=', $vetCheck->vet_id)
+            ->get()
+            ->first();
+
+            // last check = count
+            $vetChecker = VetTable::query()
+            ->select('*')
+            ->where('vet_name', '=', $vetCheck->vet_name)
+            ->get()
+            ->count();
+
+            $vet->vet_name = $v->input('name');
+            $vet->vet_groom = $v->input('groom');
+            $vet->vet_boarding = $v->input('boarding');
+            $vet->vet_products = $v->input('products');
+            $vet->vet_city = $v->input('city');
+            $vet->vet_municipality = $v->input('municipality');
+            $vet->vet_state = $v->input('state');
+            $vet->vet_package = $v->input('package');
+            $vet->vet_address = $v->input('address');
+            $vet->vet_desc = $v->input('description');
+            $vet->vet_image = $filenameextension;
+            $vet->save();
+
+            return redirect("vet-admin");
+        } else {
+            $vet = new VetTable;
+            $file = $v->file('image');
+            $filenameextension = time() . "." . $v->image->extension();
+            $filename = $v->getSchemeAndHttpHost() . "/img/vets/" . $filenameextension;
+            $v->image->move(public_path('/img/vets/'), $filename);
+
+            $vet->vet_name = $v->input('name');
+            $vet->vet_groom = $v->input('groom');
+            $vet->vet_boarding = $v->input('boarding');
+            $vet->vet_products = $v->input('products');
+            $vet->vet_city = $v->input('city');
+            $vet->vet_municipality = $v->input('municipality');
+            $vet->vet_state = $v->input('state');
+            $vet->vet_package = $v->input('package');
+            $vet->vet_address = $v->input('address');
+            $vet->vet_desc = $v->input('description');
+            $vet->vet_image = $filenameextension;
+            $vet->save();
+
+            // just to get a similar name input and getting the last (latest)
+            $vetCheck = VetTable::where('vet_name', '=', $v->input('name'))
+            ->get()
+            ->last();
+
+            // just to transfer proper data (latest one)
+            $vet = VetTable::where('vet_id', '=', $vetCheck->vet_id)
+            ->get()
+            ->last();
+
+            return view("membership-payment", compact('vet'));
+        }
     }
     // delete vet partner
     public function delete(string $id){
@@ -329,5 +398,19 @@ class VetController extends Controller
             ]
         );
         return redirect("/vet-admin/board/$id");
+    }
+    public function account(Request $member){
+        $user = new UserTable;
+
+        $user->user_fname = $member->input('fname');
+        $user->user_lname = $member->input('lname');
+        $user->user_email = $member->input('email');
+        $user->user_username = $member->input('email');
+        $user->user_password = Hash::make($member->input('password'));
+        $user->user_role = "3";
+        $user->save();
+
+        toastr()->success('Payment Success, you can now login! (use your email as username)');
+        return redirect('/login');
     }
 }

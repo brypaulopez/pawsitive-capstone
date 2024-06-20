@@ -1,0 +1,21 @@
+Security code for admin
+        if (Session::has('id') && Session::get('role') == 0 || Session::get('role') == 3) {
+            return redirect('/');
+        }
+        elseif (Session::get('id') == null) {
+            return redirect('/');
+        }
+        else {
+            return view('view-admin', compact('dogs'));
+        }
+
+Security code for users
+        if (Session::has('id') && Session::get('role') == 0 || Session::get('role') == 3) {
+            return redirect('/RIGHT ROUTE'); / or VIEW
+        }
+        elseif (Session::get('role') == 1) {
+            return redirect('/dogs-admin'); -- always gets back to admin
+        }
+        else {
+            return redirect('/');
+        }
