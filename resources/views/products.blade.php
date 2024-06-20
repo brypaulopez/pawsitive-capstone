@@ -94,7 +94,7 @@
                 </div>
             @else
                 <div class="col-3">
-                    <div class="card borange">
+                    <div class="card borange" style="width: 302px; height: 393px;">
                         <a href="products/{{$p -> product_id}}">
                             <img src="img/products/{{$p -> product_image}}" class="card-img-top" alt="...">
                         </a>
@@ -112,12 +112,12 @@
             @endif
         @endforeach
     </div>
-    {{$products->links()}}
       @else
         <div class="row mt-5 text-center">
             <h1>Currently there are no stacks.. Sincere Apologies for the inconvenience.</h1>
         </div>
       @endif
+      {{$products->onEachSide(1)->links('pagination::bootstrap-5')}}
   </div>
     @include('layout/script')
 </body>

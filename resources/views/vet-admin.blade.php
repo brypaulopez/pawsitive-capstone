@@ -18,6 +18,7 @@
                         <th>Vet Boarding</th>
                         <th>Vet Products</th>
                         <th>Vet Address</th>
+                        <th>Vet Package</th>
                         <th>View</th>
                         <th>Delete</th>
                     </tr>
@@ -30,6 +31,7 @@
                         <td>{{$v -> vet_boarding}}</td>
                         <td>{{$v -> vet_products}}</td>
                         <td>{{$v -> vet_address}}</td>
+                        <td>{{$v -> vet_package}}</td>
                         <td>
                             <a href="/vet-admin/{{$v -> vet_id}}" class="btn bgteal">View</a>
                         </td>
@@ -44,6 +46,7 @@
                 </tbody>
             @endforeach 
             </table>
+            {{$vet->onEachSide(1)->links('pagination::bootstrap-5')}}
                 </div>
             </div>
         </div>

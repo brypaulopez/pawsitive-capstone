@@ -22,9 +22,9 @@
                 Services
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item user-btn" href="#">Clinic</a></li>
-                <li><a class="dropdown-item user-btn" href="#">Grooming</a></li>
-                <li><a class="dropdown-item user-btn" href="#">Boarding</a></li>
+                <li><a class="dropdown-item user-btn" href="/search-clinic">Clinic</a></li>
+                <li><a class="dropdown-item user-btn" href="/search-grooming">Grooming</a></li>
+                <li><a class="dropdown-item user-btn" href="/search-boarding">Boarding</a></li>
                 <li><hr class="dropdown-divider"></li>
                 <li><a class="dropdown-item user-btn" href="#">Looking for a trainer?</a></li>
               </ul>
