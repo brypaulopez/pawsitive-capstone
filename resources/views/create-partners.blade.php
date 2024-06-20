@@ -8,7 +8,11 @@
     {{-- NO --}}
     @if ($package == 'n')
     <h1>Input Vet Clinic Details - You are purchasing Membership only</h1>
-    <form action="/vet-admin" method="POST" enctype="multipart/form-data">
+    @if (Session::has('id'))
+        <form action="/vet-admin" method="POST" enctype="multipart/form-data">
+    @else
+        <form action="/payment" method="POST" enctype="multipart/form-data">
+    @endif
         @csrf
         <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1">Vet Name</span>
@@ -63,7 +67,11 @@
     {{-- A --}}
     @elseif ($package == 'a')
     <h1>Input Vet Clinic Details - You are purchasing Package A</h1>
-    <form action="/vet-admin" method="POST" enctype="multipart/form-data">
+    @if (Session::has('id'))
+        <form action="/vet-admin" method="POST" enctype="multipart/form-data">
+    @else
+        <form action="/payment" method="POST" enctype="multipart/form-data">
+    @endif
         @csrf
         <input type="hidden" class="form-control" name="products" value="no">
         <div class="input-group mb-3">
@@ -123,7 +131,11 @@
     {{-- B --}}
     @elseif ($package == 'b')
     <h1>Input Vet Clinic Details - You are purchasing Package B</h1>
-    <form action="/vet-admin" method="POST" enctype="multipart/form-data">
+    @if (Session::has('id'))
+        <form action="/vet-admin" method="POST" enctype="multipart/form-data">
+    @else
+        <form action="/payment" method="POST" enctype="multipart/form-data">
+    @endif
         @csrf
         <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1">Vet Name</span>
@@ -188,7 +200,11 @@
     {{-- C --}}
     @elseif ($package == 'c')
     <h1>Input Vet Clinic Details - You are purchasing Package C</h1>
-    <form action="/vet-admin" method="POST" enctype="multipart/form-data">
+    @if (Session::has('id'))
+        <form action="/vet-admin" method="POST" enctype="multipart/form-data">
+    @else
+        <form action="/payment" method="POST" enctype="multipart/form-data">
+    @endif
         @csrf
         <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1">Vet Name</span>
