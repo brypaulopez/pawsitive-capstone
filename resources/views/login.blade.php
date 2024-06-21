@@ -46,9 +46,10 @@
                         </div>
                     </form>
                 </div>
-                <div class="col-6 p-0 rounded bgteal box1">
+                <div class="col-6 p-0 rounded bgteal box1 login-row">
 
                 </div>
+                <img src="img/login-page1.webp" alt="" class="login-image">
             </div>
         </div>
     </div>

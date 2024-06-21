@@ -5,6 +5,7 @@
 </head>
 <body >
     @include('layout/nav')
+    @include('layout/cart')
     <div class="container mt-5">
         <div class="row gx-4">
             <div class="col-6">

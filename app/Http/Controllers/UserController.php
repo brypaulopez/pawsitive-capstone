@@ -5,6 +5,7 @@ use App\Models\UserTable;
 use App\Models\Dogs;
 use App\Models\ProductTable;
 use App\Models\CartTable;
+use App\Models\VetTable;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -169,9 +170,10 @@ class UserController extends Controller
         ->get();
 
         $foods = ProductTable::where('product_category', '=', 'foods')
-        ->get();
+        ->paginate(8);
         return view("food", compact('showCart', 'foods'));
     }
+    // Categories - medicines
     public function medicines(){
         $showCart = CartTable::query()
         ->select('*')
@@ -179,9 +181,11 @@ class UserController extends Controller
         ->get();
 
         $medicines = ProductTable::where('product_category', '=', 'medicines')
-        ->get();
+        ->paginate(8);
+
         return view("medicines", compact('showCart', 'medicines'));
     }
+    // Categories - grooming
     public function grooming(){
         $showCart = CartTable::query()
         ->select('*')
@@ -189,9 +193,10 @@ class UserController extends Controller
         ->get();
 
         $grooming = ProductTable::where('product_category', '=', 'grooming')
-        ->get();
+        ->paginate(8);
         return view("grooming", compact('showCart', 'grooming'));
     }
+    // Categories - accessories
     public function accessories(){
         $showCart = CartTable::query()
         ->select('*')
@@ -199,7 +204,274 @@ class UserController extends Controller
         ->get();
 
         $accessories = ProductTable::where('product_category', '=', 'accessories')
-        ->get();
+        ->paginate(8);
         return view("accessories", compact('showCart', 'accessories'));
+    }
+    public function search_clinic(){
+        $showCart = CartTable::query()
+        ->select('*')
+        ->where('product_user_id', '=', Session::get('id'))
+        ->get();
+
+        $city = VetTable::query()
+        ->select('*')
+        ->where('vet_city', '!=' ,'NA')
+        ->get();
+
+        $municipality = VetTable::query()
+        ->select('*')
+        ->where('vet_municipality', '!=' ,'NA')
+        ->get();
+
+        return view('search-clinic', compact('showCart', 'city', 'municipality'));
+    }
+    public function clinic(Request $request){
+        $showCart = CartTable::query()
+        ->select('*')
+        ->where('product_user_id', '=', Session::get('id'))
+        ->get();
+
+        $city = VetTable::query()
+        ->select('*')
+        ->where('vet_city', '!=' ,'NA')
+        ->get();
+
+        $municipality = VetTable::query()
+        ->select('*')
+        ->where('vet_municipality', '!=' ,'NA')
+        ->get();
+
+        $input = $request->input('city');
+        $inputM = $request->input('municipality');
+
+        $filteredC = VetTable::where('vet_city', '=', $input)
+        ->get()
+        ->first();
+
+        $filteredM = VetTable::where('vet_municipality', '=', $inputM)
+        ->get()
+        ->first();
+
+        $filteredGC = VetTable::where('vet_city', '=', $input)
+        ->get()
+        ->first();
+
+        $filteredGM = VetTable::where('vet_city', '=', $inputM)
+        ->get()
+        ->first();
+
+        $countC = VetTable::where('vet_city', '=', $input)
+        ->get()
+        ->count();
+
+        $countM = VetTable::where('vet_municipality', '=', $inputM)
+        ->get()
+        ->count();
+
+        $filterC = VetTable::query()
+        ->select('*')
+        ->where('vet_city', '=' , $input)
+        ->get();
+
+        $filterM = VetTable::query()
+        ->select('*')
+        ->where('vet_municipality', '=' , $inputM)
+        ->get();
+
+        $filterGC = VetTable::query()
+        ->select('*')
+        ->where('vet_city', '=' , $input)
+        ->where('vet_groom', '=' , 'yes')
+        ->get();
+
+        $filterGM = VetTable::query()
+        ->select('*')
+        ->where('vet_municipality', '=' , $inputM)
+        ->where('vet_groom', '=' , 'yes')
+        ->get();
+
+        return view('clinic', compact('showCart', 'city', 'filterC', 'filteredC', 'countC', 'countM', 'municipality', 'filterM', 'filteredM', 'filterGC', 'filterGM', 'filteredGC', 'filteredGM'));
+    }
+    public function search_grooming(Request $request){
+        $showCart = CartTable::query()
+        ->select('*')
+        ->where('product_user_id', '=', Session::get('id'))
+        ->get();
+
+        $city = VetTable::query()
+        ->select('*')
+        ->where('vet_city', '!=' ,'NA')
+        ->get();
+
+        $municipality = VetTable::query()
+        ->select('*')
+        ->where('vet_municipality', '!=' ,'NA')
+        ->get();
+
+        return view('search-grooming', compact('showCart', 'city', 'municipality'));
+    }
+    public function groom(Request $request){
+        $showCart = CartTable::query()
+        ->select('*')
+        ->where('product_user_id', '=', Session::get('id'))
+        ->get();
+
+        $city = VetTable::query()
+        ->select('*')
+        ->where('vet_city', '!=' ,'NA')
+        ->get();
+
+        $cityG = VetTable::query()
+        ->select('*')
+        ->where('vet_city', '!=' ,'NA')
+        ->where('vet_groom', '=' , 'yes')
+        ->get();
+
+        $municipality = VetTable::query()
+        ->select('*')
+        ->where('vet_municipality', '!=' ,'NA')
+        ->get();
+
+        $municipalityG = VetTable::query()
+        ->select('*')
+        ->where('vet_municipality', '!=' ,'NA')
+        ->where('vet_groom', '=' , 'yes')
+        ->get();
+
+        $input = $request->input('city');
+        $inputM = $request->input('municipality');
+
+        $filteredC = VetTable::where('vet_city', '=', $input)
+        ->get()
+        ->first();
+
+        $filteredM = VetTable::where('vet_municipality', '=', $inputM)
+        ->get()
+        ->first();
+
+        $countC = VetTable::where('vet_city', '=', $input)
+        ->where('vet_groom', '=' , 'yes')
+        ->get()
+        ->count();
+
+        $countM = VetTable::where('vet_municipality', '=', $inputM)
+        ->where('vet_groom', '=' , 'yes')
+        ->get()
+        ->count();
+
+        $filterC = VetTable::query()
+        ->select('*')
+        ->where('vet_city', '=' , $input)
+        ->get();
+
+        $filterM = VetTable::query()
+        ->select('*')
+        ->where('vet_municipality', '=' , $inputM)
+        ->get();
+
+        $filterGC = VetTable::query()
+        ->select('*')
+        ->where('vet_city', '=' , $input)
+        ->where('vet_groom', '=' , 'yes')
+        ->get();
+
+        $filterGM = VetTable::query()
+        ->select('*')
+        ->where('vet_municipality', '=' , $inputM)
+        ->where('vet_groom', '=' , 'yes')
+        ->get();
+
+        return view('groom', compact('showCart', 'city', 'filterC', 'filteredC', 'countC', 'countM', 'municipality', 'filterM', 'filteredM', 'filterGC', 'filterGM', 'cityG', 'municipalityG'));
+    }
+    public function search_boarding(){
+        $showCart = CartTable::query()
+        ->select('*')
+        ->where('product_user_id', '=', Session::get('id'))
+        ->get();
+
+        $city = VetTable::query()
+        ->select('*')
+        ->where('vet_city', '!=' ,'NA')
+        ->get();
+
+        $municipality = VetTable::query()
+        ->select('*')
+        ->where('vet_municipality', '!=' ,'NA')
+        ->get();
+
+        return view('search-boarding', compact('showCart', 'city', 'municipality'));
+    }
+    public function board(Request $request){
+        $showCart = CartTable::query()
+        ->select('*')
+        ->where('product_user_id', '=', Session::get('id'))
+        ->get();
+
+        $city = VetTable::query()
+        ->select('*')
+        ->where('vet_city', '!=' ,'NA')
+        ->get();
+
+        $cityB = VetTable::query()
+        ->select('*')
+        ->where('vet_city', '!=' ,'NA')
+        ->where('vet_boarding', '=' , 'yes')
+        ->get();
+
+        $municipality = VetTable::query()
+        ->select('*')
+        ->where('vet_municipality', '!=' ,'NA')
+        ->get();
+
+        $municipalityB = VetTable::query()
+        ->select('*')
+        ->where('vet_municipality', '!=' ,'NA')
+        ->where('vet_boarding', '=' , 'yes')
+        ->get();
+
+        $input = $request->input('city');
+        $inputM = $request->input('municipality');
+
+        $filteredC = VetTable::where('vet_city', '=', $input)
+        ->get()
+        ->first();
+
+        $filteredM = VetTable::where('vet_municipality', '=', $inputM)
+        ->get()
+        ->first();
+
+        $countC = VetTable::where('vet_city', '=', $input)
+        ->where('vet_boarding', '=' , 'yes')
+        ->get()
+        ->count();
+
+        $countM = VetTable::where('vet_municipality', '=', $inputM)
+        ->where('vet_boarding', '=' , 'yes')
+        ->get()
+        ->count();
+
+        $filterC = VetTable::query()
+        ->select('*')
+        ->where('vet_city', '=' , $input)
+        ->get();
+
+        $filterM = VetTable::query()
+        ->select('*')
+        ->where('vet_municipality', '=' , $inputM)
+        ->get();
+
+        $filterBC = VetTable::query()
+        ->select('*')
+        ->where('vet_city', '=' , $input)
+        ->where('vet_boarding', '=' , 'yes')
+        ->get();
+
+        $filterBM = VetTable::query()
+        ->select('*')
+        ->where('vet_municipality', '=' , $inputM)
+        ->where('vet_boarding', '=' , 'yes')
+        ->get();
+
+        return view('board', compact('showCart', 'city', 'filterC', 'filteredC', 'countC', 'countM', 'municipality', 'filterM', 'filteredM', 'filterBC', 'filterBM', 'municipalityB', 'cityB'));
     }
 }

@@ -116,6 +116,7 @@
                 <h1>Currently there are no stacks.. Sincere Apologies for the inconvenience.</h1>
             </div>
         @endif
+        {{$grooming->onEachSide(1)->links('pagination::bootstrap-5')}}
     </div>
     @include('layout/script')
 </body>

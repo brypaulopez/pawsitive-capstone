@@ -90,6 +90,9 @@ div.image-container img {
 .signup-row {
     position: relative;
 }
+.login-row {
+    position: relative;
+}
 .signup-image {
     position: absolute !important;
     z-index: 10 !important;
@@ -97,6 +100,14 @@ div.image-container img {
     left: 13%;
     width: 950px !important;
     height: 500px !important;
+}
+.login-image {
+    position: absolute !important;
+    z-index: 10 !important;
+    bottom: 7%;
+    right: 7%;
+    width: 1000px !important;
+    height: 700px !important;
 }
 .form-control:focus {
     border-color: #05A3AB !important;
@@ -216,8 +227,33 @@ div.image-container img {
     width: 50px !important;
     height: 50px !important;
 }
-
-
+.clinic-container {
+    position: relative !important;
+}
+.clinic-overlay {
+    position: absolute !important;
+    top: 100px;
+    left: 100px;
+    z-index: 100;
+}
+.grooming-container {
+    position: relative !important;
+}
+.grooming-overlay {
+    position: absolute !important;
+    top: 100px;
+    right: 50px;
+    z-index: 100;
+}
+.board-container {
+    position: relative !important;
+}
+.board-overlay {
+    position: absolute !important;
+    top: 40px;
+    left: 120px;
+    z-index: 100;
+}
 
 /* box shadow */
 .bsblack {

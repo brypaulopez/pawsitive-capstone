@@ -14,7 +14,10 @@ use Illuminate\Support\Facades\Hash;
 class VetController extends Controller
 {
     public function index(){
-        $vet = DB::select("SELECT * FROM vet_tables");
+        $vet = VetTable::query()
+        ->select('*')
+        ->paginate(8);
+
         return view('vet-admin', compact('vet'));
     }
     public function view(Request $d, string $id){
@@ -195,6 +198,23 @@ class VetController extends Controller
             $filename = $v->getSchemeAndHttpHost() . "/img/vets/" . $filenameextension;
             $v->image->move(public_path('/img/vets/'), $filename);
 
+            // // just to get a similar name input
+            // $vetCheck = VetTable::where('vet_name', '=', $v->input('name'))
+            // ->get()
+            // ->first();
+
+            // // just to transfer proper data
+            // $vet = VetTable::where('vet_id', '=', $vetCheck->vet_id)
+            // ->get()
+            // ->first();
+
+            // // last check = count
+            // $vetChecker = VetTable::query()
+            // ->select('*')
+            // ->where('vet_name', '=', $vetCheck->vet_name)
+            // ->get()
+            // ->count();
+
             $vet->vet_name = $v->input('name');
             $vet->vet_groom = $v->input('groom');
             $vet->vet_boarding = $v->input('boarding');
@@ -229,15 +249,15 @@ class VetController extends Controller
             $vet->vet_image = $filenameextension;
             $vet->save();
 
-            // just to get a similar name input and getting the last (latest)
-            $vetCheck = VetTable::where('vet_name', '=', $v->input('name'))
-            ->get()
-            ->last();
+            // // just to get a similar name input and getting the last (latest)
+            // $vetCheck = VetTable::where('vet_name', '=', $v->input('name'))
+            // ->get()
+            // ->last();
 
-            // just to transfer proper data (latest one)
-            $vet = VetTable::where('vet_id', '=', $vetCheck->vet_id)
-            ->get()
-            ->last();
+            // // just to transfer proper data (latest one)
+            // $vet = VetTable::where('vet_id', '=', $vetCheck->vet_id)
+            // ->get()
+            // ->last();
 
             return view("membership-payment", compact('vet'));
         }
