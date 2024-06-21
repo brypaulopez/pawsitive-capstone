@@ -195,23 +195,6 @@ class VetController extends Controller
             $filename = $v->getSchemeAndHttpHost() . "/img/vets/" . $filenameextension;
             $v->image->move(public_path('/img/vets/'), $filename);
 
-            // just to get a similar name input
-            $vetCheck = VetTable::where('vet_name', '=', $v->input('name'))
-            ->get()
-            ->first();
-
-            // just to transfer proper data
-            $vet = VetTable::where('vet_id', '=', $vetCheck->vet_id)
-            ->get()
-            ->first();
-
-            // last check = count
-            $vetChecker = VetTable::query()
-            ->select('*')
-            ->where('vet_name', '=', $vetCheck->vet_name)
-            ->get()
-            ->count();
-
             $vet->vet_name = $v->input('name');
             $vet->vet_groom = $v->input('groom');
             $vet->vet_boarding = $v->input('boarding');
