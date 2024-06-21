@@ -254,6 +254,9 @@ div.image-container img {
     left: 120px;
     z-index: 100;
 }
+.ellipsis {
+    text-overflow: ellipsis !important;
+}
 
 /* box shadow */
 .bsblack {

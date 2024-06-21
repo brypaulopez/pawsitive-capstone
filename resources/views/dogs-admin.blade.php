@@ -9,12 +9,13 @@
         <div class="container">
             <h1>Dogs</h1>
     <a class="btn btn-primary" href="{{url('/dogs-admin/create-dogs')}}">Create New Dog</a>
+    {{$dog->onEachSide(5)->links('pagination::bootstrap-5')}}
     <table class="table table-hovered table-bordered my-3">
         <thead>
             <tr>
                 <th>Dog Name</th>
-                <th>Dog Description</th>
-                <th>Dog Nutrition</th>
+                {{-- <th>Dog Description</th>
+                <th>Dog Nutrition</th> --}}
                 <th>Dog Coat Type</th>
                 <th>Dog Coat Lenght</th>
                 <th>View</th>
@@ -22,12 +23,12 @@
                 <th>Delete</th>
             </tr>
         </thead>
-    @foreach ($dogs as $d)
+    @foreach ($dog as $d)
         <tbody>
             <tr>
                 <td>{{$d -> dog_name}}</td>
-                <td>{{$d -> dog_desc}}</td>
-                <td>{{$d -> dog_nutrition}}</td>
+                {{-- <td>{{$d -> dog_desc}}</td>
+                <td>{{$d -> dog_nutrition}}</td> --}}
                 <td>{{$d -> coat_type}}</td>
                 <td>{{$d -> coat_length}}</td>
                 <td>
@@ -47,6 +48,7 @@
         </tbody>
     @endforeach 
     </table>
+    {{$dog->onEachSide(5)->links('pagination::bootstrap-5')}}
         </div>
     </div>
     @include('layout/script')

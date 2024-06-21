@@ -11,8 +11,11 @@ class DogsController extends Controller
 {
     public function index(){
         $dogs = DB::select("SELECT * FROM dogs");
+        $dog = Dogs::query()
+        ->select('*')
+        ->paginate(20);
         if (Session::get('role') == 1) {
-            return view('dogs-admin', compact('dogs'));
+            return view('dogs-admin', compact('dogs', 'dog'));
         }
         else {
             return redirect('/');
