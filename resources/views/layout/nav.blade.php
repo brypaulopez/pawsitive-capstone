@@ -44,6 +44,9 @@
             <li class="nav-item">
               <a class="nav-link btn bgdteal torange fs-5 navi-logout" href="/logout"><h2 class="m-0">Logout</h2></a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link btn bgorange tteal fs-5 navi-btn" href="/user-profile"><h2 class="m-0"></h2><i class="fa-solid fa-user"></i></a>
+            </li>
           </ul>
         </div>
       </div>

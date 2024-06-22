@@ -6,6 +6,7 @@ use App\Models\Dogs;
 use App\Models\ProductTable;
 use App\Models\CartTable;
 use App\Models\VetTable;
+use App\Models\UserReview;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -494,10 +495,37 @@ class UserController extends Controller
 
         return view('board', compact('showCart', 'city', 'filterC', 'filteredC', 'countC', 'countM', 'municipality', 'filterM', 'filteredM', 'filterBC', 'filterBM', 'municipalityB', 'cityB'));
     }
+<<<<<<< HEAD
     public function specific_clinic(string $id){
         $vet = VetTable::where('vet_id', $id)
         ->get()->first();
 
         return view('specific-vet', compact('vet'));
+=======
+    public function user_profile(){
+
+        $showCart = CartTable::query()
+        ->select('*')
+        ->where('product_user_id', '=', Session::get('id'))
+        ->get();
+
+        return view('user-profile', compact('showCart'));
+    }
+
+    public function review(){
+
+        $showCart = CartTable::query()
+        ->select('*')
+        ->where('product_user_id', '=', Session::get('id'))
+        ->get();
+
+        $review = UserReview::create([
+            'user_review_id' => Session::get('id'),
+            'review' => request()->get('review', ''),
+            'rating' => request()->get('rating', '')
+        ]);
+
+        return redirect('/user-profile');
+>>>>>>> e492e1f1f7b1bf58439ba8d1b321b484ea8c6bec
     }
 }
