@@ -113,29 +113,49 @@ class UserController extends Controller
         return view("products", compact('products', 'showCart'));
     }
     public function cart(Request $c, string $id){
+        // IF ELSE qty > current stock = error
+        // qty <=
         $product = ProductTable::where('product_id', '=', $id)
         ->get()
         ->first();
         $cart = new CartTable;
         $qty = $c->input('quantity');
 
-        $cart->product_user_id = Session::get('id');
-        $cart->cart_name = $product->product_name;
-        $cart->cart_price = $product->product_price;
-        $cart->cart_qty = $c->input('quantity');
-        $cart->cart_image = $product->product_image;
-        $cart->save();
+        if ($qty > $product->product_stock) {
+            toastr()->error('You exceed the amount of quantity available!');
+            return back();
+        } else {
+            $cart->product_user_id = Session::get('id');
+            $cart->cart_name = $product->product_name;
+            $cart->cart_price = $product->product_price;
+            $cart->cart_qty = $c->input('quantity');
+            $cart->cart_image = $product->product_image;
+            $cart->save();
+            $product_update = ProductTable::where('product_id', '=', $id)
+            ->update(
+                [
+                    'product_stock' => $product->product_stock-$qty,
+                ]
+            );
 
-        $product_update = ProductTable::where('product_id', '=', $id)
-        ->update(
-            [
-                'product_stock' => $product->product_stock-$qty,
-            ]
-        );
-
-        return redirect('/products');
+            return redirect('/products');
+        }
     }
     public function delete_cart(string $id){
+        $carts = CartTable::where('cart_id', '=', $id)
+        ->get()
+        ->first();
+        $product = ProductTable::where('product_name', '=', $carts->cart_name)
+        ->get()
+        ->first();
+        $qty = $carts->cart_qty;
+        $product_update = ProductTable::where('product_name', '=', $carts->cart_name)
+            ->update(
+                [
+                    'product_stock' => $product->product_stock+$qty,
+                ]
+            );
+
         $cart = CartTable::where('cart_id', '=', $id)
         ->delete();
         return back();

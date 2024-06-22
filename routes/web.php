@@ -46,6 +46,11 @@ Route::get('/dogs-admin/{id}',[DogsController::class, 'view']);
 Route::get('/dogs-admin/edit-dogs/{id}', [DogsController::class, 'edit']);
 Route::put('/dogs-admin/{id}', [DogsController::class, 'update']);
 Route::delete('/dogs-admin/{id}',[DogsController::class, 'delete']);
+Route::get('/breeds', [DogsController::class, 'breeds']);
+Route::post('/breeds/{letter}', [DogsController::class, 'breed_checker']);
+Route::get('/breeds/{letter}', [DogsController::class, 'breed_checker']);
+Route::get('traits/{name}', [DogsController::class, 'specific_breed']);
+// Route::post('/breeds/{name}', [DogsController::class, 'specific_breed']);
 
 // Vet Controller
 Route::get('/vet-admin',[VetController::class, 'index']);

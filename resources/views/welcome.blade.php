@@ -40,7 +40,85 @@
         {{-- Connect with us (partnership) --}}
         {{-- !What is Pawsitive (this is showing only for those without accounts) with register --}}
         @if (Session::has('id'))
-            
+        <div class="container" style="margin-top: 100px;">
+            <div class="row text-center">
+                <h1 class="torange" style="font-size: 50px;">What is Pawsitive Precision all about?</h1>
+                <p class="mt-2 px-5 fs-5"><b>Pawsitive Precision</b> is your trusted partner in ensuring the health and happiness of your beloved dogs. We offer information and comprehensive suite of services and products tailored to meet all your pet's needs.</p>
+            </div>
+            <div class="row">
+                <div class="col-4">
+                    <div class="card bgteal borange" style="height: 622px;">
+                        <div class="card-body">
+                            <h2 class="card-title text-center">Our Services</h2>
+                            <ul>
+                                <li class="mt-3">
+                                    <b>Veterinary Care:</b> Our experienced vet partners provide top-tier medical care, from routine check-ups to specialized treatments, ensuring your dog stays healthy and happy.
+                                </li>
+                                <li>
+                                    <b>Pet Products:</b> Explore our curated selection of high-quality products, including nutritious food, fun toys, grooming essentials, and more, designed to keep your pet thriving.
+                                </li>
+                                <li>
+                                    <b>Boarding Services:</b> Need a safe and loving place for your dog while you're away? Our boarding facilities offer a comfortable and caring environment, giving you peace of mind.
+                                </li>
+                                <li>
+                                    <b>Grooming Services:</b> Keep your dog looking and feeling their best with our professional partner's grooming services, tailored to meet the specific needs of your pet.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="card bgorange bteal" style="height: 622px;">
+                        <div class="card-body">
+                            <h2 class="card-title text-center">Why Choose Pawsitive Precision?</h2>
+                            <ul class="mt-3">
+                                <li>
+                                    <b>Expert Care:</b> Our team of veterinary professionals is dedicated to providing the best care for your furry friends.
+                                </li>
+                                <li>
+                                    <b>Quality Products:</b> We offer a wide range of trusted and premium products that cater to your dog's needs.
+                                </li>
+                                <li>
+                                    <b>Comfort and Care:</b> Our boarding and grooming services ensure your dog receives the highest level of comfort and attention.
+                                </li>
+                                <li>
+                                    <b>Community Focused:</b> Join a community of dog lovers who prioritize the well-being of their pets.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="card bblack" style="height: 622px;">
+                        <div class="card-body">
+                            <h2 class="card-title text-center">Become a Pawsitive Partner</h2>
+                            <p class="text-center px-2 mt-3">
+                                Are you a vet clinic owner or a pet shop owner? Partner with us to expand your reach and enhance your offerings. By joining the Pawsitive network, you gain access to:
+                            </p>
+                            <ul class="mt-3">
+                                <li>
+                                    <b>Exclusive Products:</b> Offer your clients the best in pet care products.
+                                </li>
+                                <li>
+                                    <b>Collaborative Opportunities:</b> Work with a network of dedicated professionals to grow your business.
+                                </li>
+                                <li>
+                                    <b>Marketing Support:</b> Benefit from our marketing expertise to attract more customers.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{-- Testimonial Carousel (tentative)--}}
+
+        {{-- Pawsitive TM --}}
+
+        {{-- Our vision --}}
+
+        {{-- Footer --}}
+        
         @else
         <div class="container" style="margin-top: 100px;">
             <div class="row text-center">
@@ -135,10 +213,6 @@
             </div>
         </div>
         @endif
-        {{-- Testimonial Carousel (tentative)--}}
-        {{-- Pawsitive TM --}}
-        {{-- Our vision --}}
-        {{-- Footer --}}
     </div>
     @include('layout/script')
 </body>

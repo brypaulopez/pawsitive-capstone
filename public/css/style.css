@@ -203,8 +203,25 @@ div.image-container img {
 }
 #cart-btn:hover{
     border: solid 2px #63D0D0 !important;
-    background-color:#FD8A25 !important;
+    background-color: #FFCB9C !important;
 }
+#cart-btnF:hover{
+    border: solid 2px #05A3AB !important;
+    background-color: #FFCB9C !important;
+}
+#cart-btnA:hover{
+    border: solid 2px #FD8A25 !important;
+    background-color: #AAE0E2 !important;
+}
+#cart-btnG:hover{
+    border: solid 2px #AAE0E2 !important;
+    background-color: #FD8A25 !important;
+}
+#cart-btnM:hover{
+    border: solid 2px #FFCB9C !important;
+    background-color: #63D0D0 !important;
+}
+
 #category {
     border: solid 5px black !important;
 }
@@ -260,7 +277,7 @@ div.image-container img {
 
 /* box shadow */
 .bsblack {
-    box-shadow: rgba(255,182,230, 0.4) 5px 5px, rgba(255,182,230, 0.3) 10px 10px, rgba(255,182,230, 0.2) 15px 15px, rgba(255,182,230, 0.1) 20px 20px, rgba(255,182,230, 0.05) 25px 25px;
+    box-shadow: 7px 7px 8px -4px black;
 }
 .bsorange {
     box-shadow: rgb(253,138,37, 0.4) 5px 5px, rgb(253,138,37, 0.3) 10px 10px, rgb(253,138,37, 0.2) 15px 15px, rgb(253,138,37, 0.1) 20px 20px, rgb(253,138,37, 0.05)25px 25px;
