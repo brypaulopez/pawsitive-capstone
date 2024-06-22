@@ -494,4 +494,10 @@ class UserController extends Controller
 
         return view('board', compact('showCart', 'city', 'filterC', 'filteredC', 'countC', 'countM', 'municipality', 'filterM', 'filteredM', 'filterBC', 'filterBM', 'municipalityB', 'cityB'));
     }
+    public function specific_clinic(string $id){
+        $vet = VetTable::where('vet_id', $id)
+        ->get()->first();
+
+        return view('specific-vet', compact('vet'));
+    }
 }

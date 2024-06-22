@@ -95,6 +95,7 @@ Route::get('/accessories', [UserController::class, 'accessories']);
 Route::get('/search-clinic', [UserController::class, 'search_clinic']);
 Route::post('/clinic', [UserController::class, 'clinic']);
 Route::get('/clinic', [UserController::class, 'clinic']);
+Route::get('/clinic/{id}', [UserController::class, 'specific_clinic']);
 Route::get('/search-grooming', [UserController::class, 'search_grooming']);
 Route::post('/groom', [UserController::class, 'groom']);
 Route::get('/groom', [UserController::class, 'groom']);
