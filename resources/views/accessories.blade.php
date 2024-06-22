@@ -75,17 +75,18 @@
           <div class="col-1"></div>
       </div>
         @if ($accessories->count() >= 1)
-        <div class="row mt-3">
+        <div class="row mt-1 gy-5 mb-3">
           @foreach ($accessories as $a)
               @if ($a -> product_stock == 0)
                   <div class="col-3">
-                      <div class="card bteal">
+                      <div class="card bteal bsblack">
                           <a href="products/{{$a -> product_id}}">
-                              <img src="img/products/{{$a -> product_image}}" class="card-img-top" alt="...">
+                              <img src="img/products/{{$a -> product_image}}" style="width: 302px; height: 201px;" class="card-img-top" alt="...">
                           </a>
-                          <div class="card-body">
-                              <p class="mb-0" style="font-size: 15px;">from: {{$a -> vet_name}}</p>
+                          <div class="card-body bgteal">
+                              {{-- <p class="mb-0" style="font-size: 15px;">from: {{$a -> vet_name}}</p> --}}
                               <h2 class="card-title">{{$a -> product_name}}</h2>
+                              <p class="fs-4">&#8369;{{$a -> product_price}}</p>
                               <input type="hidden" name="quantity" value="1">
                               <input class="btn btn-danger w-100" value="Currently Out of Stock">
                           </div>
@@ -93,17 +94,18 @@
                   </div>
               @else
                   <div class="col-3">
-                      <div class="card bteal">
+                      <div class="card bteal bsblack">
                           <a href="products/{{$a -> product_id}}">
-                              <img src="img/products/{{$a -> product_image}}" class="card-img-top" alt="...">
+                              <img src="img/products/{{$a -> product_image}}" style="width: 302px; height: 201px;" class="card-img-top" alt="...">
                           </a>
-                          <div class="card-body">
-                              <p class="mb-0" style="font-size: 15px;">from: {{$a -> vet_name}}</p>
+                          <div class="card-body bgteal">
+                              {{-- <p class="mb-0" style="font-size: 15px;">from: {{$a -> vet_name}}</p> --}}
                               <h2 class="card-title">{{$a -> product_name}}</h2>
+                              <p class="fs-4">&#8369;{{$a -> product_price}}</p>
                               <form action="/products/{{$a -> product_id}}" method="POST">
                                   @csrf
                                   <input type="hidden" name="quantity" value="1">
-                                  <input type="submit" id="cart-btn" class="btn w-100 bgteal borange" value="Add to Cart">
+                                  <input type="submit" id="cart-btnA" class="btn w-100 bgorange blteal" value="Add to Cart">
                               </form>
                           </div>
                       </div>

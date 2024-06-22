@@ -75,17 +75,18 @@
             <div class="col-1"></div>
         </div>
         @if ($grooming->count() >= 1)
-        <div class="row mt-3">
+        <div class="row mt-1 gy-5 mb-3">
             @foreach ($grooming as $g)
                 @if ($g -> product_stock == 0)
                     <div class="col-3">
-                        <div class="card blorange">
+                        <div class="card blorange bsblack">
                             <a href="products/{{$g -> product_id}}">
-                                <img src="img/products/{{$g -> product_image}}" class="card-img-top" alt="...">
+                                <img src="img/products/{{$g -> product_image}}" style="width: 302px; height: 201px;" class="card-img-top" alt="...">
                             </a>
-                            <div class="card-body">
-                                <p class="mb-0" style="font-size: 15px;">from: {{$g -> vet_name}}</p>
+                            <div class="card-body bglorange">
+                                {{-- <p class="mb-0" style="font-size: 15px;">from: {{$g -> vet_name}}</p> --}}
                                 <h2 class="card-title">{{$g -> product_name}}</h2>
+                                <p class="fs-4">&#8369;{{$g -> product_price}}</p>
                                 <input type="hidden" name="quantity" value="1">
                                 <input class="btn btn-danger w-100" value="Currently Out of Stock">
                             </div>
@@ -93,17 +94,18 @@
                     </div>
                 @else
                     <div class="col-3">
-                        <div class="card blorange">
+                        <div class="card blorange bsblack">
                             <a href="products/{{$g -> product_id}}">
-                                <img src="img/products/{{$g -> product_image}}" class="card-img-top" alt="...">
+                                <img src="img/products/{{$g -> product_image}}" style="width: 302px; height: 201px;" class="card-img-top" alt="...">
                             </a>
-                            <div class="card-body">
-                                <p class="mb-0" style="font-size: 15px;">from: {{$g -> vet_name}}</p>
+                            <div class="card-body bglorange">
+                                {{-- <p class="mb-0" style="font-size: 15px;">from: {{$g -> vet_name}}</p> --}}
                                 <h2 class="card-title">{{$g -> product_name}}</h2>
+                                <p class="fs-4">&#8369;{{$g -> product_price}}</p>
                                 <form action="/products/{{$g -> product_id}}" method="POST">
                                     @csrf
                                     <input type="hidden" name="quantity" value="1">
-                                    <input type="submit" id="cart-btn" class="btn w-100 bgteal borange" value="Add to Cart">
+                                    <input type="submit" id="cart-btnG" class="btn w-100 bglteal borange" value="Add to Cart">
                                 </form>
                             </div>
                         </div>

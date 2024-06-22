@@ -78,5 +78,4 @@ function minus(){
     num--;
     cartQty = document.getElementById("cart-qty").value = num;
   }
-  
 }

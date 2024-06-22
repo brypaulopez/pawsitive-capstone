@@ -264,9 +264,87 @@
                 <a class="btn bgorange mt-2" href="/vet-admin/edit-vet/{{$vet -> vet_id}}">
                     Edit Partner
                 </a>
-                @endif
+                <a href="/create-products/{{$vet->vet_id}}" class="btn bglorange mt-2">Add Products</a>
+                <a href="/create-groom/{{$vet->vet_id}}" class="btn bgteal mt-2">Add Grooming information</a>
+                <a href="/create-board/{{$vet->vet_id}}" class="btn bglteal mt-2">Add Boarding information</a>
+                <hr>
+                {{-- GROOM --}}
+                <div class="row mt-3">
+                    <div class="col-12">
+                        <table class="table table-hovered table-bordered my-3">
+                            <thead>
+                                <tr>
+                                    <th>Groom Details</th>
+                                    <th>Groom Price</th>
+                                    <th>Groom Image</th>
+                                    <th>Edit</th>
+                                    <th>Delete</th>
+                                </tr>
+                            </thead>
+                        @foreach ($groom as $g)
+                            <tbody>
+                                <tr>
+                                    <td>{{$g -> groom_details}}</td>
+                                    <td>{{$g-> groom_price}}</td>
+                                    <td><img src="/img/groom/{{$g -> groom_image}}" alt="" class="w-25"></td>
+                                    <td>
+                                        <a class="btn bgorange" href="/vet-admin/groom/{{$g -> groom_id}}">Edit</a>
+                                    </td>
+                                    <td>
+                                        <form action="/vet-admin/groom/{{$g -> groom_id}}" method="post">
+                                            @csrf
+                                            @method('DELETE')
+                                            <input class="btn bgteal" type="submit" value="DELETE">
+                                        </form>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        @endforeach 
+                        </table>
+                    </div>
                 </div>
                 <hr>
+                {{-- BOARD --}}
+                <div class="row mt-3">
+                    <div class="col-12">
+                        <table class="table table-hovered table-bordered my-3">
+                            <thead>
+                                <tr>
+                                    <th>Board Inclusions</th>
+                                    <th>Board Price</th>
+                                    <th>Board Image</th>
+                                    <th>Edit</th>
+                                    <th>Delete</th>
+                                </tr>
+                            </thead>
+                        @foreach ($board as $b)
+                            <tbody>
+                                <tr>
+                                    <td>{{$b -> board_inclusions}}</td>
+                                    <td>{{$b-> board_price}}</td>
+                                    <td><img src="/img/board/{{$b -> board_image}}" alt="" class="w-25"></td>
+                                    <td>
+                                        <a class="btn bgorange" href="/vet-admin/board/{{$b -> board_id}}">Edit</a>
+                                    </td>
+                                    <td>
+                                        <form action="/vet-admin/board/{{$b -> board_id}}" method="post">
+                                            @csrf
+                                            @method('DELETE')
+                                            <input class="btn bgteal" type="submit" value="DELETE">
+                                        </form>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        @endforeach 
+                        </table>
+                    </div>
+                </div>
+                @else
+                <a class="btn bgorange mt-2" href="/vet-admin/edit-vet/{{$vet -> vet_id}}">
+                    Edit Partner
+                </a>
+                @endif
+                </div>
                 <a class="btn btn-primary w-100" href="{{url('vet-admin')}}">Go Back</a>
             </div>
         </div>

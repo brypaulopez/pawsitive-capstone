@@ -104,7 +104,7 @@
             <span class="input-group-text" id="basic-addon1">Vet State</span>
             <input type="text" class="form-control" name="state" required>
         </div>
-        <input type="hidden" class="form-control" name="package" value="b">
+        <input type="hidden" class="form-control" name="package" value="a">
         {{-- <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1">Vet Package</span>
             <select name="package" class="form-control" id="">

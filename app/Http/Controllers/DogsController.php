@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use DB;
 use App\Models\Dogs;
 use App\Models\UserTable;
+use App\Models\CartTable;
 use Session;
 
 class DogsController extends Controller
@@ -132,5 +133,50 @@ class DogsController extends Controller
         $dogs = Dogs::where('dogs_id', '=', $id)
         ->delete();
         return redirect("dogs-admin");
+    }
+    public function breeds(){
+        $showCart = CartTable::query()
+        ->select('*')
+        ->where('product_user_id', '=', Session::get('id'))
+        ->get();
+
+        $dog = Dogs::query()
+        ->select('*')
+        ->paginate(18);
+        
+        return view('breeds', compact('dog', 'showCart'));
+    }
+    public function breed_checker(string $letter){
+        // $az = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+        // for ($i=0; $i < 26 ; $i++) { 
+        //     if ($letter == $az[$i]) {
+        //         $i = 26;
+
+                $showCart = CartTable::query()
+                ->select('*')
+                ->where('product_user_id', '=', Session::get('id'))
+                ->get();
+                
+                $dog = Dogs::where('dog_name', 'like', $letter.'%')
+                ->paginate(9);
+
+                return view('breeds', compact('dog', 'showCart'));
+        //     }
+        //     else {
+                
+        //     }
+        // }
+    }
+    public function specific_breed(string $name){
+        $showCart = CartTable::query()
+        ->select('*')
+        ->where('product_user_id', '=', Session::get('id'))
+        ->get();
+
+        $dog = Dogs::where('dog_name', '=', $name)
+        ->get()
+        ->first();
+
+        return view('specific-dog', compact('dog', 'showCart'));
     }
 }
