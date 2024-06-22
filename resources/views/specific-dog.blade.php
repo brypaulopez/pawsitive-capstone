@@ -77,7 +77,7 @@
                     </div>
                   </div>
               </div>
-              <div class="row mt-5">
+              <div class="row mt-5 bteal bsblack">
                 <div class="col-12">
                     <h2 class="fs-1">Breed Traits & Characteristics</h2>
                 </div>
