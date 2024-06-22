@@ -96,3 +96,5 @@ Route::get('/groom', [UserController::class, 'groom']);
 Route::get('/search-boarding', [UserController::class, 'search_boarding']);
 Route::post('/board', [UserController::class, 'board']);
 Route::get('/board', [UserController::class, 'board']);
+Route::get('/user-profile', [UserController::class, 'user_profile']);
+Route::post('/user-profile', [UserController::class, 'review']);
