@@ -495,13 +495,6 @@ class UserController extends Controller
 
         return view('board', compact('showCart', 'city', 'filterC', 'filteredC', 'countC', 'countM', 'municipality', 'filterM', 'filteredM', 'filterBC', 'filterBM', 'municipalityB', 'cityB'));
     }
-<<<<<<< HEAD
-    public function specific_clinic(string $id){
-        $vet = VetTable::where('vet_id', $id)
-        ->get()->first();
-
-        return view('specific-vet', compact('vet'));
-=======
     public function user_profile(){
 
         $showCart = CartTable::query()
@@ -526,6 +519,5 @@ class UserController extends Controller
         ]);
 
         return redirect('/user-profile');
->>>>>>> e492e1f1f7b1bf58439ba8d1b321b484ea8c6bec
     }
 }
