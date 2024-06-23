@@ -9,7 +9,6 @@
         @if (Session::has('id'))
         @include('layout/cart')
         @else
-            
         @endif
         {{--  --}}
         <div class="image-container container-fluid text-center p-0">
@@ -18,11 +17,11 @@
                 {{-- <h2 class="tteal" style="margin-top: 20%; font-size: 40px;">Discover a community where your pet's well-being is our priority.</h2> --}}
                 <h1 class="torange px-5 mb-0" style="font-size: 90px; padding-top: 15%;">Welcome to Pawsitive Precision</h1>
                 <p class="text-white px-5 paragraph" style="font-size: 30px">where every wagging tail is a testament to our <b class="fs-1">love</b> and <b class="fs-1">care</b>.</p>
-                <div class="row mt-3">
+                <div class="row mt-3 p-0 m-0">
                     <p class="text-white " style="font-size: 20px;">At Pawsitive Precision, we believe every dog deserves a happy and healthy life.
                         <br>Discover a community where your pet's well-being is our priority.
                     </p>
-                    <div class="col-3"></div>
+                    <div class="col-3 p-0 m-0"></div>
                     @if (Session::has('id') && Session::get('role') == 0)
                         <div class="col-3"><a href="/services" class="w-100 btn bgteal borange home-svc"><span>Check our <b>Services</b></span></a></div>
                     @else
@@ -32,7 +31,7 @@
                         <div class="col-3"><a href="/products" class="w-100 btn bgorange bteal home-svc"><span>Buy our <b>Products</b></span></a></div>
                     @else
                     <div class="col-3"><a href="/noaccount/signup" class="w-100 btn bgorange bteal home-prdct"><span>Buy our <b>Products</b></span></a></div>
-                    <div class="col-3"></div>
+                    <div class="col-3 p-0 m-0"></div>
                     @endif
                 </div>
             </div>

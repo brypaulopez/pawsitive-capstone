@@ -5,7 +5,6 @@
 </head>
 <body>
     @include('layout/nav')
-    <h1>{{$vet->vet_name}} #{{$vet->vet_id}}</h1>
     <div class="container mt-5">
         <form action="/payment-success" method="POST" class='row borange'>
             @csrf

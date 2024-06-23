@@ -4,8 +4,8 @@
     @include('layout/head')
 </head>
 <body>
-    @include('layout/nav')
-    <div class="container mt-5">
+    @include('layout/admin-nav')
+    <div class="content pt-5">
         <div class="card">
             <div class="card-body">
                 <h1>{{$vet->vet_name}}</h1>
@@ -345,7 +345,7 @@
                 </a>
                 @endif
                 </div>
-                <a class="btn btn-primary w-100" href="{{url('vet-admin')}}">Go Back</a>
+                <a class="btn bgteal borange w-100" href="{{url('vet-admin')}}">Go Back</a>
             </div>
         </div>
     </div>

@@ -29,10 +29,10 @@
                         <a href="products/{{$p -> product_id}}">
                             <img src="img/products/{{$p -> product_image}}" style="width: 302px; height: 201px;"  class="card-img-top w-100" alt="...">
                         </a>
-                        <div class="card-body bgorange">
+                        <div class="card-body">
                             {{-- <p class="mb-0" style="font-size: 15px;">from: {{$p -> vet_name}}</p> --}}
                             <h2 class="card-title">{{$p -> product_name}}</h2>
-                            <p class="fs-4">&#8369;{{$p -> product_price}}</p>
+                            <p class="fs-5">&#8369;{{$p -> product_price}}</p>
                             <input type="hidden" name="quantity" value="1">
                             <input class="btn btn-danger w-100" value="Currently Out of Stock">
                         </div>
@@ -40,17 +40,17 @@
                 </div>
             @else
                 <div class="col-3">
-                    <div class="card borange bsblack" style="">
+                    <div class="card bsblack" style="">
                         <a href="products/{{$p -> product_id}}">
                             <img src="img/products/{{$p -> product_image}}" style="width: 302px; height: 201px;" class="card-img-top" alt="...">
                         </a>
-                        <div class="card-body bgorange">
+                        <div class="card-body ">
                             <h2 class="card-title">{{$p -> product_name}}</h2>
-                            <p class="fs-4">&#8369;{{$p -> product_price}}</p>
+                            <p class="fs-5">&#8369;{{$p -> product_price}}</p>
                             <form action="/products/{{$p -> product_id}}" method="POST">
                                 @csrf
                                 <input type="hidden" name="quantity" value="1">
-                                <input type="submit" id="cart-btn" class="btn w-100 bgteal blorange" value="Add to Cart">
+                                <input type="submit" id="cart-btn" class="btn w-100 bgorange bteal" value="Add to Cart">
                             </form>
                         </div>
                     </div>

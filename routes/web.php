@@ -22,7 +22,7 @@ Route::get('/', function () {
     }
 });
 
-// User Controller
+// User Controller - Extra layer of security (access)
 Route::get('/signup', [UserController::class, 'signup_page']);
 Route::post('/signup', [UserController::class, 'signup']);
 Route::get('/noaccount/signup', [UserController::class, 'please_signup']);
@@ -38,7 +38,7 @@ Route::post('/products/{id}', [UserController::class, 'cart']);
 Route::get('/products/{id}', [UserController::class, 'single_page']);
 Route::delete('/remove-cart/{id}', [UserController::class, 'delete_cart']);
 
-// Dogs Controller
+// Dogs Controller - Extra layer of security (access)
 Route::get('/dogs-admin', [DogsController::class, 'index']);
 Route::get('/dogs-admin/create-dogs', [DogsController::class, 'create_dog']);
 Route::post('/dogs-admin', [DogsController::class, 'create']);
@@ -52,7 +52,7 @@ Route::get('/breeds/{letter}', [DogsController::class, 'breed_checker']);
 Route::get('traits/{name}', [DogsController::class, 'specific_breed']);
 // Route::post('/breeds/{name}', [DogsController::class, 'specific_breed']);
 
-// Vet Controller
+// Vet Controller - Extra layer of security (access)
 Route::get('/vet-admin',[VetController::class, 'index']);
 Route::get('/vet-admin/{id}',[VetController::class, 'view']);
 Route::get('/select-package', [VetController::class, 'select']);
@@ -63,27 +63,27 @@ Route::get('/package/c', [VetController::class, 'selectC']);
 Route::post('/vet-admin', [VetController::class, 'create_vet']);
 Route::delete('/vet-admin/{id}',[VetController::class, 'delete']);
 
-// adding products
+// adding products - Extra layer of security (access)
 Route::get('create-products/{id}', [VetController::class, 'create_products']);
 Route::post('create-products/{id}', [VetController::class, 'create']);
 Route::get('/vet-admin/edit/{id}', [VetController::class, 'edit']);
 Route::put('/vet-admin/edit/{id}',[VetController::class, 'update_products']);
 Route::delete('/vet-admin/back/{id}',[VetController::class, 'delete_products']);
 
-// adding grooming
+// adding grooming - Extra layer of security (access)
 Route::get('create-groom/{id}', [VetController::class, 'create_groom']);
 Route::post('create-groom/{id}', [VetController::class, 'createG']);
 Route::get('/vet-admin/groom/{id}', [VetController::class, 'editG']);
 Route::put('/vet-admin/groom/{id}',[VetController::class, 'updateG']);
 Route::delete('/vet-admin/groom/{id}',[VetController::class, 'deleteG']);
 
-// adding boarding
+// adding boarding - Extra layer of security (access)
 Route::get('create-board/{id}', [VetController::class, 'create_boarding']);
 Route::post('create-board/{id}', [VetController::class, 'createB']);
 Route::get('/vet-admin/board/{id}', [VetController::class, 'editB']);
 Route::put('/vet-admin/board/{id}',[VetController::class, 'updateB']);
 
-// client side Routing - mix controllers
+// client side Routing - mix controllers - Extra layer of security (access)
 Route::get('/partnership', [VetController::class, 'select']);
 Route::post('/payment', [VetController::class, 'create_vet']);
 Route::get('/payment', [VetController::class, 'editing']);

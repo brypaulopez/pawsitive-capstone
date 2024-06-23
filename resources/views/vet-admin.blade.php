@@ -4,13 +4,12 @@
     @include('layout/head')
 </head>
 <body>
-    @include('layout/nav')
-    <div class="container-fluid mt-5">
-        <div class="container">
+    @include('layout/admin-nav')
+        <div class="content pt-5">
             <h1>Partners</h1>
             {{-- Create new partners that adds everything that needs to be added specially products --}}
-            <a class="btn btn-primary" href="/select-package">Create New Partners</a>
-            <table class="table table-hovered table-bordered my-3">
+            <a class="btn bgteal borange bsblack" href="/select-package">Create New Partners</a>
+            <table class="table table-hovered table-bordered my-3 bsblack bblack">
                 <thead>
                     <tr>
                         <th>Vet Name</th>
@@ -47,7 +46,6 @@
             @endforeach 
             </table>
             {{$vet->onEachSide(1)->links('pagination::bootstrap-5')}}
-                </div>
             </div>
         </div>
     </div>
