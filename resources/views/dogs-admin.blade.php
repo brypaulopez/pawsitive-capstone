@@ -40,7 +40,7 @@
                         <form action="dogs-admin/{{$d -> dogs_id}}" method="post">
                             @csrf
                             @method('DELETE')
-                            <input class="btn btn-danger" type="submit" value="DELETE">
+                            <input class="btn bgdorange" type="submit" value="DELETE">
                         </form>
                     </td>
                 </tr>

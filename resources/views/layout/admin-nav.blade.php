@@ -10,5 +10,6 @@
     @else
         <a id="admin-partners" class="" href="/vet-admin">Partners</a>
     @endif
+    <a id="admin-btn" href="/">Orders</a>
     <a id="admin-btn" href="/logout">Logout</a>
 </div>  

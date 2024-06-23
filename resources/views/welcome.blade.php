@@ -46,7 +46,7 @@
             </div>
             <div class="row">
                 <div class="col-4">
-                    <div class="card bgteal borange" style="height: 622px;">
+                    <div class="card bgteal borange bsblack" style="height: 622px;">
                         <div class="card-body">
                             <h2 class="card-title text-center">Our Services</h2>
                             <ul>
@@ -67,7 +67,7 @@
                     </div>
                 </div>
                 <div class="col-4">
-                    <div class="card bgorange bteal" style="height: 622px;">
+                    <div class="card bgorange bteal bsblack" style="height: 622px;">
                         <div class="card-body">
                             <h2 class="card-title text-center">Why Choose Pawsitive Precision?</h2>
                             <ul class="mt-3">
@@ -88,7 +88,7 @@
                     </div>
                 </div>
                 <div class="col-4">
-                    <div class="card bblack" style="height: 622px;">
+                    <div class="card bblack bsblack" style="height: 622px;">
                         <div class="card-body">
                             <h2 class="card-title text-center">Become a Pawsitive Partner</h2>
                             <p class="text-center px-2 mt-3">
@@ -126,7 +126,7 @@
             </div>
             <div class="row">
                 <div class="col-4">
-                    <div class="card bgteal borange" style="height: 622px;">
+                    <div class="card bgteal borange bsblack" style="height: 622px;">
                         <div class="card-body">
                             <h2 class="card-title text-center">Our Services</h2>
                             <ul>
@@ -147,7 +147,7 @@
                     </div>
                 </div>
                 <div class="col-4">
-                    <div class="card bgorange bteal" style="height: 622px;">
+                    <div class="card bgorange bteal bsblack" style="height: 622px;">
                         <div class="card-body">
                             <h2 class="card-title text-center">Why Choose Pawsitive Precision?</h2>
                             <ul class="mt-3">
@@ -168,7 +168,7 @@
                     </div>
                 </div>
                 <div class="col-4">
-                    <div class="card bblack" style="height: 622px;">
+                    <div class="card bblack bsblack" style="height: 622px;">
                         <div class="card-body">
                             <h2 class="card-title text-center">Become a Pawsitive Partner</h2>
                             <p class="text-center px-2 mt-3">
@@ -199,7 +199,7 @@
                     <img src="img/group.png" alt="" class="w-75" style="">
                 </div>
             </div>
-            <div class="row bottom borange bgteal ">
+            <div class="row bottom borange bgteal">
                 <div class="col-4 text-center pt-3">
                     <img src="img/group-dog.png" alt="" class="w-75" style="">
                 </div>
