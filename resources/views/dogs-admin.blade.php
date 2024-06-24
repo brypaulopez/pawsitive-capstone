@@ -4,7 +4,7 @@
     @include('layout/head')
 </head>
 <body>
-    @include('layout/admin-nav')
+    @include('layout/nav')
     <div class="content pt-5">
         <h1>Dogs</h1>
         <a class="btn bgteal borange bsblack" href="{{url('/dogs-admin/create-dogs')}}">Create New Dog</a>

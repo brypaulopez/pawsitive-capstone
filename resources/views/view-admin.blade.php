@@ -4,7 +4,7 @@
     @include('layout/head')
 </head>
 <body>
-    @include('layout/admin-nav')
+    @include('layout/nav')
     <div class="content pt-5">
         <div class="card">
             <div class="card-body">

@@ -4,7 +4,7 @@
     @include('layout/head')
 </head>
 <body>
-    @include('layout/admin-nav')
+    @include('layout/nav')
         <div class="content pt-5">
             <h1>Partners</h1>
             {{-- Create new partners that adds everything that needs to be added specially products --}}
