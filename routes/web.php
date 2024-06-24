@@ -4,7 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DogsController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VetController;
+use App\Http\Controllers\ProductController;
 use App\Models\CartTable;
+use App\Models\UserReview;
 
 Route::get('/', function () {
     if (Session::has('id') && Session::get('role') == 0 || Session::get('role') == 3) {
@@ -12,7 +14,15 @@ Route::get('/', function () {
         ->select('*')
         ->where('product_user_id', '=', Session::get('id'))
         ->get();
-        return view('welcome', compact('showCart'));
+
+        $showOrder = CartTable::query()
+        ->select('*')
+        ->where('product_user_id', '=', Session::get('id'))
+        ->where('zipcode', '=', null)
+        ->get();
+
+        $reviews = UserReview::all();
+        return view('welcome', compact('showCart', 'reviews', 'showOrder'));
     }
     elseif (Session::has('id') && Session::get('role') == 1) {
         return redirect('/dogs-admin');
@@ -104,3 +114,4 @@ Route::post('/board', [UserController::class, 'board']);
 Route::get('/board', [UserController::class, 'board']);
 Route::get('/user-profile', [UserController::class, 'user_profile']);
 Route::post('/user-profile', [UserController::class, 'review']);
+Route::post('/order', [ProductController::class, 'order']);

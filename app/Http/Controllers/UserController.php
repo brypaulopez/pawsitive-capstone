@@ -129,8 +129,14 @@ class UserController extends Controller
         ->where('product_user_id', '=', Session::get('id'))
         ->get();
 
+        $showOrder = CartTable::query()
+        ->select('*')
+        ->where('product_user_id', '=', Session::get('id'))
+        ->where('zipcode', '!=', null)
+        ->get();
+
         if (Session::has('id') && Session::get('role') == 0 || Session::get('role') == 3) {
-            return view("products", compact('products', 'showCart'));
+            return view("products", compact('products', 'showCart', 'showOrder'));
         }
         elseif (Session::get('role') == 1) {
             return redirect('/dogs-admin');
@@ -157,6 +163,10 @@ class UserController extends Controller
             $cart->cart_price = $product->product_price;
             $cart->cart_qty = $c->input('quantity');
             $cart->cart_image = $product->product_image;
+            $cart->cart_address = '';
+            $cart->cart_city = '';
+            $cart->cart_state = '';
+            $cart->zipcode = 0;
             $cart->save();
             $product_update = ProductTable::where('product_id', '=', $id)
             ->update(
@@ -609,6 +619,10 @@ class UserController extends Controller
         ->select('*')
         ->where('product_user_id', '=', Session::get('id'))
         ->get();
+
+        request()->validate([
+            'review' => 'required|min:5|max:500'
+        ]);
 
         $review = UserReview::create([
             'user_review_id' => Session::get('id'),
