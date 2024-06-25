@@ -118,3 +118,7 @@ Route::get('/user-profile', [UserController::class, 'user_profile']);
 Route::post('/user-profile', [UserController::class, 'review']);
 Route::get('/about-us', [UserController::class, 'about']);
 Route::post('/order', [ProductController::class, 'order']);
+Route::get('/trainer-signup', [ProductController::class, 'trainer']);
+Route::post('/trainer-creation', [ProductController::class, 'creation']);
+Route::get('/search-trainer', [ProductController::class, 'trainer_view']);
+Route::post('/trainer', [ProductController::class, 'trainer_show']);

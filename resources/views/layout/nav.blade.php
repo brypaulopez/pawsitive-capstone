@@ -26,7 +26,7 @@
                 <li><a class="dropdown-item user-btn" href="/search-grooming">Grooming</a></li>
                 <li><a class="dropdown-item user-btn" href="/search-boarding">Boarding</a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item user-btn" href="#">Looking for a trainer?</a></li>
+                <li><a class="dropdown-item user-btn" href="/search-trainer">Looking for a trainer?</a></li>
               </ul>
             </li>
             <li class="nav-item">

@@ -107,6 +107,15 @@ div.image-container img {
     width: 950px !important;
     height: 500px !important;
 }
+.trainer-image {
+    position: absolute !important;
+    z-index: 10 !important;
+    bottom: 1%;
+    left: 13%;
+    width: 800px !important;
+    height: 500px !important;
+}
+
 .login-image {
     position: absolute !important;
     z-index: 10 !important;
@@ -169,6 +178,15 @@ div.image-container img {
     clip-path: polygon(0 0,100% 50px,100% 100%,0 100%);
     margin-top: -40px !important;
 }
+.top-login {
+    height: 300px;
+    clip-path: polygon(0 0,100% 0,100% calc(100% - 50px),calc(50% + 71.41px) calc(100% - 50px),50% 100%,calc(50% - 71.41px) calc(100% - 50px),0 calc(100% - 50px));
+  }
+  .bottom-login {
+    height: 300px;
+    clip-path: polygon(0 0,calc(50% - 3.15px - 71.41px) 0,50% calc(50px + 2.21px),calc(50% + 3.15px + 71.41px) 0,100% 0,100% 100%,0 100%);
+    margin-top: -40px;
+  }
 #partnership:hover{
     border: solid 2px #63D0D0 !important;
     background-color: white !important;
@@ -266,6 +284,12 @@ div.image-container img {
     position: absolute !important;
     top: 100px;
     right: 50px;
+    z-index: 100;
+}
+.trainer-overlay {
+    position: absolute !important;
+    top: 100px;
+    left: 60px;
     z-index: 100;
 }
 .board-container {
