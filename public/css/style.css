@@ -321,11 +321,13 @@ body{
     font-weight: bold;
 }
 .about-1 p{
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: white;
     text-align: center;
     padding: 3px;
-    color: #fff;
 }
 .about-item{
+    height: 435px;
     margin-bottom: 20px;
     margin-top: 20px;
     background-color: white;
@@ -352,7 +354,8 @@ body{
     margin-top: 20px;
 }
 .about-item:hover{
-    background-color: #5fbff9;
+    box-shadow: 7px 7px 8px -4px #05A3AB;
+    background-color: #E58639 !important;
 }
 .about-item:hover i,
 .about-item:hover h3,
