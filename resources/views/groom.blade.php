@@ -43,9 +43,9 @@
             </div>
             @foreach ($filterGC as $f)
                 <div class="col-4">
-                    <div class="card borange bgteal">
+                    <div class="card borange bgteal bsblack">
                         <a href="groom/{{$f -> vet_id}}">
-                            <img src="/img/vets/{{$f -> vet_image}}" class="card-img-top" alt="">
+                            <img src="/img/vets/{{$f -> vet_image}}" class="card-img-top" alt="" style="height: 263px !important;">
                         </a>
                         <div class="card-body" style="height: 88px">
                             <h4 class="card-title">{{$f -> vet_name}}</h4>
@@ -55,10 +55,10 @@
             @endforeach
             @foreach ($filterGM as $f)
                 <div class="col-4">
-                    <a href="groom/{{$f -> vet_id}}">
-                        <img src="/img/vets/{{$f -> vet_image}}" class="card-img-top" alt="">
-                    </a>
                     <div class="card borange bgteal bsblack">
+                        <a href="groom/{{$f -> vet_id}}">
+                            <img src="/img/vets/{{$f -> vet_image}}" class="card-img-top" alt="" style="height: 263px !important;">
+                        </a>
                         <div class="card-body" style="height: 88px">
                             <h4 class="card-title">{{$f -> vet_name}}</h4>
                         </div>
@@ -73,7 +73,7 @@
                 <div class="col-4">
                     <div class="card borange bgteal bsblack">
                         <a href="groom/{{$f -> vet_id}}">
-                            <img src="/img/vets/{{$f -> vet_image}}" class="card-img-top" alt="">
+                            <img src="/img/vets/{{$f -> vet_image}}" class="card-img-top" alt="" style="height: 263px !important;">
                         </a>
                         <div class="card-body" style="height: 88px">
                             <h4 class="card-title">{{$f -> vet_name}}</h4>
@@ -89,7 +89,7 @@
                 <div class="col-4">
                     <div class="card borange bgteal bsblack">
                         <a href="groom/{{$f -> vet_id}}">
-                            <img src="/img/vets/{{$f -> vet_image}}" class="card-img-top" alt="">
+                            <img src="/img/vets/{{$f -> vet_image}}" class="card-img-top" alt="" style="height: 263px !important;">
                         </a>
                         <div class="card-body" style="height: 88px">
                             <h4 class="card-title">{{$f -> vet_name}}</h4>
@@ -105,7 +105,7 @@
                 <div class="col-4">
                     <div class="card borange bgteal bsblack">
                         <a href="groom/{{$f -> vet_id}}">
-                            <img src="/img/vets/{{$f -> vet_image}}" class="card-img-top" alt="">
+                            <img src="/img/vets/{{$f -> vet_image}}" class="card-img-top" alt="" style="height: 263px !important;">
                         </a>
                         <div class="card-body" style="height: 88px">
                             <h4 class="card-title">{{$f -> vet_name}}</h4>
@@ -117,7 +117,7 @@
                 <div class="col-4">
                     <div class="card borange bgteal bsblack">
                         <a href="groom/{{$f -> vet_id}}">
-                            <img src="/img/vets/{{$f -> vet_image}}" class="card-img-top" alt="">
+                            <img src="/img/vets/{{$f -> vet_image}}" class="card-img-top" alt="" style="height: 263px !important;">
                         </a>
                         <div class="card-body" style="height: 88px">
                             <h4 class="card-title">{{$f -> vet_name}}</h4>
