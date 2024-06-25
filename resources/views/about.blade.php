@@ -31,16 +31,18 @@
     @include('layout/cart')
     <div class="content-container w-100 h-100">
         <section id="about">
-            <div class="about-1">
-                <h1 class="text-light">ABOUT US</h1>
-                <p class="text-light">Welcome to Pawsitive! We are a passionate team dedicated to revolutionizing the way veterinary practices connect with pet owners through innovative advertising solutions. <br>Founded with the belief that every pet deserves access to top-quality veterinary care, Pawsitive aims to bridge the gap between vets and the communities they serve.</p>
+            <div class="container">
+                <div class="about-1">
+                    <h1 class="text-light" style="margin-top: 100px;">ABOUT US</h1>
+                    <p class="fs-5 text-light">Welcome to Pawsitive! We are a passionate team dedicated to revolutionizing the way veterinary practices connect with pet owners through innovative advertising solutions. <br>Founded with the belief that every pet deserves access to top-quality veterinary care, Pawsitive aims to bridge the gap between vets and the communities they serve.</p>
+                </div>
             </div>
             <div id="about-2">
                 <div class="content-box-lg">
                     <div class="container">
                         <div class="row">
                             <div class="col-md-4">
-                                <div class="about-item text-center">
+                                <div class="about-item text-center bgteal">
                                     <i class="fa fa-book"></i>
                                     <h3>MISSION</h3>
                                     <hr>
@@ -49,7 +51,7 @@
                                 </div>
                             </div>
                             <div class="col-md-4">
-                                <div class="about-item text-center">
+                                <div class="about-item text-center bgteal">
                                     <i class="fa fa-globe"></i>
                                     <h3>VISION</h3>
                                     <hr>
@@ -58,7 +60,7 @@
                                 </div>
                             </div>
                             <div class="col-md-4">
-                                <div class="about-item text-center">
+                                <div class="about-item text-center bgteal">
                                     <i class="fa fa-pencil"></i>
                                     <h3>ACHIEVEMENTS</h3>
                                     <hr>
