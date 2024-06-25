@@ -15,11 +15,11 @@
                 <h2 class="fs-1">{{$dog->dog_name}}</h2>
                 <p class="">{{$dog->dog_desc}}</p>
             </div>
-            <div class="accordion mt-5 bsblack p-0 rounded" id="accordionExample">
+            <div class="accordion mt-5 bsblack p-0 rounded borange" id="accordionExample">
                 <div class="accordion-item">
                   <h2 class="accordion-header">
-                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#health" aria-expanded="true" aria-controls="health">
-                      Health
+                    <button class="accordion-button collapsed bgteal" type="button" data-bs-toggle="collapse" data-bs-target="#health" aria-expanded="false" aria-controls="health">
+                      <span><i class="fa-solid fa-notes-medical fa-2xl"></i> Health</span>
                     </button>
                   </h2>
                   <div id="health" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
@@ -30,8 +30,8 @@
                 </div>
                 <div class="accordion-item">
                   <h2 class="accordion-header">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#exercise" aria-expanded="false" aria-controls="exercise">
-                      Exercise
+                    <button class="accordion-button collapsed bgorange" type="button" data-bs-toggle="collapse" data-bs-target="#exercise" aria-expanded="false" aria-controls="exercise">
+                      <span><i class="fa-solid fa-dumbbell fa-2xl"></i> Exercise</span>
                     </button>
                   </h2>
                   <div id="exercise" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
@@ -42,8 +42,8 @@
                 </div>
                 <div class="accordion-item">
                   <h2 class="accordion-header">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#training" aria-expanded="false" aria-controls="training">
-                      Traiming
+                    <button class="accordion-button collapsed bgteal" type="button" data-bs-toggle="collapse" data-bs-target="#training" aria-expanded="false" aria-controls="training">
+                      <span><i class="fa-solid fa-dog fa-2xl"></i> Training</span>
                     </button>
                   </h2>
                   <div id="training" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
@@ -54,8 +54,8 @@
                 </div>
                 <div class="accordion-item">
                     <h2 class="accordion-header">
-                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#groom" aria-expanded="false" aria-controls="groom">
-                        Groom
+                      <button class="accordion-button collapsed bgorange" type="button" data-bs-toggle="collapse" data-bs-target="#groom" aria-expanded="false" aria-controls="groom">
+                        <span><i class="fa-solid fa-scissors fa-2xl"></i> Groom</span>
                       </button>
                     </h2>
                     <div id="groom" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
@@ -66,8 +66,8 @@
                   </div>
                   <div class="accordion-item">
                     <h2 class="accordion-header">
-                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nutrition" aria-expanded="false" aria-controls="nutrition">
-                        Nutrition
+                      <button class="accordion-button collapsed bgteal" type="button" data-bs-toggle="collapse" data-bs-target="#nutrition" aria-expanded="false" aria-controls="nutrition">
+                        <span><i class="fa-solid fa-shield-dog fa-2xl"></i> Nutrition</span>
                       </button>
                     </h2>
                     <div id="nutrition" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
@@ -77,7 +77,7 @@
                     </div>
                   </div>
               </div>
-              <div class="row mt-5 bteal bsblack">
+              <div class="row mt-5 m-0 p-0 bteal bsblack rounded">
                 <div class="col-12">
                     <h2 class="fs-1">Breed Traits & Characteristics</h2>
                 </div>

@@ -42,8 +42,11 @@
                                 <br>
                                 <div class="input-group mb-3">
                                     <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-lock"></i></span>
-                                    <input type="password" class="form-control" name="password" placeholder="Password" required>
+                                    <input type="password" class="form-control" name="password" placeholder="Password">
                                 </div>
+                                @error('password')
+                                    <span class="fs-9 text-danger"> {{$message}}</span>
+                                @enderror
                                 <hr>
                                 <input type="submit" class="btn bgorange w-100 signup-btn">
                             </form>

@@ -94,6 +94,9 @@ class DogsController extends Controller
         if (Session::has('id') && Session::get('role') == 0 || Session::get('role') == 3) {
             return redirect('/');
         }
+        elseif (Session::get('id') == null) {
+            return redirect('/');
+        }
         else {
             return view('edit-dogs', compact('dogs'));
         }
@@ -140,11 +143,25 @@ class DogsController extends Controller
         ->where('product_user_id', '=', Session::get('id'))
         ->get();
 
+        $showOrder = CartTable::query()
+        ->select('*')
+        ->where('product_user_id', '=', Session::get('id'))
+        ->where('zipcode', '=', null)
+        ->get();
+
         $dog = Dogs::query()
         ->select('*')
         ->paginate(18);
-        
-        return view('breeds', compact('dog', 'showCart'));
+
+        if (Session::has('id') && Session::get('role') == 0 || Session::get('role') == 3) {
+            return view('breeds', compact('dog', 'showCart', 'showOrder'));
+        }
+        elseif (Session::get('role') == 1) {
+            return redirect('/dogs-admin');
+        }
+        else {
+            return redirect('/');
+        }
     }
     public function breed_checker(string $letter){
         // $az = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
@@ -156,11 +173,25 @@ class DogsController extends Controller
                 ->select('*')
                 ->where('product_user_id', '=', Session::get('id'))
                 ->get();
+
+                $showOrder = CartTable::query()
+                ->select('*')
+                ->where('product_user_id', '=', Session::get('id'))
+                ->where('zipcode', '=', null)
+                ->get();
                 
                 $dog = Dogs::where('dog_name', 'like', $letter.'%')
                 ->paginate(9);
 
-                return view('breeds', compact('dog', 'showCart'));
+                if (Session::has('id') && Session::get('role') == 0 || Session::get('role') == 3) {
+                    return view('breeds', compact('dog', 'showCart', 'showOrder'));
+                }
+                elseif (Session::get('role') == 1) {
+                    return redirect('/dogs-admin');
+                }
+                else {
+                    return redirect('/');
+                }
         //     }
         //     else {
                 
@@ -173,10 +204,24 @@ class DogsController extends Controller
         ->where('product_user_id', '=', Session::get('id'))
         ->get();
 
+        $showOrder = CartTable::query()
+        ->select('*')
+        ->where('product_user_id', '=', Session::get('id'))
+        ->where('zipcode', '=', null)
+        ->get();
+
         $dog = Dogs::where('dog_name', '=', $name)
         ->get()
         ->first();
 
-        return view('specific-dog', compact('dog', 'showCart'));
+        if (Session::has('id') && Session::get('role') == 0 || Session::get('role') == 3) {
+            return view('specific-dog', compact('dog', 'showCart', 'showOrder'));
+        }
+        elseif (Session::get('role') == 1) {
+            return redirect('/dogs-admin');
+        }
+        else {
+            return redirect('/');
+        }
     }
 }

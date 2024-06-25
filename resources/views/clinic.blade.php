@@ -50,7 +50,6 @@
                         <div class="card-body" style="height: 88px;">
                             <h4 class="card-title">{{$f -> vet_name}}</h4>
                         </div>
-                        <div class="card-footer"></div>
                     </div>
                 </div>
             @endforeach

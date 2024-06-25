@@ -5,7 +5,7 @@
 </head>
 <body>
     @include('layout/nav')
-    <div class="container">
+    <div class="content pt-5">
         <div class="card">
             <div class="card-body">
                 <h1>Edit Dogs</h1>

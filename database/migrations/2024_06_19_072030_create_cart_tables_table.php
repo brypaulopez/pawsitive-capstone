@@ -18,6 +18,10 @@ return new class extends Migration
             $table->string('cart_price');
             $table->integer('cart_qty');
             $table->string('cart_image');
+            $table->string('cart_address');
+            $table->string('cart_city');
+            $table->string('cart_state');
+            $table->integer('zipcode');
             $table->timestamps();
         });
     }
