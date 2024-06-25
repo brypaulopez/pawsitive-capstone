@@ -46,7 +46,7 @@
                     <div class="card borange bgteal bsblack">
                         <a href="trainer/{{$f -> trainer_id}}">
                             <div class="card-body" style="height: 88px">
-                                <h4 class="card-title">{{$f -> fname}}{{$f -> lname}}</h4>
+                                <h4 class="card-title">{{$f -> first_name}}{{$f -> last_name}}</h4>
                             </div>
                         </a>
                     </div>
@@ -57,7 +57,7 @@
                     <div class="card borange bgteal bsblack">
                         <a href="trainer/{{$f -> trainer_id}}">
                             <div class="card-body" style="height: 88px">
-                                <h4 class="card-title">{{$f -> fname}}{{$f -> lname}}</h4>
+                                <h4 class="card-title">{{$f -> first_name}}{{$f -> last_name}}</h4>
                             </div>
                         </a>
                     </div>
@@ -72,7 +72,7 @@
                     <div class="card borange bgteal bsblack">
                         <a href="trainer/{{$f -> trainer_id}}">
                             <div class="card-body" style="height: 88px">
-                                <h4 class="card-title">{{$f -> fname}}{{$f -> lname}}</h4>
+                                <h4 class="card-title">{{$f -> first_name}}{{$f -> last_name}}</h4>
                             </div>
                         </a>
                     </div>
