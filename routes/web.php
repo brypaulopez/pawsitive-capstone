@@ -18,7 +18,7 @@ Route::get('/', function () {
         $showOrder = CartTable::query()
         ->select('*')
         ->where('product_user_id', '=', Session::get('id'))
-        ->where('zipcode', '=', null)
+        ->where('zipcode', '=', 0)
         ->get();
 
         $reviews = UserReview::all();
