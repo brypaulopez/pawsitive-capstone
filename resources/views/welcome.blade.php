@@ -205,19 +205,6 @@
                 </div>
             </div>
         </div>
-        {{-- be a partner & trainer --}}
-        <div class="container">
-            <div class="mt-5 row bteal bgorange text-center">
-                <div class="col-8 mt-3">
-                    <h2 class="mt-3">Sign Up Today!</h2>
-                    <p class="px-5">Join the Pawsitive family and experience the difference. Whether you're looking to provide the best care for your dog or expand your business as a partner, Pawsitive Precision is here to support you every step of the way.</p>
-                    <a href="/partnership" id="partnership" class="btn bgteal bwhite mt-3 fs-4">Be a partner now!</a>
-                </div>
-                <div class="col-4 text-center">
-                    <img src="img/group.png" alt="" class="w-75" style="">
-                </div>
-            </div>
-        </div>
         {{-- Footer --}}
         
         @else

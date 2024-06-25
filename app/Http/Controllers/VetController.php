@@ -203,19 +203,59 @@ class VetController extends Controller
     }
     public function selectN(){
         $package = 'n';
-        return view('create-partners', compact('package'));
+        $showCart = CartTable::query()
+        ->select('*')
+        ->where('product_user_id', '=', Session::get('id'))
+        ->get();
+
+        $showOrder = CartTable::query()
+        ->select('*')
+        ->where('product_user_id', '=', Session::get('id'))
+        ->where('zipcode', '=', null)
+        ->get();
+        return view('create-partners', compact('package', 'showCart', 'showOrder'));
     }
     public function selectA(){
         $package = 'a';
-        return view('create-partners', compact('package'));
+        $showCart = CartTable::query()
+        ->select('*')
+        ->where('product_user_id', '=', Session::get('id'))
+        ->get();
+
+        $showOrder = CartTable::query()
+        ->select('*')
+        ->where('product_user_id', '=', Session::get('id'))
+        ->where('zipcode', '=', null)
+        ->get();
+        return view('create-partners', compact('package', 'showCart', 'showOrder'));
     }
     public function selectB(){
         $package = 'b';
-        return view('create-partners', compact('package'));
+        $showCart = CartTable::query()
+        ->select('*')
+        ->where('product_user_id', '=', Session::get('id'))
+        ->get();
+
+        $showOrder = CartTable::query()
+        ->select('*')
+        ->where('product_user_id', '=', Session::get('id'))
+        ->where('zipcode', '=', null)
+        ->get();
+        return view('create-partners', compact('package', 'showCart', 'showOrder'));
     }
     public function selectC(){
         $package = 'c';
-        return view('create-partners', compact('package'));
+        $showCart = CartTable::query()
+        ->select('*')
+        ->where('product_user_id', '=', Session::get('id'))
+        ->get();
+
+        $showOrder = CartTable::query()
+        ->select('*')
+        ->where('product_user_id', '=', Session::get('id'))
+        ->where('zipcode', '=', null)
+        ->get();
+        return view('create-partners', compact('package', 'showCart', 'showOrder'));
     }
     // final creation with package selected
     public function create_vet(Request $v){
