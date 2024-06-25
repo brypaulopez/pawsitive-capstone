@@ -153,15 +153,82 @@
             </div>
         </div>
         {{-- Pawsitive TM --}}
-        <div class="row mt-5 text-center p-0 m-0">
-            <div class="col-12">
-                <h2 class="tteal strokeb" style="font-size: 50px">Four from Pawsitive Precision &trade;</h2>
-                <p>is our <b>Promise</b> to enrich the lives of our pets, our employees, our community and our world.</p>
-                <p>we believe products and companies (and should!) be a platform for positive </p>
+        <div class="container">
+            <div class="row mt-5 text-center p-0 m-0">
+                <div class="col-12 mt-5">
+                    <h2 class="tteal strokeb" style="font-size: 50px">Four from Pawsitive Precision &trade;</h2>
+                    <p class="px-5 fs-5">is our <b>Promise</b> to enrich the lives of our pets, our employees, our community and our world.</p>
+                    <p class="px-5 fs-5">we believe products and companies (and should!) be a platform for positive chagne we want to see in the world. This means reducing our impact, giving back to the community, and making sure our purpose gives more than it takes.</p>
+                </div>
+                <div class="row text-center mt-2">
+                    <div class="col-2"></div>
+                    <div class="col-4">
+                        <img src="/img/tread.png" alt="">
+                        <div><h2 class="fs-1 torange strokeb">Tread Lightly -></h2></div>
+                    </div>
+                    <div class="col-4 ">
+                        <img src="/img/commit.png" alt="">
+                        <div><h2 class="fs-1 torange strokeb">Commit Fully -></h2></div>
+                    </div>
+                    <div class="col-2"></div>
+                    <div class="col-2"></div>
+                    <div class="col-4 ">
+                        <img src="/img/design.png" alt="">
+                        <div><h2 class="fs-1 torange strokeb">Design Smart -></h2></div>
+                    </div>
+                    <div class="col-4 ">
+                        <img src="/img/give.png" alt="">
+                        <div><h2 class="fs-1 torange strokeb">Give Actively -></h2></div>
+                    </div>
+                    <div class="col-2"></div>
+                </div>
+            </div>
+            {{-- Our vision --}}
+            <div class="row mt-5">
+                <div class="col-6 mt-5">
+                    <img src="/img/vision.jpg" alt="" class="w-100 bsblack rounded">
+                </div>
+                <div class="col-6 text-center mt-5">
+                    <h2 class="fs-1 tteal">Our Vision</h2>
+                    <p class="mt-1 fs-5">Our vision is to become the leading platform for connecting veterinary practices with pet owners through innovative and impactful advertising solutions. We aspire to create a world where every pet has access to the highest quality veterinary care, and where vets can effortlessly reach and serve their communities. By leveraging the power of technology and partnerships, we aim to transform the landscape of pet healthcare, ensuring a brighter, healthier future for all pets and their families.</p>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-6 mt-5 text-center">
+                    <h2 class="fs-1 tteal">Our Mission</h2>
+                    <p class="mt-1 fs-5">
+                        Our mission is to bridge the gap between pet owners and veterinary professionals through innovative and effective advertising partnerships. We are dedicated to enhancing the visibility of veterinary practices, ensuring pet owners can easily find and access the best care for their furry friends. By fostering strong relationships between vets and the communities they serve, we strive to promote the health and well-being of all pets, making a pawsitive difference in their lives and the lives of their owners.
+                    </p>
+                </div>
+                <div class="col-6 mt-5">
+                    <img src="/img/mission.png" alt="" class="w-100 bsblack rounded">
+                </div>
             </div>
         </div>
-        {{-- Our vision --}}
-
+        {{-- be a partner & trainer --}}
+        <div class="container">
+            <div class="mt-5 row top bteal bgorange text-center">
+                <div class="col-8 mt-3">
+                    <h2 class="mt-3">Sign Up Today!</h2>
+                    <p class="px-5">Join the Pawsitive family and experience the difference. Whether you're looking to provide the best care for your dog or expand your business as a partner, Pawsitive Precision is here to support you every step of the way.</p>
+                    <a href="/partnership" id="partnership" class="btn bgteal bwhite mt-3 fs-4">Be a partner now!</a>
+                </div>
+                <div class="col-4 text-center">
+                    <img src="img/group.png" alt="" class="w-75" style="">
+                </div>
+            </div>
+            <div class="row bottom borange bgteal">
+                <div class="col-4 text-center pt-3">
+                    <img src="img/group-dog.png" alt="" class="w-75" style="">
+                </div>
+                <div class="col-8 mt-5 text-center">
+                    <h2 class="mt-4">Register Now!</h2>
+                    <p class="px-5">Join the Pawsitive Dog Care family and give your furry friend the best care possible. By signing up, you'll gain access to: <b> Premium Pet Products</b>, <b>Our Services</b>, & <b>Dog information</b></p>
+                    
+                    <a href="/signup" id="registration" class="btn bgorange bwhite mt-3 fs-4">Sign Up for an account!</a>
+                </div>
+            </div>
+        </div>
         {{-- Footer --}}
         
         @else

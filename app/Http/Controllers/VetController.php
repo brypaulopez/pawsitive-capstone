@@ -8,6 +8,7 @@ use App\Models\ProductTable;
 use App\Models\GroomTable;
 use App\Models\BoardingTable;
 use App\Models\UserTable;
+use App\Models\CartTable;
 use Session;
 use Illuminate\Support\Facades\Hash;
 
@@ -187,7 +188,18 @@ class VetController extends Controller
     }
     // select package
     public function select(){
-        return view('select-package');
+        $showCart = CartTable::query()
+        ->select('*')
+        ->where('product_user_id', '=', Session::get('id'))
+        ->get();
+
+        $showOrder = CartTable::query()
+        ->select('*')
+        ->where('product_user_id', '=', Session::get('id'))
+        ->where('zipcode', '=', null)
+        ->get();
+
+        return view('select-package', compact('showCart', 'showOrder'));
     }
     public function selectN(){
         $package = 'n';

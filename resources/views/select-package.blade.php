@@ -79,6 +79,7 @@
         </div>
     @else
         @include('layout/nav')
+        @include('layout/cart')
         <div class="container">
             <h2 class="mt-5">Note: After selecting a package you are required to pay the membership fee before proceeding. Thanks!</h2>
             <div class="row mt-4">
@@ -151,5 +152,6 @@
             </div>
         </div>
     @endif
+    @include('layout/script')
 </body>
 </html>

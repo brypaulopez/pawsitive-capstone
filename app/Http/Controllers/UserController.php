@@ -211,13 +211,19 @@ class UserController extends Controller
         ->get()
         ->first();
 
+        $showOrder = CartTable::query()
+        ->select('*')
+        ->where('product_user_id', '=', Session::get('id'))
+        ->where('zipcode', '=', null)
+        ->get();
+
         $showCart = CartTable::query()
         ->select('*')
         ->where('product_user_id', '=', Session::get('id'))
         ->get();
         
         if (Session::has('id') && Session::get('role') == 0 || Session::get('role') == 3) {
-            return view('view-product', compact('product', 'showCart'));
+            return view('view-product', compact('product', 'showCart', 'showOrder'));
         }
         elseif (Session::get('role') == 1) {
             return redirect('/dogs-admin');
@@ -233,11 +239,17 @@ class UserController extends Controller
         ->where('product_user_id', '=', Session::get('id'))
         ->get();
 
+        $showOrder = CartTable::query()
+        ->select('*')
+        ->where('product_user_id', '=', Session::get('id'))
+        ->where('zipcode', '=', null)
+        ->get();
+
         $foods = ProductTable::where('product_category', '=', 'foods')
         ->paginate(8);
 
         if (Session::has('id') && Session::get('role') == 0 || Session::get('role') == 3) {
-            return view("food", compact('showCart', 'foods'));
+            return view("food", compact('showCart', 'foods', 'showOrder'));
         }
         elseif (Session::get('role') == 1) {
             return redirect('/dogs-admin');
@@ -253,11 +265,17 @@ class UserController extends Controller
         ->where('product_user_id', '=', Session::get('id'))
         ->get();
 
+        $showOrder = CartTable::query()
+        ->select('*')
+        ->where('product_user_id', '=', Session::get('id'))
+        ->where('zipcode', '=', null)
+        ->get();
+
         $medicines = ProductTable::where('product_category', '=', 'medicines')
         ->paginate(8);
 
         if (Session::has('id') && Session::get('role') == 0 || Session::get('role') == 3) {
-            return view("medicines", compact('showCart', 'medicines'));
+            return view("medicines", compact('showCart', 'medicines', 'showOrder'));
         }
         elseif (Session::get('role') == 1) {
             return redirect('/dogs-admin');
@@ -273,11 +291,17 @@ class UserController extends Controller
         ->where('product_user_id', '=', Session::get('id'))
         ->get();
 
+        $showOrder = CartTable::query()
+        ->select('*')
+        ->where('product_user_id', '=', Session::get('id'))
+        ->where('zipcode', '=', null)
+        ->get();
+
         $grooming = ProductTable::where('product_category', '=', 'grooming')
         ->paginate(8);
 
         if (Session::has('id') && Session::get('role') == 0 || Session::get('role') == 3) {
-            return view("grooming", compact('showCart', 'grooming'));
+            return view("grooming", compact('showCart', 'grooming', 'showOrder'));
         }
         elseif (Session::get('role') == 1) {
             return redirect('/dogs-admin');
@@ -293,11 +317,17 @@ class UserController extends Controller
         ->where('product_user_id', '=', Session::get('id'))
         ->get();
 
+        $showOrder = CartTable::query()
+        ->select('*')
+        ->where('product_user_id', '=', Session::get('id'))
+        ->where('zipcode', '=', null)
+        ->get();
+
         $accessories = ProductTable::where('product_category', '=', 'accessories')
         ->paginate(8);
 
         if (Session::has('id') && Session::get('role') == 0 || Session::get('role') == 3) {
-            return view("accessories", compact('showCart', 'accessories'));
+            return view("accessories", compact('showCart', 'accessories', 'showOrder'));
         }
         elseif (Session::get('role') == 1) {
             return redirect('/dogs-admin');
@@ -312,6 +342,12 @@ class UserController extends Controller
         ->where('product_user_id', '=', Session::get('id'))
         ->get();
 
+        $showOrder = CartTable::query()
+        ->select('*')
+        ->where('product_user_id', '=', Session::get('id'))
+        ->where('zipcode', '=', null)
+        ->get();
+
         $city = VetTable::query()
         ->select('*')
         ->where('vet_city', '!=' ,'NA')
@@ -322,7 +358,7 @@ class UserController extends Controller
         ->where('vet_municipality', '!=' ,'NA')
         ->get();
 
-        return view('search-clinic', compact('showCart', 'city', 'municipality'));
+        return view('search-clinic', compact('showCart', 'city', 'municipality', 'showOrder'));
     }
     public function clinic(Request $request){
         $showCart = CartTable::query()
@@ -338,6 +374,12 @@ class UserController extends Controller
         $municipality = VetTable::query()
         ->select('*')
         ->where('vet_municipality', '!=' ,'NA')
+        ->get();
+
+        $showOrder = CartTable::query()
+        ->select('*')
+        ->where('product_user_id', '=', Session::get('id'))
+        ->where('zipcode', '=', null)
         ->get();
 
         $input = $request->input('city');
@@ -390,7 +432,7 @@ class UserController extends Controller
         ->get();
 
         if (Session::has('id') && Session::get('role') == 0 || Session::get('role') == 3) {
-            return view('clinic', compact('showCart', 'city', 'filterC', 'filteredC', 'countC', 'countM', 'municipality', 'filterM', 'filteredM', 'filterGC', 'filterGM', 'filteredGC', 'filteredGM'));
+            return view('clinic', compact('showCart', 'city', 'filterC', 'filteredC', 'countC', 'countM', 'municipality', 'filterM', 'filteredM', 'filterGC', 'filterGM', 'filteredGC', 'filteredGM', 'showOrder'));
         }
         elseif (Session::get('role') == 1) {
             return redirect('/dogs-admin');
@@ -405,6 +447,12 @@ class UserController extends Controller
         ->where('product_user_id', '=', Session::get('id'))
         ->get();
 
+        $showOrder = CartTable::query()
+        ->select('*')
+        ->where('product_user_id', '=', Session::get('id'))
+        ->where('zipcode', '=', null)
+        ->get();
+
         $city = VetTable::query()
         ->select('*')
         ->where('vet_city', '!=' ,'NA')
@@ -415,12 +463,18 @@ class UserController extends Controller
         ->where('vet_municipality', '!=' ,'NA')
         ->get();
 
-        return view('search-grooming', compact('showCart', 'city', 'municipality'));
+        return view('search-grooming', compact('showCart', 'city', 'municipality', 'showOrder'));
     }
     public function groom(Request $request){
         $showCart = CartTable::query()
         ->select('*')
         ->where('product_user_id', '=', Session::get('id'))
+        ->get();
+
+        $showOrder = CartTable::query()
+        ->select('*')
+        ->where('product_user_id', '=', Session::get('id'))
+        ->where('zipcode', '=', null)
         ->get();
 
         $city = VetTable::query()
@@ -489,7 +543,7 @@ class UserController extends Controller
         ->get();
 
         if (Session::has('id') && Session::get('role') == 0 || Session::get('role') == 3) {
-            return view('groom', compact('showCart', 'city', 'filterC', 'filteredC', 'countC', 'countM', 'municipality', 'filterM', 'filteredM', 'filterGC', 'filterGM', 'cityG', 'municipalityG'));
+            return view('groom', compact('showCart', 'city', 'filterC', 'filteredC', 'countC', 'countM', 'municipality', 'filterM', 'filteredM', 'filterGC', 'filterGM', 'cityG', 'municipalityG', 'showOrder'));
         }
         elseif (Session::get('role') == 1) {
             return redirect('/dogs-admin');
@@ -504,6 +558,12 @@ class UserController extends Controller
         ->where('product_user_id', '=', Session::get('id'))
         ->get();
 
+        $showOrder = CartTable::query()
+        ->select('*')
+        ->where('product_user_id', '=', Session::get('id'))
+        ->where('zipcode', '=', null)
+        ->get();
+
         $city = VetTable::query()
         ->select('*')
         ->where('vet_city', '!=' ,'NA')
@@ -514,12 +574,18 @@ class UserController extends Controller
         ->where('vet_municipality', '!=' ,'NA')
         ->get();
 
-        return view('search-boarding', compact('showCart', 'city', 'municipality'));
+        return view('search-boarding', compact('showCart', 'city', 'municipality', 'showOrder'));
     }
     public function board(Request $request){
         $showCart = CartTable::query()
         ->select('*')
         ->where('product_user_id', '=', Session::get('id'))
+        ->get();
+
+        $showOrder = CartTable::query()
+        ->select('*')
+        ->where('product_user_id', '=', Session::get('id'))
+        ->where('zipcode', '=', null)
         ->get();
 
         $city = VetTable::query()
@@ -588,7 +654,7 @@ class UserController extends Controller
         ->get();
 
         if (Session::has('id') && Session::get('role') == 0 || Session::get('role') == 3) {
-            return view('board', compact('showCart', 'city', 'filterC', 'filteredC', 'countC', 'countM', 'municipality', 'filterM', 'filteredM', 'filterBC', 'filterBM', 'municipalityB', 'cityB'));
+            return view('board', compact('showCart', 'city', 'filterC', 'filteredC', 'countC', 'countM', 'municipality', 'filterM', 'filteredM', 'filterBC', 'filterBM', 'municipalityB', 'cityB', 'showOrder'));
         }
         elseif (Session::get('role') == 1) {
             return redirect('/dogs-admin');
@@ -603,8 +669,14 @@ class UserController extends Controller
         ->where('product_user_id', '=', Session::get('id'))
         ->get();
 
+        $showOrder = CartTable::query()
+        ->select('*')
+        ->where('product_user_id', '=', Session::get('id'))
+        ->where('zipcode', '=', null)
+        ->get();
+
         if (Session::has('id') && Session::get('role') == 0 || Session::get('role') == 3) {
-            return view('user-profile', compact('showCart'));
+            return view('user-profile', compact('showCart', 'showOrder'));
         }
         elseif (Session::get('role') == 1) {
             return redirect('/dogs-admin');
@@ -618,6 +690,12 @@ class UserController extends Controller
         $showCart = CartTable::query()
         ->select('*')
         ->where('product_user_id', '=', Session::get('id'))
+        ->get();
+
+        $showOrder = CartTable::query()
+        ->select('*')
+        ->where('product_user_id', '=', Session::get('id'))
+        ->where('zipcode', '=', null)
         ->get();
 
         request()->validate([
