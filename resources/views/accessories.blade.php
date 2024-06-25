@@ -8,7 +8,7 @@
     @include('layout/cart')
     <div class="container mt-5">
         <div class="row text-center rounded">
-            <img src="/img/acc-banner.webp" alt="" class="w-100 rounded-pill p-0 bteal">
+            <img src="/img/acc-banner.jpg" alt="" class="w-100 rounded-pill p-0 bteal">
         </div>
         <div class="row text-center mt-3" style="margin: auto;">
           <div class="col-1"></div>

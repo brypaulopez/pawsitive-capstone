@@ -9,7 +9,7 @@
     {{-- body --}}
     <div class="container mt-5">
       <div class="row text-center rounded">
-          <img src="/img/products-banner.webp" alt="" class="w-100 rounded-pill borange p-0">
+          <img src="/img/product-banner.png" alt="" class="w-100 rounded-pill borange p-0">
       </div>
       <div class="row text-center mt-3" style="margin: auto;">
           <div class="col-1"></div>
