@@ -133,7 +133,7 @@ class UserController extends Controller
         $showOrder = CartTable::query()
         ->select('*')
         ->where('product_user_id', '=', Session::get('id'))
-        ->where('zipcode', '!=', null)
+        ->where('zipcode', '=', 0)
         ->get();
 
         if (Session::has('id') && Session::get('role') == 0 || Session::get('role') == 3) {
@@ -157,7 +157,7 @@ class UserController extends Controller
 
         if ($qty > $product->product_stock) {
             toastr()->error('You exceed the amount of quantity available!');
-            return back();
+            return redirect('/products');
         } else {
             $cart->product_user_id = Session::get('id');
             $cart->cart_name = $product->product_name;
@@ -215,7 +215,7 @@ class UserController extends Controller
         $showOrder = CartTable::query()
         ->select('*')
         ->where('product_user_id', '=', Session::get('id'))
-        ->where('zipcode', '=', null)
+        ->where('zipcode', '=', 0)
         ->get();
 
         $showCart = CartTable::query()
@@ -243,7 +243,7 @@ class UserController extends Controller
         $showOrder = CartTable::query()
         ->select('*')
         ->where('product_user_id', '=', Session::get('id'))
-        ->where('zipcode', '=', null)
+        ->where('zipcode', '=', 0)
         ->get();
 
         $foods = ProductTable::where('product_category', '=', 'foods')
@@ -269,7 +269,7 @@ class UserController extends Controller
         $showOrder = CartTable::query()
         ->select('*')
         ->where('product_user_id', '=', Session::get('id'))
-        ->where('zipcode', '=', null)
+        ->where('zipcode', '=', 0)
         ->get();
 
         $medicines = ProductTable::where('product_category', '=', 'medicines')
@@ -295,7 +295,7 @@ class UserController extends Controller
         $showOrder = CartTable::query()
         ->select('*')
         ->where('product_user_id', '=', Session::get('id'))
-        ->where('zipcode', '=', null)
+        ->where('zipcode', '=', 0)
         ->get();
 
         $grooming = ProductTable::where('product_category', '=', 'grooming')
@@ -321,7 +321,7 @@ class UserController extends Controller
         $showOrder = CartTable::query()
         ->select('*')
         ->where('product_user_id', '=', Session::get('id'))
-        ->where('zipcode', '=', null)
+        ->where('zipcode', '=', 0)
         ->get();
 
         $accessories = ProductTable::where('product_category', '=', 'accessories')
@@ -346,7 +346,7 @@ class UserController extends Controller
         $showOrder = CartTable::query()
         ->select('*')
         ->where('product_user_id', '=', Session::get('id'))
-        ->where('zipcode', '=', null)
+        ->where('zipcode', '=', 0)
         ->get();
 
         $city = VetTable::query()
@@ -380,7 +380,7 @@ class UserController extends Controller
         $showOrder = CartTable::query()
         ->select('*')
         ->where('product_user_id', '=', Session::get('id'))
-        ->where('zipcode', '=', null)
+        ->where('zipcode', '=', 0)
         ->get();
 
         $input = $request->input('city');
@@ -452,7 +452,7 @@ class UserController extends Controller
         $showOrder = CartTable::query()
         ->select('*')
         ->where('product_user_id', '=', Session::get('id'))
-        ->where('zipcode', '=', null)
+        ->where('zipcode', '=', 0)
         ->get();
 
         $clinic = Map::query()
@@ -473,7 +473,7 @@ class UserController extends Controller
         $showOrder = CartTable::query()
         ->select('*')
         ->where('product_user_id', '=', Session::get('id'))
-        ->where('zipcode', '=', null)
+        ->where('zipcode', '=', 0)
         ->get();
 
         $city = VetTable::query()
@@ -497,7 +497,7 @@ class UserController extends Controller
         $showOrder = CartTable::query()
         ->select('*')
         ->where('product_user_id', '=', Session::get('id'))
-        ->where('zipcode', '=', null)
+        ->where('zipcode', '=', 0)
         ->get();
 
         $city = VetTable::query()
@@ -584,7 +584,7 @@ class UserController extends Controller
         $showOrder = CartTable::query()
         ->select('*')
         ->where('product_user_id', '=', Session::get('id'))
-        ->where('zipcode', '=', null)
+        ->where('zipcode', '=', 0)
         ->get();
 
         $groom = Map::query()
@@ -609,7 +609,7 @@ class UserController extends Controller
         $showOrder = CartTable::query()
         ->select('*')
         ->where('product_user_id', '=', Session::get('id'))
-        ->where('zipcode', '=', null)
+        ->where('zipcode', '=', 0)
         ->get();
 
         $city = VetTable::query()
@@ -633,7 +633,7 @@ class UserController extends Controller
         $showOrder = CartTable::query()
         ->select('*')
         ->where('product_user_id', '=', Session::get('id'))
-        ->where('zipcode', '=', null)
+        ->where('zipcode', '=', 0)
         ->get();
 
         $city = VetTable::query()
@@ -720,7 +720,7 @@ class UserController extends Controller
         $showOrder = CartTable::query()
         ->select('*')
         ->where('product_user_id', '=', Session::get('id'))
-        ->where('zipcode', '=', null)
+        ->where('zipcode', '=', 0)
         ->get();
 
         $board = Map::query()
@@ -745,7 +745,7 @@ class UserController extends Controller
         $showOrder = CartTable::query()
         ->select('*')
         ->where('product_user_id', '=', Session::get('id'))
-        ->where('zipcode', '=', null)
+        ->where('zipcode', '=', 0)
         ->get();
 
         if (Session::has('id') && Session::get('role') == 0 || Session::get('role') == 3) {
@@ -768,7 +768,7 @@ class UserController extends Controller
         $showOrder = CartTable::query()
         ->select('*')
         ->where('product_user_id', '=', Session::get('id'))
-        ->where('zipcode', '=', null)
+        ->where('zipcode', '=', 0)
         ->get();
 
         request()->validate([
@@ -792,7 +792,7 @@ class UserController extends Controller
         $showOrder = CartTable::query()
         ->select('*')
         ->where('product_user_id', '=', Session::get('id'))
-        ->where('zipcode', '=', null)
+        ->where('zipcode', '=', 0)
         ->get();
 
         return view('about', compact('showCart', 'showOrder'));

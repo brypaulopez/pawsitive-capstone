@@ -68,7 +68,7 @@ class ProductController extends Controller
         $showOrder = CartTable::query()
         ->select('*')
         ->where('product_user_id', '=', Session::get('id'))
-        ->where('zipcode', '=', null)
+        ->where('zipcode', '=', 0)
         ->get();
 
         $city = VetTable::query()
@@ -92,7 +92,7 @@ class ProductController extends Controller
         $showOrder = CartTable::query()
         ->select('*')
         ->where('product_user_id', '=', Session::get('id'))
-        ->where('zipcode', '=', null)
+        ->where('zipcode', '=', 0)
         ->get();
 
         $city = VetTable::query()

@@ -146,7 +146,7 @@ class DogsController extends Controller
         $showOrder = CartTable::query()
         ->select('*')
         ->where('product_user_id', '=', Session::get('id'))
-        ->where('zipcode', '=', null)
+        ->where('zipcode', '=', 0)
         ->get();
 
         $dog = Dogs::query()
@@ -177,7 +177,7 @@ class DogsController extends Controller
                 $showOrder = CartTable::query()
                 ->select('*')
                 ->where('product_user_id', '=', Session::get('id'))
-                ->where('zipcode', '=', null)
+                ->where('zipcode', '=', 0)
                 ->get();
                 
                 $dog = Dogs::where('dog_name', 'like', $letter.'%')
@@ -207,7 +207,7 @@ class DogsController extends Controller
         $showOrder = CartTable::query()
         ->select('*')
         ->where('product_user_id', '=', Session::get('id'))
-        ->where('zipcode', '=', null)
+        ->where('zipcode', '=', 0)
         ->get();
 
         $dog = Dogs::where('dog_name', '=', $name)

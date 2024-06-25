@@ -196,7 +196,7 @@ class VetController extends Controller
         $showOrder = CartTable::query()
         ->select('*')
         ->where('product_user_id', '=', Session::get('id'))
-        ->where('zipcode', '=', null)
+        ->where('zipcode', '=', 0)
         ->get();
 
         return view('select-package', compact('showCart', 'showOrder'));
@@ -211,7 +211,7 @@ class VetController extends Controller
         $showOrder = CartTable::query()
         ->select('*')
         ->where('product_user_id', '=', Session::get('id'))
-        ->where('zipcode', '=', null)
+        ->where('zipcode', '=', 0)
         ->get();
         return view('create-partners', compact('package', 'showCart', 'showOrder'));
     }
@@ -225,7 +225,7 @@ class VetController extends Controller
         $showOrder = CartTable::query()
         ->select('*')
         ->where('product_user_id', '=', Session::get('id'))
-        ->where('zipcode', '=', null)
+        ->where('zipcode', '=', 0)
         ->get();
         return view('create-partners', compact('package', 'showCart', 'showOrder'));
     }
@@ -239,7 +239,7 @@ class VetController extends Controller
         $showOrder = CartTable::query()
         ->select('*')
         ->where('product_user_id', '=', Session::get('id'))
-        ->where('zipcode', '=', null)
+        ->where('zipcode', '=', 0)
         ->get();
         return view('create-partners', compact('package', 'showCart', 'showOrder'));
     }
@@ -253,7 +253,7 @@ class VetController extends Controller
         $showOrder = CartTable::query()
         ->select('*')
         ->where('product_user_id', '=', Session::get('id'))
-        ->where('zipcode', '=', null)
+        ->where('zipcode', '=', 0)
         ->get();
         return view('create-partners', compact('package', 'showCart', 'showOrder'));
     }
