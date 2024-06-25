@@ -30,7 +30,7 @@
                             </select>
                         </div>
                         <div class="col-6 mt-3 mb-5">
-                            <input type="submit" class="btn bgteal w-100" id="" value="Find a Clinic">
+                            <input type="submit" class="btn bgteal w-100" id="" value="Find a Vet Boarding">
                         </div>
                     </div>
                 </form>
@@ -44,7 +44,7 @@
             @foreach ($filterBC as $f)
                 <div class="col-4">
                     <div class="card borange bgteal bsblack">
-                        <a href="clinic/{{$f -> vet_id}}">
+                        <a href="board/{{$f -> vet_id}}">
                             <img src="/img/vets/{{$f -> vet_image}}" class="card-img-top" alt="">
                         </a>
                         <div class="card-body" style="height: 88px">
@@ -56,7 +56,7 @@
             @foreach ($filterBM as $f)
                 <div class="col-4">
                     <div class="card borange bgteal bsblack">
-                        <a href="clinic/{{$f -> vet_id}}">
+                        <a href="board/{{$f -> vet_id}}">
                             <img src="/img/vets/{{$f -> vet_image}}" class="card-img-top" alt="">
                         </a>
                         <div class="card-body" style="height: 88px">
@@ -72,7 +72,7 @@
             @foreach ($filterBM as $f)
                 <div class="col-4">
                     <div class="card borange bgteal bsblack">
-                        <a href="clinic/{{$f -> vet_id}}">
+                        <a href="board/{{$f -> vet_id}}">
                             <img src="/img/vets/{{$f -> vet_image}}" class="card-img-top" alt="">
                         </a>
                         <div class="card-body" style="height: 88px">
@@ -87,7 +87,7 @@
             </div>
             @foreach ($filterBC as $f)
                 <div class="col-4">
-                    <a href="clinic/{{$f -> vet_id}}">
+                    <a href="board/{{$f -> vet_id}}">
                         <img src="/img/vets/{{$f -> vet_image}}" class="card-img-top" alt="">
                     </a>
                     <div class="card borange bgteal bsblack">
@@ -104,7 +104,7 @@
                 @foreach ($cityB as $f)
                 <div class="col-4">
                     <div class="card borange bgteal bsblack">
-                        <a href="clinic/{{$f -> vet_id}}">
+                        <a href="board/{{$f -> vet_id}}">
                             <img src="/img/vets/{{$f -> vet_image}}" class="card-img-top" alt="">
                         </a>
                         <div class="card-body" style="height: 88px">
@@ -116,7 +116,7 @@
             @foreach ($municipalityB as $f)
                 <div class="col-4">
                     <div class="card borange bgteal bsblack">
-                        <a href="clinic/{{$f -> vet_id}}">
+                        <a href="board/{{$f -> vet_id}}">
                             <img src="/img/vets/{{$f -> vet_image}}" class="card-img-top" alt="">
                         </a>
                         <div class="card-body" style="height: 88px">

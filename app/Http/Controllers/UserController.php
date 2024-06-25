@@ -6,6 +6,7 @@ use App\Models\Dogs;
 use App\Models\ProductTable;
 use App\Models\CartTable;
 use App\Models\VetTable;
+use App\Models\Map;
 use App\Models\UserReview;
 
 use Illuminate\Http\Request;
@@ -441,6 +442,28 @@ class UserController extends Controller
             return redirect('/');
         }
     }
+    // specific clinic
+    public function specific_clinic(string $id){
+        $showCart = CartTable::query()
+        ->select('*')
+        ->where('product_user_id', '=', Session::get('id'))
+        ->get();
+
+        $showOrder = CartTable::query()
+        ->select('*')
+        ->where('product_user_id', '=', Session::get('id'))
+        ->where('zipcode', '=', null)
+        ->get();
+
+        $clinic = Map::query()
+        ->select('*')
+        ->join('vet_tables', 'map_vet_id', '=', 'vet_tables.vet_id')
+        ->where('map_vet_id', '=', $id)
+        ->get()
+        ->first();
+
+        return view('specific-clinic', compact('showCart', 'showOrder', 'clinic'));
+    }
     public function search_grooming(Request $request){
         $showCart = CartTable::query()
         ->select('*')
@@ -552,6 +575,31 @@ class UserController extends Controller
             return redirect('/');
         }
     }
+    public function specific_groom(string $id){
+        $showCart = CartTable::query()
+        ->select('*')
+        ->where('product_user_id', '=', Session::get('id'))
+        ->get();
+
+        $showOrder = CartTable::query()
+        ->select('*')
+        ->where('product_user_id', '=', Session::get('id'))
+        ->where('zipcode', '=', null)
+        ->get();
+
+        $groom = Map::query()
+        ->select('*')
+        ->join('groom_tables', 'map_vet_id', '=', 'groom_tables.groom_vet_id')
+        ->where('map_vet_id', '=', $id)
+        ->get()
+        ->first();
+
+        $clinic = VetTable::where('vet_id', $id)
+        ->get()
+        ->first();
+
+        return view('specific-groom', compact('showCart', 'showOrder', 'groom', 'clinic'));
+    }
     public function search_boarding(){
         $showCart = CartTable::query()
         ->select('*')
@@ -662,6 +710,31 @@ class UserController extends Controller
         else {
             return redirect('/');
         }
+    }
+    public function specific_board(string $id){
+        $showCart = CartTable::query()
+        ->select('*')
+        ->where('product_user_id', '=', Session::get('id'))
+        ->get();
+
+        $showOrder = CartTable::query()
+        ->select('*')
+        ->where('product_user_id', '=', Session::get('id'))
+        ->where('zipcode', '=', null)
+        ->get();
+
+        $board = Map::query()
+        ->select('*')
+        ->join('boarding_tables', 'map_vet_id', '=', 'boarding_tables.board_vet_id')
+        ->where('map_vet_id', '=', $id)
+        ->get()
+        ->first();
+
+        $clinic = VetTable::where('vet_id', $id)
+        ->get()
+        ->first();
+
+        return view('specific-board', compact('showCart', 'showOrder', 'board', 'clinic'));
     }
     public function user_profile(){
         $showCart = CartTable::query()
