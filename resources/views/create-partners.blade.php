@@ -4,9 +4,14 @@
     @include('layout/head')
 </head>
 <body>
-    @include('layout/nav')
+    @if (Session::get('role') == 1)
+        @include('layout/admin-nav')
+    @else
+        @include('layout/nav')
+    @endif
     {{-- NO --}}
     @if ($package == 'n')
+    <div class="content pt-5">
     <h1>Input Vet Clinic Details - You are purchasing Membership only</h1>
     @if (Session::has('id'))
         <form action="/vet-admin" method="POST" enctype="multipart/form-data">
@@ -64,6 +69,7 @@
         </div>
         <input type="submit" class="btn bgteal w-100">
     </form>
+    </div>
     {{-- A --}}
     @elseif ($package == 'a')
     <h1>Input Vet Clinic Details - You are purchasing Package A</h1>

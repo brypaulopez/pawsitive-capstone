@@ -1,5 +1,5 @@
 let num = 1;
-cartQty = document.getElementById("cart-qty").value;
+cartQty = document.getElementById("cart-qty").value
 function magnify(imgID, zoom) {
     var img, glass, w, h, bw;
     img = document.getElementById(imgID);

@@ -24,13 +24,16 @@
                         </div>
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-lock"></i></span>
-                            <input type="password" class="form-control" name="password" placeholder="Password" required>
+                            <input type="password" class="form-control" name="password" placeholder="Password">
                         </div>
-                        <div class="row">
+                        @error('password')
+                            <span class="fs-9 text-danger"> {{$message}}</span>
+                        @enderror
+                        {{-- <div class="row">
                             <div class="col-4"><input type="checkbox" name="remember" id=""> <span> Remember me</span></div>
                             <div class="col-4"></div>
                             <div class="col-4"><a href="#">Forgot password?</a></div>
-                        </div>
+                        </div> --}}
                         <div class="row mt-5 text-center">
                             <div class="col-2"></div>
                             <div class="col-4"><input type="submit" class="btn bgteal twhite w-100 login-btn" value="Login"></div>

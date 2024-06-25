@@ -18,7 +18,15 @@ class VetController extends Controller
         ->select('*')
         ->paginate(8);
 
-        return view('vet-admin', compact('vet'));
+        if (Session::has('id') && Session::get('role') == 0 || Session::get('role') == 3) {
+            return redirect('/');
+        }
+        elseif (Session::get('id') == null) {
+            return redirect('/');
+        }
+        else {
+            return view('vet-admin', compact('vet'));
+        }
     }
     public function view(Request $d, string $id){
         $vet = VetTable::query()
@@ -153,7 +161,15 @@ class VetController extends Controller
         ->get()
         ->first();
 
-        return view('edit-products', compact('products', 'vet'));
+        if (Session::has('id') && Session::get('role') == 0 || Session::get('role') == 3) {
+            return redirect('/');
+        }
+        elseif (Session::get('id') == null) {
+            return redirect('/');
+        }
+        else {
+            return view('edit-products', compact('products', 'vet'));
+        }
     }
     // update products
     public function update_products(Request $p, string $id){
@@ -282,7 +298,15 @@ class VetController extends Controller
         ->get()
         ->first();
 
-        return view('add-groom', compact('vet'));
+        if (Session::has('id') && Session::get('role') == 0 || Session::get('role') == 3) {
+            return redirect('/');
+        }
+        elseif (Session::get('id') == null) {
+            return redirect('/');
+        }
+        else {
+            return view('add-groom', compact('vet'));
+        }
     }
     // create groom - final
     public function createG(Request $g, string $id){
@@ -322,7 +346,15 @@ class VetController extends Controller
         ->get()
         ->first();
 
-        return view('edit-groom', compact('groom', 'vet'));
+        if (Session::has('id') && Session::get('role') == 0 || Session::get('role') == 3) {
+            return redirect('/');
+        }
+        elseif (Session::get('id') == null) {
+            return redirect('/');
+        }
+        else {
+            return view('edit-groom', compact('groom', 'vet'));
+        }
     }
     // update groom = final
     public function updateG(Request $g, string $id){
@@ -349,7 +381,15 @@ class VetController extends Controller
         ->get()
         ->first();
 
-        return view('add-board', compact('vet'));
+        if (Session::has('id') && Session::get('role') == 0 || Session::get('role') == 3) {
+            return redirect('/');
+        }
+        elseif (Session::get('id') == null) {
+            return redirect('/');
+        }
+        else {
+            return view('add-board', compact('vet'));
+        }
     }
     // create boarding - final
     public function createB(Request $b, string $id){
@@ -389,7 +429,15 @@ class VetController extends Controller
         ->get()
         ->first();
 
-        return view('edit-board', compact('board', 'vet'));
+        if (Session::has('id') && Session::get('role') == 0 || Session::get('role') == 3) {
+            return redirect('/');
+        }
+        elseif (Session::get('id') == null) {
+            return redirect('/');
+        }
+        else {
+            return view('edit-board', compact('board', 'vet'));
+        }
     }
     // update board = final
     public function updateB(Request $b, string $id){

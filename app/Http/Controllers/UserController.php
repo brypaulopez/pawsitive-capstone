@@ -32,6 +32,10 @@ class UserController extends Controller
     public function signup(Request $request){
         $user = new UserTable;
 
+        request()->validate([
+            'password' => 'required'
+        ]);
+
         $user->user_fname = $request->input('fname');
         $user->user_lname = $request->input('lname');
         $user->user_email = $request->input('email');
@@ -54,6 +58,12 @@ class UserController extends Controller
         }
     }
     public function login(Request $request){
+
+        request()->validate([
+            'password' => 'required',
+            'uname' => 'required'
+        ]);
+
         $user = UserTable::where('user_username', '=', $request->uname)->first();
         if ($user) {
             if ($user->user_username == 'admin' && Hash::check($request->password,$user->user_password)) {
@@ -99,7 +109,15 @@ class UserController extends Controller
         return redirect('/login');
     }
     public function view_services(){
-        return view("services");
+        if (Session::has('id') && Session::get('role') == 0 || Session::get('role') == 3) {
+            return view("services");
+        }
+        elseif (Session::get('role') == 1) {
+            return redirect('/dogs-admin');
+        }
+        else {
+            return redirect('/');
+        }
     }
     public function view_products(){
         $products = ProductTable::query()
@@ -111,7 +129,21 @@ class UserController extends Controller
         ->where('product_user_id', '=', Session::get('id'))
         ->get();
 
-        return view("products", compact('products', 'showCart'));
+        $showOrder = CartTable::query()
+        ->select('*')
+        ->where('product_user_id', '=', Session::get('id'))
+        ->where('zipcode', '!=', null)
+        ->get();
+
+        if (Session::has('id') && Session::get('role') == 0 || Session::get('role') == 3) {
+            return view("products", compact('products', 'showCart', 'showOrder'));
+        }
+        elseif (Session::get('role') == 1) {
+            return redirect('/dogs-admin');
+        }
+        else {
+            return redirect('/');
+        }
     }
     public function cart(Request $c, string $id){
         // IF ELSE qty > current stock = error
@@ -131,6 +163,10 @@ class UserController extends Controller
             $cart->cart_price = $product->product_price;
             $cart->cart_qty = $c->input('quantity');
             $cart->cart_image = $product->product_image;
+            $cart->cart_address = '';
+            $cart->cart_city = '';
+            $cart->cart_state = '';
+            $cart->zipcode = 0;
             $cart->save();
             $product_update = ProductTable::where('product_id', '=', $id)
             ->update(
@@ -143,23 +179,30 @@ class UserController extends Controller
         }
     }
     public function delete_cart(string $id){
-        $carts = CartTable::where('cart_id', '=', $id)
-        ->get()
-        ->first();
-        $product = ProductTable::where('product_name', '=', $carts->cart_name)
-        ->get()
-        ->first();
-        $qty = $carts->cart_qty;
-        $product_update = ProductTable::where('product_name', '=', $carts->cart_name)
-            ->update(
-                [
-                    'product_stock' => $product->product_stock+$qty,
-                ]
-            );
-
-        $cart = CartTable::where('cart_id', '=', $id)
-        ->delete();
-        return back();
+        if (Session::has('id') && Session::get('role') == 0 || Session::get('role') == 3) {
+            $carts = CartTable::where('cart_id', '=', $id)
+            ->get()
+            ->first();
+            $product = ProductTable::where('product_name', '=', $carts->cart_name)
+            ->get()
+            ->first();
+            $qty = $carts->cart_qty;
+            $product_update = ProductTable::where('product_name', '=', $carts->cart_name)
+                ->update(
+                    [
+                        'product_stock' => $product->product_stock+$qty,
+                    ]
+                );
+            $cart = CartTable::where('cart_id', '=', $id)
+            ->delete();
+            return back();
+        }
+        elseif (Session::get('role') == 1) {
+            return redirect('/dogs-admin');
+        }
+        else {
+            return redirect('/');
+        }
     }
     public function single_page(string $id){
         $product = ProductTable::query()
@@ -192,7 +235,16 @@ class UserController extends Controller
 
         $foods = ProductTable::where('product_category', '=', 'foods')
         ->paginate(8);
-        return view("food", compact('showCart', 'foods'));
+
+        if (Session::has('id') && Session::get('role') == 0 || Session::get('role') == 3) {
+            return view("food", compact('showCart', 'foods'));
+        }
+        elseif (Session::get('role') == 1) {
+            return redirect('/dogs-admin');
+        }
+        else {
+            return redirect('/');
+        }
     }
     // Categories - medicines
     public function medicines(){
@@ -204,7 +256,15 @@ class UserController extends Controller
         $medicines = ProductTable::where('product_category', '=', 'medicines')
         ->paginate(8);
 
-        return view("medicines", compact('showCart', 'medicines'));
+        if (Session::has('id') && Session::get('role') == 0 || Session::get('role') == 3) {
+            return view("medicines", compact('showCart', 'medicines'));
+        }
+        elseif (Session::get('role') == 1) {
+            return redirect('/dogs-admin');
+        }
+        else {
+            return redirect('/');
+        }
     }
     // Categories - grooming
     public function grooming(){
@@ -215,7 +275,16 @@ class UserController extends Controller
 
         $grooming = ProductTable::where('product_category', '=', 'grooming')
         ->paginate(8);
-        return view("grooming", compact('showCart', 'grooming'));
+
+        if (Session::has('id') && Session::get('role') == 0 || Session::get('role') == 3) {
+            return view("grooming", compact('showCart', 'grooming'));
+        }
+        elseif (Session::get('role') == 1) {
+            return redirect('/dogs-admin');
+        }
+        else {
+            return redirect('/');
+        }
     }
     // Categories - accessories
     public function accessories(){
@@ -226,7 +295,16 @@ class UserController extends Controller
 
         $accessories = ProductTable::where('product_category', '=', 'accessories')
         ->paginate(8);
-        return view("accessories", compact('showCart', 'accessories'));
+
+        if (Session::has('id') && Session::get('role') == 0 || Session::get('role') == 3) {
+            return view("accessories", compact('showCart', 'accessories'));
+        }
+        elseif (Session::get('role') == 1) {
+            return redirect('/dogs-admin');
+        }
+        else {
+            return redirect('/');
+        }
     }
     public function search_clinic(){
         $showCart = CartTable::query()
@@ -311,7 +389,15 @@ class UserController extends Controller
         ->where('vet_groom', '=' , 'yes')
         ->get();
 
-        return view('clinic', compact('showCart', 'city', 'filterC', 'filteredC', 'countC', 'countM', 'municipality', 'filterM', 'filteredM', 'filterGC', 'filterGM', 'filteredGC', 'filteredGM'));
+        if (Session::has('id') && Session::get('role') == 0 || Session::get('role') == 3) {
+            return view('clinic', compact('showCart', 'city', 'filterC', 'filteredC', 'countC', 'countM', 'municipality', 'filterM', 'filteredM', 'filterGC', 'filterGM', 'filteredGC', 'filteredGM'));
+        }
+        elseif (Session::get('role') == 1) {
+            return redirect('/dogs-admin');
+        }
+        else {
+            return redirect('/');
+        }
     }
     public function search_grooming(Request $request){
         $showCart = CartTable::query()
@@ -402,7 +488,15 @@ class UserController extends Controller
         ->where('vet_groom', '=' , 'yes')
         ->get();
 
-        return view('groom', compact('showCart', 'city', 'filterC', 'filteredC', 'countC', 'countM', 'municipality', 'filterM', 'filteredM', 'filterGC', 'filterGM', 'cityG', 'municipalityG'));
+        if (Session::has('id') && Session::get('role') == 0 || Session::get('role') == 3) {
+            return view('groom', compact('showCart', 'city', 'filterC', 'filteredC', 'countC', 'countM', 'municipality', 'filterM', 'filteredM', 'filterGC', 'filterGM', 'cityG', 'municipalityG'));
+        }
+        elseif (Session::get('role') == 1) {
+            return redirect('/dogs-admin');
+        }
+        else {
+            return redirect('/');
+        }
     }
     public function search_boarding(){
         $showCart = CartTable::query()
@@ -493,24 +587,42 @@ class UserController extends Controller
         ->where('vet_boarding', '=' , 'yes')
         ->get();
 
-        return view('board', compact('showCart', 'city', 'filterC', 'filteredC', 'countC', 'countM', 'municipality', 'filterM', 'filteredM', 'filterBC', 'filterBM', 'municipalityB', 'cityB'));
+        if (Session::has('id') && Session::get('role') == 0 || Session::get('role') == 3) {
+            return view('board', compact('showCart', 'city', 'filterC', 'filteredC', 'countC', 'countM', 'municipality', 'filterM', 'filteredM', 'filterBC', 'filterBM', 'municipalityB', 'cityB'));
+        }
+        elseif (Session::get('role') == 1) {
+            return redirect('/dogs-admin');
+        }
+        else {
+            return redirect('/');
+        }
     }
     public function user_profile(){
-
         $showCart = CartTable::query()
         ->select('*')
         ->where('product_user_id', '=', Session::get('id'))
         ->get();
 
-        return view('user-profile', compact('showCart'));
+        if (Session::has('id') && Session::get('role') == 0 || Session::get('role') == 3) {
+            return view('user-profile', compact('showCart'));
+        }
+        elseif (Session::get('role') == 1) {
+            return redirect('/dogs-admin');
+        }
+        else {
+            return redirect('/');
+        }
     }
 
     public function review(){
-
         $showCart = CartTable::query()
         ->select('*')
         ->where('product_user_id', '=', Session::get('id'))
         ->get();
+
+        request()->validate([
+            'review' => 'required|min:5|max:500'
+        ]);
 
         $review = UserReview::create([
             'user_review_id' => Session::get('id'),

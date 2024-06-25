@@ -9,7 +9,6 @@
         @if (Session::has('id'))
         @include('layout/cart')
         @else
-            
         @endif
         {{--  --}}
         <div class="image-container container-fluid text-center p-0">
@@ -18,21 +17,21 @@
                 {{-- <h2 class="tteal" style="margin-top: 20%; font-size: 40px;">Discover a community where your pet's well-being is our priority.</h2> --}}
                 <h1 class="torange px-5 mb-0" style="font-size: 90px; padding-top: 15%;">Welcome to Pawsitive Precision</h1>
                 <p class="text-white px-5 paragraph" style="font-size: 30px">where every wagging tail is a testament to our <b class="fs-1">love</b> and <b class="fs-1">care</b>.</p>
-                <div class="row mt-3">
+                <div class="row mt-3 p-0 m-0">
                     <p class="text-white " style="font-size: 20px;">At Pawsitive Precision, we believe every dog deserves a happy and healthy life.
                         <br>Discover a community where your pet's well-being is our priority.
                     </p>
-                    <div class="col-3"></div>
-                    @if (Session::has('id') && Session::get('role') == 0)
-                        <div class="col-3"><a href="/services" class="w-100 btn bgteal borange home-svc"><span>Check our <b>Services</b></span></a></div>
+                    <div class="col-3 p-0 m-0"></div>
+                    @if (Session::has('id') && Session::get('role') == 0 || Session::get('role') == 3)
+                        <div class="col-3"><a href="/services" class="w-100 btn bgteal borange home-svc normal-btn"><span>Check our <b>Services</b></span></a></div>
                     @else
-                    <div class="col-3"><a href="/noaccount/signup" id="no-account" onclick="" class="w-100 btn bgteal borange home-svc"><span>Check our <b>Services</b></span></a></div>
+                    <div class="col-3"><a href="/noaccount/signup" id="no-account" onclick="" class="w-100 btn bgteal borange home-svc normal-btn"><span>Check our <b>Services</b></span></a></div>
                     @endif
-                    @if (Session::has('id') && Session::get('role') == 0)
-                        <div class="col-3"><a href="/products" class="w-100 btn bgorange bteal home-svc"><span>Buy our <b>Products</b></span></a></div>
+                    @if (Session::has('id') && Session::get('role') == 0 || Session::get('role') == 3)
+                        <div class="col-3"><a href="/products" class="w-100 btn bgorange bteal home-prdct normal-btn"><span>Buy our <b>Products</b></span></a></div>
                     @else
-                    <div class="col-3"><a href="/noaccount/signup" class="w-100 btn bgorange bteal home-prdct"><span>Buy our <b>Products</b></span></a></div>
-                    <div class="col-3"></div>
+                    <div class="col-3"><a href="/noaccount/signup" class="w-100 btn bgorange bteal home-prdct normal-btn"><span>Buy our <b>Products</b></span></a></div>
+                    <div class="col-3 p-0 m-0"></div>
                     @endif
                 </div>
             </div>
@@ -47,7 +46,7 @@
             </div>
             <div class="row">
                 <div class="col-4">
-                    <div class="card bgteal borange" style="height: 622px;">
+                    <div class="card bgteal borange bsblack" style="height: 622px;">
                         <div class="card-body">
                             <h2 class="card-title text-center">Our Services</h2>
                             <ul>
@@ -68,7 +67,7 @@
                     </div>
                 </div>
                 <div class="col-4">
-                    <div class="card bgorange bteal" style="height: 622px;">
+                    <div class="card bgorange bteal bsblack" style="height: 622px;">
                         <div class="card-body">
                             <h2 class="card-title text-center">Why Choose Pawsitive Precision?</h2>
                             <ul class="mt-3">
@@ -89,7 +88,7 @@
                     </div>
                 </div>
                 <div class="col-4">
-                    <div class="card bblack" style="height: 622px;">
+                    <div class="card bblack bsblack" style="height: 622px;">
                         <div class="card-body">
                             <h2 class="card-title text-center">Become a Pawsitive Partner</h2>
                             <p class="text-center px-2 mt-3">
@@ -111,10 +110,56 @@
                 </div>
             </div>
         </div>
-        {{-- Testimonial Carousel (tentative)--}}
-
+        {{-- Testimonial Carousel (tentative) --}}
+        <div class="row p-0 m-0 mt-5">
+            <div class="review-container">
+                <div class="slide-container swiper">
+                    <div class="slide-content">
+                        <div class="card-wrapper swiper-wrapper">
+                            @foreach ($reviews as $card)
+                                <div class="cards  borange swiper-slide">
+                                    <div class="image-content">
+                                        <span class="overlays"></span>
+        
+                                        <div class="card-image">
+                                            <img src="/img/review-icon.png" alt="" class="card-img">
+                                        </div>
+                                    </div>
+                                    <div class="card-content">
+                                        <h2 class="name">Anonymous</h2>
+                                        <p class="desc">{{$card -> review}}</p>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                    {{-- swipers --}}
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-scrollbar"></div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+        </div>
+        {{-- Socials --}}
+        <div class="container-fluid bgorange text-center mt-5 bteal">
+            <div class="row m-0 p-5">
+                <h2 class="text-white strokeb" style="font-size: 50px">Our Socials</h2>
+                <div class="col-12">
+                    <i class="fa-brands strokeb fa-x-twitter me-3 tdteal" style="font-size: 50px"></i>
+                    <i class="fa-brands strokeb fa-facebook me-3 tdteal" style="font-size: 50px"></i>
+                    <i class="fa-brands strokeb fa-instagram tdteal" style="font-size: 50px"></i>
+                </div>
+            </div>
+        </div>
         {{-- Pawsitive TM --}}
-
+        <div class="row mt-5 text-center p-0 m-0">
+            <div class="col-12">
+                <h2 class="tteal strokeb" style="font-size: 50px">Four from Pawsitive Precision &trade;</h2>
+                <p>is our <b>Promise</b> to enrich the lives of our pets, our employees, our community and our world.</p>
+                <p>we believe products and companies (and should!) be a platform for positive </p>
+            </div>
+        </div>
         {{-- Our vision --}}
 
         {{-- Footer --}}
@@ -127,7 +172,7 @@
             </div>
             <div class="row">
                 <div class="col-4">
-                    <div class="card bgteal borange" style="height: 622px;">
+                    <div class="card bgteal borange bsblack" style="height: 622px;">
                         <div class="card-body">
                             <h2 class="card-title text-center">Our Services</h2>
                             <ul>
@@ -148,7 +193,7 @@
                     </div>
                 </div>
                 <div class="col-4">
-                    <div class="card bgorange bteal" style="height: 622px;">
+                    <div class="card bgorange bteal bsblack" style="height: 622px;">
                         <div class="card-body">
                             <h2 class="card-title text-center">Why Choose Pawsitive Precision?</h2>
                             <ul class="mt-3">
@@ -169,7 +214,7 @@
                     </div>
                 </div>
                 <div class="col-4">
-                    <div class="card bblack" style="height: 622px;">
+                    <div class="card bblack bsblack" style="height: 622px;">
                         <div class="card-body">
                             <h2 class="card-title text-center">Become a Pawsitive Partner</h2>
                             <p class="text-center px-2 mt-3">
@@ -200,7 +245,7 @@
                     <img src="img/group.png" alt="" class="w-75" style="">
                 </div>
             </div>
-            <div class="row bottom borange bgteal ">
+            <div class="row bottom borange bgteal">
                 <div class="col-4 text-center pt-3">
                     <img src="img/group-dog.png" alt="" class="w-75" style="">
                 </div>
@@ -215,5 +260,36 @@
         @endif
     </div>
     @include('layout/script')
+    <script>
+        var swiper = new Swiper(".slide-content", {
+            slidesPerView: 1,
+            spaceBetween: 25,
+            loop: true,
+            centeredSlides: true,
+            fade: 'true',
+            slidesPerGroupSkip: 1,
+            grabCursor: true,
+            keyboard: {
+            enabled: true,
+          },
+          breakpoints: {
+            769: {
+              slidesPerView: 3,
+            },
+          },
+        //   scrollbar: {
+        //     el: ".swiper-scrollbar",
+        //   },
+          navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+          },
+          pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+            dynamicBullets: true,
+          },
+        });
+      </script>
 </body>
 </html>
