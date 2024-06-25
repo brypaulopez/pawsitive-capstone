@@ -143,12 +143,18 @@ class DogsController extends Controller
         ->where('product_user_id', '=', Session::get('id'))
         ->get();
 
+        $showOrder = CartTable::query()
+        ->select('*')
+        ->where('product_user_id', '=', Session::get('id'))
+        ->where('zipcode', '=', null)
+        ->get();
+
         $dog = Dogs::query()
         ->select('*')
         ->paginate(18);
 
         if (Session::has('id') && Session::get('role') == 0 || Session::get('role') == 3) {
-            return view('breeds', compact('dog', 'showCart'));
+            return view('breeds', compact('dog', 'showCart', 'showOrder'));
         }
         elseif (Session::get('role') == 1) {
             return redirect('/dogs-admin');
@@ -167,12 +173,18 @@ class DogsController extends Controller
                 ->select('*')
                 ->where('product_user_id', '=', Session::get('id'))
                 ->get();
+
+                $showOrder = CartTable::query()
+                ->select('*')
+                ->where('product_user_id', '=', Session::get('id'))
+                ->where('zipcode', '=', null)
+                ->get();
                 
                 $dog = Dogs::where('dog_name', 'like', $letter.'%')
                 ->paginate(9);
 
                 if (Session::has('id') && Session::get('role') == 0 || Session::get('role') == 3) {
-                    return view('breeds', compact('dog', 'showCart'));
+                    return view('breeds', compact('dog', 'showCart', 'showOrder'));
                 }
                 elseif (Session::get('role') == 1) {
                     return redirect('/dogs-admin');
@@ -192,12 +204,18 @@ class DogsController extends Controller
         ->where('product_user_id', '=', Session::get('id'))
         ->get();
 
+        $showOrder = CartTable::query()
+        ->select('*')
+        ->where('product_user_id', '=', Session::get('id'))
+        ->where('zipcode', '=', null)
+        ->get();
+
         $dog = Dogs::where('dog_name', '=', $name)
         ->get()
         ->first();
 
         if (Session::has('id') && Session::get('role') == 0 || Session::get('role') == 3) {
-            return view('specific-dog', compact('dog', 'showCart'));
+            return view('specific-dog', compact('dog', 'showCart', 'showOrder'));
         }
         elseif (Session::get('role') == 1) {
             return redirect('/dogs-admin');
