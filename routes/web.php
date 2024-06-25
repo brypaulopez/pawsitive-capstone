@@ -116,4 +116,8 @@ Route::get('/board', [UserController::class, 'board']);
 Route::get('/board/{id}', [UserController::class, 'specific_board']);
 Route::get('/user-profile', [UserController::class, 'user_profile']);
 Route::post('/user-profile', [UserController::class, 'review']);
+<<<<<<< HEAD
+Route::get('/about-us', [UserController::class, 'about']);
+=======
 Route::post('/order', [ProductController::class, 'order']);
+>>>>>>> f19f6409b5f48a5a6c1168c30b2126ff7e12b943
