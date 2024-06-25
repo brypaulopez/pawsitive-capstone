@@ -789,6 +789,12 @@ class UserController extends Controller
         ->where('product_user_id', '=', Session::get('id'))
         ->get();
 
-        return view('about', compact('showCart'));
+        $showOrder = CartTable::query()
+        ->select('*')
+        ->where('product_user_id', '=', Session::get('id'))
+        ->where('zipcode', '=', null)
+        ->get();
+
+        return view('about', compact('showCart', 'showOrder'));
     }
 }
