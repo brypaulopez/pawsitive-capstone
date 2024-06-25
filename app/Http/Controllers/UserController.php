@@ -211,13 +211,19 @@ class UserController extends Controller
         ->get()
         ->first();
 
+        $showOrder = CartTable::query()
+        ->select('*')
+        ->where('product_user_id', '=', Session::get('id'))
+        ->where('zipcode', '=', null)
+        ->get();
+
         $showCart = CartTable::query()
         ->select('*')
         ->where('product_user_id', '=', Session::get('id'))
         ->get();
         
         if (Session::has('id') && Session::get('role') == 0 || Session::get('role') == 3) {
-            return view('view-product', compact('product', 'showCart'));
+            return view('view-product', compact('product', 'showCart', 'showOrder'));
         }
         elseif (Session::get('role') == 1) {
             return redirect('/dogs-admin');

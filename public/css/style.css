@@ -444,6 +444,10 @@ body {
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: black;
 }
+.strokeo {
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #FD8A25;
+}
 /* box shadow */
 .bsblack {
     box-shadow: 7px 7px 8px -4px black;
