@@ -27,7 +27,7 @@
                 <div class="col-3">
                     <div class="card borange bsblack">
                         <a href="products/{{$p -> product_id}}">
-                            <img src="img/products/{{$p -> product_image}}" style="width: 302px; height: 201px;"  class="card-img-top w-100" alt="...">
+                            <img src="img/products/{{$p -> product_image}}" style="width: 302px; height: 250px;"  class="card-img-top w-100" alt="...">
                         </a>
                         <div class="card-body bgorange">
                             {{-- <p class="mb-0" style="font-size: 15px;">from: {{$p -> vet_name}}</p> --}}
@@ -42,7 +42,7 @@
                 <div class="col-3">
                     <div class="card borange bsblack" style="">
                         <a href="products/{{$p -> product_id}}">
-                            <img src="img/products/{{$p -> product_image}}" style="width: 302px; height: 201px;" class="card-img-top" alt="...">
+                            <img src="img/products/{{$p -> product_image}}" style="width: 302px; height: 250px;" class="card-img-top" alt="...">
                         </a>
                         <div class="card-body bgorange">
                             <h2 class="card-title">{{$p -> product_name}}</h2>
