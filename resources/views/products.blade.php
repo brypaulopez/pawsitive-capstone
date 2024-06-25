@@ -45,7 +45,7 @@
                             <img src="img/products/{{$p -> product_image}}" style="width: 302px; height: 250px;" class="card-img-top" alt="...">
                         </a>
                         <div class="card-body ">
-                            <h2 class="card-title">{{$p -> product_name}}</h2>
+                            <h4 class="card-title">{{$p -> product_name}}</h4>
                             <p class="fs-5">&#8369;{{$p -> product_price}}</p>
                             <form action="/products/{{$p -> product_id}}" method="POST">
                                 @csrf

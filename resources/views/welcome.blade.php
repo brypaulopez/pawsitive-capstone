@@ -207,7 +207,7 @@
         </div>
         {{-- be a partner & trainer --}}
         <div class="container">
-            <div class="mt-5 row top bteal bgorange text-center">
+            <div class="mt-5 row bteal bgorange text-center">
                 <div class="col-8 mt-3">
                     <h2 class="mt-3">Sign Up Today!</h2>
                     <p class="px-5">Join the Pawsitive family and experience the difference. Whether you're looking to provide the best care for your dog or expand your business as a partner, Pawsitive Precision is here to support you every step of the way.</p>
@@ -215,17 +215,6 @@
                 </div>
                 <div class="col-4 text-center">
                     <img src="img/group.png" alt="" class="w-75" style="">
-                </div>
-            </div>
-            <div class="row bottom borange bgteal">
-                <div class="col-4 text-center pt-3">
-                    <img src="img/group-dog.png" alt="" class="w-75" style="">
-                </div>
-                <div class="col-8 mt-5 text-center">
-                    <h2 class="mt-4">Register Now!</h2>
-                    <p class="px-5">Join the Pawsitive Dog Care family and give your furry friend the best care possible. By signing up, you'll gain access to: <b> Premium Pet Products</b>, <b>Our Services</b>, & <b>Dog information</b></p>
-                    
-                    <a href="/signup" id="registration" class="btn bgorange bwhite mt-3 fs-4">Sign Up for an account!</a>
                 </div>
             </div>
         </div>
@@ -302,7 +291,7 @@
                     </div>
                 </div>
             </div>
-            <div class="mt-5 row top bteal bgorange text-center">
+            <div class="mt-5 row top-login bteal bgorange text-center">
                 <div class="col-8 mt-3">
                     <h2 class="mt-3">Sign Up Today!</h2>
                     <p class="px-5">Join the Pawsitive family and experience the difference. Whether you're looking to provide the best care for your dog or expand your business as a partner, Pawsitive Precision is here to support you every step of the way.</p>
@@ -312,7 +301,7 @@
                     <img src="img/group.png" alt="" class="w-75" style="">
                 </div>
             </div>
-            <div class="row bottom borange bgteal">
+            <div class="row bottom-login borange bgteal">
                 <div class="col-4 text-center pt-3">
                     <img src="img/group-dog.png" alt="" class="w-75" style="">
                 </div>
@@ -321,6 +310,17 @@
                     <p class="px-5">Join the Pawsitive Dog Care family and give your furry friend the best care possible. By signing up, you'll gain access to: <b> Premium Pet Products</b>, <b>Our Services</b>, & <b>Dog information</b></p>
                     
                     <a href="/signup" id="registration" class="btn bgorange bwhite mt-3 fs-4">Sign Up for an account!</a>
+                </div>
+            </div>
+            <div class="row bteal bgorange mt-5">
+                <div class="col-8 mt-5 text-center">
+                    <h2 class="mt-4">Be a part now!</h2>
+                    <p class="px-5">Are you a dog whisperer or trainer looking to expand your online presence? Join Pawsitive Dog Care and reach a wider audience! By signing up you'll gain access to: <b>Enhanced Visibility</b>, <b>Marketing Support</b> & <b>Community Engagement</b> Don't miss out! Sign up today and take your dog training business to the next level with Pawsitive Dog Care <b>(Completely Free)</b>.
+                    <br>
+                    <a href="/trainer-signup" id="partnership" class="btn bgteal bwhite mt-3 fs-4">Sign Up as a Trainer!</a>
+                </div>
+                <div class="col-4 text-center pt-3">
+                    <img src="img/group2.png" alt="" class="w-100" style="">
                 </div>
             </div>
         </div>

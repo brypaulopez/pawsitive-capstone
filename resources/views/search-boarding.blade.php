@@ -36,7 +36,7 @@
                             </select>
                         </div>
                         <div class="col-6 mt-3 mb-5">
-                            <input type="submit" class="btn bgteal w-100" id="" value="Find a Boarding">
+                            <input type="submit" class="btn normal-btn bdteal bgteal w-100" id="" value="Find a Vet Boarding">
                         </div>
                     </div>
                 </form>

@@ -15,7 +15,7 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 400;
     font-style: normal;
 }
-label {
+label, td {
     font-family: "Poppins", sans-serif;
 }
 a {
@@ -107,6 +107,15 @@ div.image-container img {
     width: 950px !important;
     height: 500px !important;
 }
+.trainer-image {
+    position: absolute !important;
+    z-index: 10 !important;
+    bottom: 1%;
+    left: 13%;
+    width: 800px !important;
+    height: 500px !important;
+}
+
 .login-image {
     position: absolute !important;
     z-index: 10 !important;
@@ -169,6 +178,15 @@ div.image-container img {
     clip-path: polygon(0 0,100% 50px,100% 100%,0 100%);
     margin-top: -40px !important;
 }
+.top-login {
+    height: 300px;
+    clip-path: polygon(0 0,100% 0,100% calc(100% - 50px),calc(50% + 71.41px) calc(100% - 50px),50% 100%,calc(50% - 71.41px) calc(100% - 50px),0 calc(100% - 50px));
+  }
+  .bottom-login {
+    height: 300px;
+    clip-path: polygon(0 0,calc(50% - 3.15px - 71.41px) 0,50% calc(50px + 2.21px),calc(50% + 3.15px + 71.41px) 0,100% 0,100% 100%,0 100%);
+    margin-top: -40px;
+  }
 #partnership:hover{
     border: solid 2px #63D0D0 !important;
     background-color: white !important;
@@ -268,6 +286,12 @@ div.image-container img {
     right: 50px;
     z-index: 100;
 }
+.trainer-overlay {
+    position: absolute !important;
+    top: 100px;
+    left: 60px;
+    z-index: 100;
+}
 .board-container {
     position: relative !important;
 }
@@ -280,6 +304,86 @@ div.image-container img {
 .ellipsis {
     text-overflow: ellipsis !important;
 }
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    background-color: lightgray;
+}
+.about-1{
+    margin: 30px;
+    padding: 5px;
+}
+.about-1 h1{
+    text-align: center;
+    color: black;
+    font-weight: bold;
+}
+.about-1 p{
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: white;
+    text-align: center;
+    padding: 3px;
+}
+.about-item{
+    height: 435px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    background-color: white;
+    margin-top: 20px;
+    padding: 80px, 30px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+.about-item i{
+    font-size: 43px;
+    margin: 0;
+}
+.about-item h3{
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+.about-item hr{
+    width: 46px;
+    height: 3px;
+    background-color: #5fbff9;
+    margin: 0 auto;
+    border: none;
+}
+.about-item p{
+    margin-top: 20px;
+}
+.about-item:hover{
+    box-shadow: 7px 7px 8px -4px #05A3AB;
+    background-color: #E58639 !important;
+}
+.about-item:hover i,
+.about-item:hover h3,
+.about-item:hover p{
+    color: #fff;
+}
+.about-item:hover hr{
+    background-color: #fff;
+}
+.about-item:hover i{
+    transform: translateY(-20px);
+}
+.about-item:hover i,
+.about-item:hover h3,
+.about-item:hover hr{
+    transition: all 400ms ease-in-out;
+}
+/* footer{
+    background: #212226;
+    padding: 20px;
+} */
+footer p{
+    color: #fff;
+}
+
+
+
+
 body {
     margin: 0;
     /* font-family: "Lato", sans-serif; */
