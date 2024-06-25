@@ -520,4 +520,12 @@ class UserController extends Controller
 
         return redirect('/user-profile');
     }
+    public function about(){
+        $showCart = CartTable::query()
+        ->select('*')
+        ->where('product_user_id', '=', Session::get('id'))
+        ->get();
+
+        return view('about', compact('showCart'));
+    }
 }

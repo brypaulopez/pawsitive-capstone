@@ -104,3 +104,4 @@ Route::post('/board', [UserController::class, 'board']);
 Route::get('/board', [UserController::class, 'board']);
 Route::get('/user-profile', [UserController::class, 'user_profile']);
 Route::post('/user-profile', [UserController::class, 'review']);
+Route::get('/about-us', [UserController::class, 'about']);
