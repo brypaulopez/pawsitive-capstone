@@ -280,7 +280,6 @@ div.image-container img {
 .ellipsis {
     text-overflow: ellipsis !important;
 }
-<<<<<<< HEAD
 *{
     padding: 0;
     margin: 0;
@@ -358,7 +357,6 @@ footer p{
 
 
 
-=======
 body {
     margin: 0;
     /* font-family: "Lato", sans-serif; */
@@ -514,7 +512,6 @@ body {
 .swiper-button-next, .swiper-button-prev{
     color: #E58639;
 }
->>>>>>> f19f6409b5f48a5a6c1168c30b2126ff7e12b943
 
 
 
