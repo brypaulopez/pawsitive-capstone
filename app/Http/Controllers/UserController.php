@@ -157,7 +157,7 @@ class UserController extends Controller
 
         if ($qty > $product->product_stock) {
             toastr()->error('You exceed the amount of quantity available!');
-            return redirect('/products');
+            return back();
         } else {
             $cart->product_user_id = Session::get('id');
             $cart->cart_name = $product->product_name;
