@@ -78,6 +78,7 @@
             </table>
         </div>
     </div>
+    @include('layout/footer')
     @include('layout/script')
 </body>
 </html>

@@ -30,15 +30,15 @@
                             </select>
                         </div>
                         <div class="col-6 mt-3 mb-5">
-                            <input type="submit" class="btn bgteal w-100" id="" value="Find Grooming Services">
+                            <input type="submit" class="btn bgteal normal-btn bdteal w-100" id="" value="Find Grooming Services">
                         </div>
                     </div>
                 </form>
             </div>
         </div>
-        <div class="row mt-5 bteal g-5">
+        <div class="row mt-5 bteal rounded bsblack mb-3 pb-3 g-5">
         @if ($countC != 0 && $countM != 0)
-            <div class="col-12 text-center">
+            <div class="col-12 text-center mt-3">
                 <h2>Groomings in both {{$filteredC->vet_city}} and {{$filteredM->vet_municipality}}</h2>
             </div>
             @foreach ($filterGC as $f)
@@ -66,7 +66,7 @@
                 </div>
             @endforeach
             @elseif ($countM != 0 && $countC == 0)
-            <div class="col-12 text-center">
+            <div class="col-12 text-center mt-3">
                 <h2>Groomings in {{$filteredM->vet_municipality}}</h2>
             </div>
             @foreach ($filterGM as $f)
@@ -82,7 +82,7 @@
                 </div>
             @endforeach
             @elseif ($countC !=0 && $countM == 0)
-            <div class="col-12 text-center">
+            <div class="col-12 text-center mt-3">
                 <h2>Groomings in {{$filteredC->vet_city}}</h2>
             </div>
             @foreach ($filterGC as $f)
@@ -98,7 +98,7 @@
                 </div>
             @endforeach
             @else
-                <div class="col-12 text-center">
+                <div class="col-12 text-center mt-3">
                     <h2>Groomings in CALABARZON</h2>
                 </div>
                 @foreach ($cityG as $f)
@@ -128,6 +128,7 @@
         @endif
         </div>
     </div>
+    @include('layout/footer')
     @include('layout/script')
 </body>
 </html>

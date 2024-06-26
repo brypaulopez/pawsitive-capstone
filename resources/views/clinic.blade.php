@@ -30,15 +30,15 @@
                             </select>
                         </div>
                         <div class="col-6 mt-3 mb-5">
-                            <input type="submit" class="btn bgteal w-100" id="" value="Find a Clinic">
+                            <input type="submit" class="btn bgteal bdteal w-100 normal-btn" id="" value="Find a Clinic">
                         </div>
                     </div>
                 </form>
             </div>
         </div>
-        <div class="row mt-5 bteal g-5">
+        <div class="row mt-5 rounded bsblack bteal g-5 pb-3">
         @if ($countC != 0 && $countM != 0)
-            <div class="col-12 text-center">
+            <div class="col-12 text-center mt-3">
                 <h2>Clinics in both {{$filteredC->vet_city}} and {{$filteredM->vet_municipality}}</h2>
             </div>
             @foreach ($filterC as $f)
@@ -66,7 +66,7 @@
                 </div>
             @endforeach
             @elseif ($countM != 0 && $countC == 0)
-            <div class="col-12 text-center">
+            <div class="col-12 text-center mt-3">
                 <h2>Clinics in {{$filteredM->vet_municipality}}</h2>
             </div>
             @foreach ($filterM as $f)
@@ -82,7 +82,7 @@
                 </div>
             @endforeach
             @elseif ($countC !=0 && $countM == 0)
-            <div class="col-12 text-center">
+            <div class="col-12 text-center mt-3">
                 <h2>Clinics in {{$filteredC->vet_city}}</h2>
             </div>
             @foreach ($filterC as $f)
@@ -98,7 +98,7 @@
                 </div>
             @endforeach
             @else
-                <div class="col-12 text-center">
+                <div class="col-12 text-center mt-3">
                     <h2>Clinics in CALABARZON</h2>
                 </div>
                 @foreach ($city as $f)
@@ -128,6 +128,7 @@
         @endif
         </div>
     </div>
+    @include('layout/footer')
     @include('layout/script')
 </body>
 </html>

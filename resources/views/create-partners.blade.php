@@ -275,5 +275,6 @@
     @else
         <h1>Wrong Data! Please rest assured as we will fix this as soon as possible. Thanks!</h1>
     @endif
+    @include('layout/script')
 </body>
 </html>

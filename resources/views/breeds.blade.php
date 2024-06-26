@@ -433,6 +433,7 @@
             {{$dog->onEachSide(1)->links('pagination::bootstrap-5')}}
         </div>
     </div>
+    @include('layout/footer')
     @include('layout/script')
 </body>
 </html>

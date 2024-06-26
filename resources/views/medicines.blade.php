@@ -8,7 +8,7 @@
     @include('layout/cart')
     <div class="container mt-5">
         <div class="row text-center rounded">
-            <img src="/img/medicine-banner.jpg" alt="" class="w-100 rounded-pill p-0 blteal">
+            <img src="/img/medicine-banner.jpg" alt="" class="w-100 rounded-pill p-0 borange bsblack">
         </div>
         <div class="row text-center mt-3" style="margin: auto;">
             <div class="col-1"></div>
@@ -39,7 +39,7 @@
                   </div>
               @else
                   <div class="col-3">
-                      <div class="card bsblack">
+                      <div class="card blteal bsblack">
                           <a href="products/{{$m -> product_id}}">
                               <img src="img/products/{{$m -> product_image}}" style="width: 302px; height: 201px;" class="card-img-top" alt="...">
                           </a>

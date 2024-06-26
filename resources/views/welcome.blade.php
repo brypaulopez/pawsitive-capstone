@@ -23,7 +23,7 @@
                     </p>
                     <div class="col-3 p-0 m-0"></div>
                     @if (Session::has('id') && Session::get('role') == 0 || Session::get('role') == 3)
-                        <div class="col-3"><a href="/services" class="w-100 btn bgteal borange home-svc normal-btn"><span>Check our <b>Services</b></span></a></div>
+                        <div class="col-3"><a href="/search-clinic" class="w-100 btn bgteal borange home-svc normal-btn"><span>Check our <b>Services</b></span></a></div>
                     @else
                     <div class="col-3"><a href="/noaccount/signup" id="no-account" onclick="" class="w-100 btn bgteal borange home-svc normal-btn"><span>Check our <b>Services</b></span></a></div>
                     @endif
@@ -312,6 +312,7 @@
             </div>
         </div>
         @endif
+        @include('layout/footer')
     </div>
     @include('layout/script')
     <script>

@@ -122,3 +122,6 @@ Route::get('/trainer-signup', [ProductController::class, 'trainer']);
 Route::post('/trainer-creation', [ProductController::class, 'creation']);
 Route::get('/search-trainer', [ProductController::class, 'trainer_view']);
 Route::post('/trainer', [ProductController::class, 'trainer_show']);
+Route::get('/trainer', [ProductController::class, 'trainer_show']);
+Route::post('/email-notif', [ProductController::class, 'email']);
+Route::get('/email-notif', [ProductController::class, 'email']);

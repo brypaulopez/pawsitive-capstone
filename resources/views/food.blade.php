@@ -8,7 +8,7 @@
     @include('layout/cart')
     <div class="container mt-5">
         <div class="row text-center rounded">
-            <img src="/img/food-banner.jpg" alt="" class="w-100 rounded-pill p-0 bdorange">
+            <img src="/img/food-banner.jpg" alt="" class="w-100 rounded-pill p-0 bteal">
         </div>
         <div class="row text-center mt-3" style="margin: auto;">
             <div class="col-1"></div>
@@ -39,7 +39,7 @@
                   </div>
               @else
                   <div class="col-3">
-                      <div class="card bsblack">
+                      <div class="card bdorange bsblack">
                           <a href="products/{{$f -> product_id}}">
                               <img src="img/products/{{$f -> product_image}}" style="width: 302px; height: 201px;" class="card-img-top" alt="...">
                           </a>
@@ -65,6 +65,7 @@
         @endif
         {{$foods->onEachSide(1)->links('pagination::bootstrap-5')}}
     </div>
+    @include('layout/footer')
     @include('layout/script')
 </body>
 </html>

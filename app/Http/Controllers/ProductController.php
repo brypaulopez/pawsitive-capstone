@@ -158,4 +158,8 @@ class ProductController extends Controller
             return redirect('/');
         }
     }
+    public function email(){
+        toastr()->success('You will be updated with our latest news, Thanks!');
+        return back();
+    }
 }
