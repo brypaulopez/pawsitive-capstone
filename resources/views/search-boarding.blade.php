@@ -11,7 +11,7 @@
             <div class="col-12 mt-5 board-container">
                 <img src="img/boarding-svc.jpg" alt="" class="w-100 rounded-pill borange">
                 <div class="col-12 board-overlay">
-                    <h2 style="font-size: 100px;" class="">Pawsitive <br> Precision <br>Boarding!</h2>
+                    <h2 style="font-size: 100px;" class="board-svc">Pawsitive <br> Precision <br>Boarding!</h2>
                 </div>
             </div>
             <div class="col-12 text-center mt-5 bgorange bteal">

@@ -14,9 +14,6 @@
                 <p><b>Selling Products?: </b>{{$vet->vet_products}}</p>
                 <p><b>Where can they be located?: </b>{{$vet->vet_address}}</p>
                 @if ($vet->vet_package == 'c')
-                <a class="btn bgorange mt-2" href="/vet-admin/edit-vet/{{$vet -> vet_id}}">
-                    Edit Partner
-                </a>
                 <a href="/create-products/{{$vet->vet_id}}" class="btn bglorange mt-2">Add Products</a>
                 <a href="/create-groom/{{$vet->vet_id}}" class="btn bgteal mt-2">Add Grooming information</a>
                 <a href="/create-board/{{$vet->vet_id}}" class="btn bglteal mt-2">Add Boarding information</a>
@@ -137,9 +134,6 @@
                     </div>
                 @elseif ($vet->vet_package == 'b')
                 {{-- package B  --}}
-                <a class="btn bgorange mt-2" href="/vet-admin/edit-vet/{{$vet -> vet_id}}">
-                    Edit Partner
-                </a>
                 <a href="/create-products/{{$vet->vet_id}}" class="btn bglorange mt-2">Add Products</a>
                 <a href="/create-groom/{{$vet->vet_id}}" class="btn bgteal mt-2">Add Grooming information</a>
                 <a href="/create-board/{{$vet->vet_id}}" class="btn bglteal mt-2">Add Boarding information</a>
@@ -261,12 +255,6 @@
                     </div>
                 @elseif ($vet->vet_package == 'a')
                 {{-- package A --}}
-                <a class="btn bgorange mt-2" href="/vet-admin/edit-vet/{{$vet -> vet_id}}">
-                    Edit Partner
-                </a>
-                <a href="/create-products/{{$vet->vet_id}}" class="btn bglorange mt-2">Add Products</a>
-                <a href="/create-groom/{{$vet->vet_id}}" class="btn bgteal mt-2">Add Grooming information</a>
-                <a href="/create-board/{{$vet->vet_id}}" class="btn bglteal mt-2">Add Boarding information</a>
                 <hr>
                 {{-- GROOM --}}
                 <div class="row mt-3">
@@ -340,9 +328,6 @@
                     </div>
                 </div>
                 @else
-                <a class="btn bgorange mt-2" href="/vet-admin/edit-vet/{{$vet -> vet_id}}">
-                    Edit Partner
-                </a>
                 @endif
                 </div>
                 <a class="btn bgteal borange w-100" href="{{url('vet-admin')}}">Go Back</a>

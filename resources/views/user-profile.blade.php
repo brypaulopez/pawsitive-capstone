@@ -21,7 +21,9 @@
                     <form action="/user-profile" method="post">
                         @csrf
                         <h2 class="mt-3">Write a Review</h2>
-                        <textarea class="mt-3" name="review" id="" cols="150" rows="10" placeholder="Write a review..." required></textarea>
+                        <div class="col-12">
+                            <textarea class="mt-3" name="review" id="" cols="auto" rows="10" placeholder="Write a review..." required></textarea>
+                        </div>
                         <br>
                         @error('review')
                             <span class="fs-9 text-danger">{{$message}}</span>

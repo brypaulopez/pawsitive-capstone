@@ -92,6 +92,7 @@ Route::get('create-board/{id}', [VetController::class, 'create_boarding']);
 Route::post('create-board/{id}', [VetController::class, 'createB']);
 Route::get('/vet-admin/board/{id}', [VetController::class, 'editB']);
 Route::put('/vet-admin/board/{id}',[VetController::class, 'updateB']);
+Route::delete('/vet-admin/board/{id}',[VetController::class, 'deleteB']);
 
 // client side Routing - mix controllers - Extra layer of security (access)
 Route::get('/partnership', [VetController::class, 'select']);

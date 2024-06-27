@@ -623,4 +623,105 @@ body {
     background-color: #63D0D0 !important;
 }
 /* border styles */
+.ourservice1, .ourservice2, .ourservice3 {
+    height: 622px !important;
+}
+textarea {	
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;	
+    width: 100%;
+    }
 
+
+/* Media Query */
+@media only screen and (max-width: 1024px) {
+    .clinic-svc {
+        font-size: 80px !important;
+    }
+    .grooming-svc {
+        font-size: 80px !important;
+    }
+    .grooming-overlay {
+        top: 20px;
+        right: 50px;
+    }
+    .board-svc {
+        font-size: 80px !important;
+    }
+    .board-overlay {
+        top: 20px;
+        left: 140px;
+    }
+    .clinic-overlay {
+        top: 60px;
+        left: 60px;
+    }
+  }
+@media only screen and (max-width: 768px) {
+    .bottomimage {
+        display: none !important;
+    }
+    .bottomp {
+        display: none !important;
+    }
+    .col-footer {
+        display: none !important;
+    }
+    .visionmission {
+        display: none !important;
+    }
+    .clinic-svc {
+        font-size: 60px !important;
+    }
+    .grooming-svc {
+        font-size: 50px !important;
+    }
+    .grooming-overlay {
+        top: 40px;
+        right: 50px;
+    }
+    .clinic-overlay {
+        top: 40px;
+        left: 40px;
+    }
+    .board-svc {
+        font-size: 50px !important;
+    }
+    .board-overlay {
+        top: 30px;
+        left: 120px;
+    }
+}
+@media only screen and (max-width: 425px) {
+    .clinic-svc {
+        font-size: 30px !important;
+    }
+    .grooming-svc {
+        font-size: 30px !important;
+    }
+    .grooming-overlay {
+        top: 30px;
+        right: 30px;
+    }
+    .clinic-overlay {
+        top: 30px;
+        left: 30px;
+    }
+    .board-svc {
+        font-size: 20px !important;
+    }
+    .board-overlay {
+        top: 25px;
+        left: 80px;
+    }
+}
+@media only screen and (max-width: 375px) {
+    .grooming-svc {
+        font-size: 20px !important;
+    }
+    .grooming-overlay {
+        top: 40px;
+        right: 20px;
+    }
+}

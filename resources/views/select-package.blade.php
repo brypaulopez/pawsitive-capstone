@@ -83,7 +83,7 @@
         <div class="container">
             <h2 class="mt-5">Note: After selecting a package you are required to pay the membership fee before proceeding. Thanks!</h2>
             <div class="row mt-4">
-                <div class="col-3">
+                <div class="col-12 col-lg-6 col-xl-3 col-md-6 mt-1">
                     <a href="/package/n">
                         <div class="card bglteal" style="height: 508px;" id="packageN">
                             <div class="card-body">
@@ -97,7 +97,7 @@
                         </div>        
                     </a>
                 </div>
-                <div class="col-3">
+                <div class="col-12 col-lg-6 col-xl-3 col-md-6 mt-1">
                     <a href="/package/a">
                         <div class="card bgorange" style="height: 508px;" id="packageA">
                             <div class="card-body">
@@ -113,7 +113,7 @@
                         </div>        
                     </a>
                 </div>
-                <div class="col-3">
+                <div class="col-12 col-lg-6 col-xl-3 col-md-6 mt-1">
                     <a href="/package/b">
                         <div class="card bgteal" id="packageB">
                             <div class="card-body">
@@ -131,7 +131,7 @@
                         </div>        
                     </a>
                 </div>
-                <div class="col-3">
+                <div class="col-12 col-lg-6 col-xl-3 col-md-6 mt-1">
                     <a href="/package/c">
                         <div class="card bglorange" id="packageC">
                             <div class="card-body">

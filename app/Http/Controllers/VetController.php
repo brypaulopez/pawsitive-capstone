@@ -362,11 +362,12 @@ class VetController extends Controller
     }
     // create groom - final
     public function createG(Request $g, string $id){
-        $vet = VetTable::query()
-        ->select('*')
-        ->where('vet_id', '=', $id)
-        ->get()
-        ->first();
+        $vet = VetTable::where('vet_id', '=', $id)
+        ->update(
+            [
+                'vet_groom' => 'yes',
+            ]
+        );
 
         $groom = new GroomTable;
         $file = $g->file('image');
@@ -421,6 +422,12 @@ class VetController extends Controller
     }
     // delete groom
     public function deleteG(string $id){
+        $vet = VetTable::where('vet_id', '=', $id)
+        ->update(
+            [
+                'vet_groom' => 'no',
+            ]
+        );
         $groom = GroomTable::where('groom_id', '=', $id)
         ->delete();
         return redirect("/vet-admin");
@@ -445,11 +452,12 @@ class VetController extends Controller
     }
     // create boarding - final
     public function createB(Request $b, string $id){
-        $vet = VetTable::query()
-        ->select('*')
-        ->where('vet_id', '=', $id)
-        ->get()
-        ->first();
+        $vet = VetTable::where('vet_id', '=', $id)
+        ->update(
+            [
+                'vet_boarding' => 'yes',
+            ]
+        );
 
         $board = new BoardingTable;
         $file = $b->file('image');
@@ -464,6 +472,18 @@ class VetController extends Controller
         $board->board_image = $filenameextension;
         $board->save();
 
+        return redirect("/vet-admin");
+    }
+    // delete Board 
+    public function deleteB(string $id){
+        $vet = VetTable::where('vet_id', '=', $id)
+        ->update(
+            [
+                'vet_boarding' => 'yes',
+            ]
+        );
+        $board = BoardingTable::where('board_id', '=', $id)
+        ->delete();
         return redirect("/vet-admin");
     }
     // edit - view

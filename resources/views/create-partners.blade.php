@@ -11,12 +11,11 @@
     @endif
     {{-- NO --}}
     @if ($package == 'n')
-    <div class="content pt-5">
     <h1>Input Vet Clinic Details - You are purchasing Membership only</h1>
     @if (Session::has('id'))
         <form action="/vet-admin" method="POST" enctype="multipart/form-data">
     @else
-        <form action="/payment" method="POST" enctype="multipart/form-data">
+        <form action="/payment" method="POST" enctype="multipart/form-data" class="p-5">
     @endif
         @csrf
         <div class="input-group mb-3">
@@ -76,7 +75,7 @@
     @if (Session::has('id'))
         <form action="/vet-admin" method="POST" enctype="multipart/form-data">
     @else
-        <form action="/payment" method="POST" enctype="multipart/form-data">
+        <form action="/payment" method="POST" enctype="multipart/form-data" class="p-5">
     @endif
         @csrf
         <input type="hidden" class="form-control" name="products" value="no">
@@ -140,7 +139,7 @@
     @if (Session::has('id'))
         <form action="/vet-admin" method="POST" enctype="multipart/form-data">
     @else
-        <form action="/payment" method="POST" enctype="multipart/form-data">
+        <form action="/payment" method="POST" enctype="multipart/form-data" class="p-5">
     @endif
         @csrf
         <div class="input-group mb-3">
@@ -209,7 +208,7 @@
     @if (Session::has('id'))
         <form action="/vet-admin" method="POST" enctype="multipart/form-data">
     @else
-        <form action="/payment" method="POST" enctype="multipart/form-data">
+        <form action="/payment" method="POST" enctype="multipart/form-data" class="p-5">
     @endif
         @csrf
         <div class="input-group mb-3">

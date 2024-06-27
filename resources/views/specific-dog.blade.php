@@ -8,10 +8,10 @@
     @include('layout/cart')
     <div class="container">
         <div class="row text-center mt-5">
-            <div class="col-6">
+            <div class="col-12 col-lg-6">
                 <img src="/img/dogs/{{$dog->dog_image}}" alt="" class="w-100 rounded bsblack borange">
             </div>
-            <div class="col-6 bteal rounded p-4 bsblack">
+            <div class="col-12 col-lg-6 bteal rounded p-4 bsblack">
                 <h2 class="fs-1">{{$dog->dog_name}}</h2>
                 <p class="">{{$dog->dog_desc}}</p>
             </div>

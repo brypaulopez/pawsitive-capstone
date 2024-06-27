@@ -14,7 +14,7 @@
             <div class="col-12 text-center">
                 <h2 class="" style="font-size: 70px;">Dog Breeds</h2>
             </div>
-            <div class="d-flex flex-row">
+            <div class="d-flex flex-row flex-lg-wrap flex-md-wrap flex-sm-wrap flex-wrap">
                 @if (url()->current() == url('breeds/a'))
                 <div class="px-1">
                     <form action="/breeds/{{'a'}}" method="POST">
@@ -416,9 +416,9 @@
                     <a class="btn bg-light borange">Z</a>
                 </div>
             </div>
-            <div class="row mt-3 g-4 mb-5">
+            <div class="row mt-3 g-4 mb-5 m-0 p-0">
                 @foreach ($dog as $d)
-                    <div class="col-4">
+                    <div class="col-lg-4 col-sm-6 col-12">
                         <div class="card bteal bsblack bgorange">
                             <a href="/traits/{{$d -> dog_name}}">
                                 <img src="/img/dogs/{{$d -> dog_image}}" alt="" class="card-img-top w-100">

@@ -42,7 +42,7 @@
                 <h2>Boarding in both {{$filteredC->vet_city}} and {{$filteredM->vet_municipality}}</h2>
             </div>
             @foreach ($filterBC as $f)
-                <div class="col-4">
+                <div class="col-12 col-xl-4 col-md-6 col-sm-6s">
                     <div class="card borange bgteal bsblack">
                         <a href="board/{{$f -> vet_id}}">
                             <img src="/img/vets/{{$f -> vet_image}}" class="card-img-top" alt="" style="height: 263px !important;">
@@ -54,7 +54,7 @@
                 </div>
             @endforeach
             @foreach ($filterBM as $f)
-                <div class="col-4">
+                <div class="col-12 col-xl-4 col-md-6 col-sm-6">
                     <div class="card borange bgteal bsblack">
                         <a href="board/{{$f -> vet_id}}">
                             <img src="/img/vets/{{$f -> vet_image}}" class="card-img-top" alt="" style="height: 263px !important;">
@@ -70,7 +70,7 @@
                 <h2>Boarding in {{$filteredM->vet_municipality}}</h2>
             </div>
             @foreach ($filterBM as $f)
-                <div class="col-4">
+                <div class="col-12 col-xl-4 col-md-6 col-sm-6">
                     <div class="card borange bgteal bsblack">
                         <a href="board/{{$f -> vet_id}}">
                             <img src="/img/vets/{{$f -> vet_image}}" class="card-img-top" alt="" style="height: 263px !important;">
@@ -86,7 +86,7 @@
                 <h2>Boarding in {{$filteredC->vet_city}}</h2>
             </div>
             @foreach ($filterBC as $f)
-                <div class="col-4">
+                <div class="col-12 col-xl-4 col-md-6 col-sm-6">
                     <a href="board/{{$f -> vet_id}}">
                         <img src="/img/vets/{{$f -> vet_image}}" class="card-img-top" alt="" style="height: 263px !important;">
                     </a>
@@ -102,7 +102,7 @@
                     <h2>Boardings in CALABARZON</h2>
                 </div>
                 @foreach ($cityB as $f)
-                <div class="col-4">
+                <div class="col-12 col-xl-4 col-md-6 col-sm-6">
                     <div class="card borange bgteal bsblack">
                         <a href="board/{{$f -> vet_id}}">
                             <img src="/img/vets/{{$f -> vet_image}}" class="card-img-top" alt="" style="height: 263px !important;">
@@ -114,7 +114,7 @@
                 </div>
             @endforeach
             @foreach ($municipalityB as $f)
-                <div class="col-4">
+                <div class="col-12 col-xl-4 col-md-6 col-sm-6">
                     <div class="card borange bgteal bsblack">
                         <a href="board/{{$f -> vet_id}}">
                             <img src="/img/vets/{{$f -> vet_image}}" class="card-img-top" alt="" style="height: 263px !important;">

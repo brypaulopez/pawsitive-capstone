@@ -11,7 +11,7 @@
             <div class="col-12 mt-5 grooming-container">
                 <img src="img/grooming-svc.jpg" alt="" class="w-100 rounded-pill borange">
                 <div class="col-6 grooming-overlay">
-                    <h2 style="font-size: 100px;" class="">Pawsitive Precision <br>Grooming!</h2>
+                    <h2 style="font-size: 100px;" class="grooming-svc">Pawsitive Precision <br>Grooming!</h2>
                 </div>
             </div>
             <div class="col-12 text-center mt-5 bgorange bteal">

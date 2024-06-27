@@ -11,7 +11,7 @@
             <div class="col-12 mt-5 clinic-container">
                 <img src="img/clinic-svc.jpg" alt="" class="w-100 rounded-pill bteal">
                 <div class="col-12 clinic-overlay">
-                    <h2 style="font-size: 100px;" class="">Pawsitive Precision <br>Clinics!</h2>
+                    <h2 style="font-size: 100px;" class="clinic-svc">Pawsitive Precision <br>Clinics!</h2>
                 </div>
             </div>
             <div class="col-12 text-center mt-5 bgorange bteal">

@@ -21,17 +21,17 @@
                     <p class="text-white " style="font-size: 20px;">At Pawsitive Precision, we believe every dog deserves a happy and healthy life.
                         <br>Discover a community where your pet's well-being is our priority.
                     </p>
-                    <div class="col-3 p-0 m-0"></div>
+                    <div class="col-2 p-0 m-0"></div>
                     @if (Session::has('id') && Session::get('role') == 0 || Session::get('role') == 3)
-                        <div class="col-3"><a href="/search-clinic" class="w-100 btn bgteal borange home-svc normal-btn"><span>Check our <b>Services</b></span></a></div>
+                        <div class="col-4"><a href="/search-clinic" class="w-100 btn bgteal borange home-svc normal-btn"><span>Check our <b>Services</b></span></a></div>
                     @else
-                    <div class="col-3"><a href="/noaccount/signup" id="no-account" onclick="" class="w-100 btn bgteal borange home-svc normal-btn"><span>Check our <b>Services</b></span></a></div>
+                    <div class="col-4"><a href="/noaccount/signup" id="no-account" onclick="" class="w-100 btn bgteal borange home-svc normal-btn"><span>Check our <b>Services</b></span></a></div>
                     @endif
                     @if (Session::has('id') && Session::get('role') == 0 || Session::get('role') == 3)
-                        <div class="col-3"><a href="/products" class="w-100 btn bgorange bteal home-prdct normal-btn"><span>Buy our <b>Products</b></span></a></div>
+                        <div class="col-4"><a href="/products" class="w-100 btn bgorange bteal home-prdct normal-btn"><span>Buy our <b>Products</b></span></a></div>
                     @else
-                    <div class="col-3"><a href="/noaccount/signup" class="w-100 btn bgorange bteal home-prdct normal-btn"><span>Buy our <b>Products</b></span></a></div>
-                    <div class="col-3 p-0 m-0"></div>
+                    <div class="col-4"><a href="/noaccount/signup" class="w-100 btn bgorange bteal home-prdct normal-btn"><span>Buy our <b>Products</b></span></a></div>
+                    <div class="col-2 p-0 m-0"></div>
                     @endif
                 </div>
             </div>
@@ -44,9 +44,9 @@
                 <h1 class="torange" style="font-size: 50px;">What is Pawsitive Precision all about?</h1>
                 <p class="mt-2 px-5 fs-5"><b>Pawsitive Precision</b> is your trusted partner in ensuring the health and happiness of your beloved dogs. We offer information and comprehensive suite of services and products tailored to meet all your pet's needs.</p>
             </div>
-            <div class="row">
-                <div class="col-4">
-                    <div class="card bgteal borange bsblack" style="height: 622px;">
+            <div class="row g-5">
+                <div class="col-md-12 col-lg-12 col-xl-4">
+                    <div class="card bgteal borange bsblack ourservice1">
                         <div class="card-body">
                             <h2 class="card-title text-center">Our Services</h2>
                             <ul>
@@ -66,8 +66,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-4">
-                    <div class="card bgorange bteal bsblack" style="height: 622px;">
+                <div class="col-md-12 col-lg-12 col-xl-4">
+                    <div class="card bgorange bteal bsblack ourservice2">
                         <div class="card-body">
                             <h2 class="card-title text-center">Why Choose Pawsitive Precision?</h2>
                             <ul class="mt-3">
@@ -87,8 +87,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-4">
-                    <div class="card bblack bsblack" style="height: 622px;">
+                <div class="col-md-12 col-lg-12 col-xl-4">
+                    <div class="card bblack bsblack ourservice3">
                         <div class="card-body">
                             <h2 class="card-title text-center">Become a Pawsitive Partner</h2>
                             <p class="text-center px-2 mt-3">
@@ -185,22 +185,22 @@
             </div>
             {{-- Our vision --}}
             <div class="row mt-5">
-                <div class="col-6 mt-5">
+                <div class="col-6 mt-5 visionmission">
                     <img src="/img/vision.jpg" alt="" class="w-100 bsblack rounded">
                 </div>
-                <div class="col-6 text-center mt-5">
+                <div class="col-12 col-lg-6 text-center mt-5">
                     <h2 class="fs-1 tteal">Our Vision</h2>
                     <p class="mt-1 fs-5">Our vision is to become the leading platform for connecting veterinary practices with pet owners through innovative and impactful advertising solutions. We aspire to create a world where every pet has access to the highest quality veterinary care, and where vets can effortlessly reach and serve their communities. By leveraging the power of technology and partnerships, we aim to transform the landscape of pet healthcare, ensuring a brighter, healthier future for all pets and their families.</p>
                 </div>
             </div>
             <div class="row mt-5">
-                <div class="col-6 mt-5 text-center">
+                <div class="col-12 col-lg-6 mt-5 text-center">
                     <h2 class="fs-1 tteal">Our Mission</h2>
                     <p class="mt-1 fs-5">
                         Our mission is to bridge the gap between pet owners and veterinary professionals through innovative and effective advertising partnerships. We are dedicated to enhancing the visibility of veterinary practices, ensuring pet owners can easily find and access the best care for their furry friends. By fostering strong relationships between vets and the communities they serve, we strive to promote the health and well-being of all pets, making a pawsitive difference in their lives and the lives of their owners.
                     </p>
                 </div>
-                <div class="col-6 mt-5">
+                <div class="col-6 mt-5 visionmission">
                     <img src="/img/mission.png" alt="" class="w-100 bsblack rounded">
                 </div>
             </div>
@@ -213,9 +213,9 @@
                 <h1 class="torange" style="font-size: 50px;">What is Pawsitive Precision all about?</h1>
                 <p class="mt-2 px-5 fs-5"><b>Pawsitive Precision</b> is your trusted partner in ensuring the health and happiness of your beloved dogs. We offer information and comprehensive suite of services and products tailored to meet all your pet's needs.</p>
             </div>
-            <div class="row">
-                <div class="col-4">
-                    <div class="card bgteal borange bsblack" style="height: 622px;">
+            <div class="row g-5">
+                <div class="col-md-12 col-lg-12 col-xl-4">
+                    <div class="card bgteal borange bsblack ourservice1">
                         <div class="card-body">
                             <h2 class="card-title text-center">Our Services</h2>
                             <ul>
@@ -235,8 +235,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-4">
-                    <div class="card bgorange bteal bsblack" style="height: 622px;">
+                <div class="col-md-12 col-lg-12 col-xl-4">
+                    <div class="card bgorange bteal bsblack ourservice2">
                         <div class="card-body">
                             <h2 class="card-title text-center">Why Choose Pawsitive Precision?</h2>
                             <ul class="mt-3">
@@ -256,8 +256,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-4">
-                    <div class="card bblack bsblack" style="height: 622px;">
+                <div class="col-md-12 col-lg-12 col-xl-4">
+                    <div class="card bblack bsblack ourservice3">
                         <div class="card-body">
                             <h2 class="card-title text-center">Become a Pawsitive Partner</h2>
                             <p class="text-center px-2 mt-3">
@@ -279,34 +279,34 @@
                 </div>
             </div>
             <div class="mt-5 row top-login bteal bgorange text-center">
-                <div class="col-8 mt-3">
+                <div class="col-lg-8 col-12 mt-3">
                     <h2 class="mt-3">Sign Up Today!</h2>
-                    <p class="px-5">Join the Pawsitive family and experience the difference. Whether you're looking to provide the best care for your dog or expand your business as a partner, Pawsitive Precision is here to support you every step of the way.</p>
+                    <p class="px-5 bottomp">Join the Pawsitive family and experience the difference. Whether you're looking to provide the best care for your dog or expand your business as a partner, Pawsitive Precision is here to support you every step of the way.</p>
                     <a href="/partnership" id="partnership" class="btn bgteal bwhite mt-3 fs-4">Be a partner now!</a>
                 </div>
-                <div class="col-4 text-center">
+                <div class="col-4 text-center bottomimage">
                     <img src="img/group.png" alt="" class="w-75" style="">
                 </div>
             </div>
             <div class="row bottom-login borange bgteal">
-                <div class="col-4 text-center pt-3">
+                <div class="col-4 text-center pt-3 bottomimage">
                     <img src="img/group-dog.png" alt="" class="w-75" style="">
                 </div>
-                <div class="col-8 mt-5 text-center">
+                <div class="col-lg-8 col-12 mt-5 text-center">
                     <h2 class="mt-4">Register Now!</h2>
-                    <p class="px-5">Join the Pawsitive Dog Care family and give your furry friend the best care possible. By signing up, you'll gain access to: <b> Premium Pet Products</b>, <b>Our Services</b>, & <b>Dog information</b></p>
+                    <p class="px-5 bottomp">Join the Pawsitive Dog Care family and give your furry friend the best care possible. By signing up, you'll gain access to: <b> Premium Pet Products</b>, <b>Our Services</b>, & <b>Dog information</b></p>
                     
                     <a href="/signup" id="registration" class="btn bgorange bwhite mt-3 fs-4">Sign Up for an account!</a>
                 </div>
             </div>
             <div class="row bteal bgorange mt-5">
-                <div class="col-8 mt-5 text-center">
+                <div class="col-lg-8 col-12 mt-5 text-center">
                     <h2 class="mt-4">Be a part now!</h2>
-                    <p class="px-5">Are you a dog whisperer or trainer looking to expand your online presence? Join Pawsitive Dog Care and reach a wider audience! By signing up you'll gain access to: <b>Enhanced Visibility</b>, <b>Marketing Support</b> & <b>Community Engagement</b> Don't miss out! Sign up today and take your dog training business to the next level with Pawsitive Dog Care <b>(Completely Free)</b>.
+                    <p class="px-5 bottomp">Are you a dog whisperer or trainer looking to expand your online presence? Join Pawsitive Dog Care and reach a wider audience! By signing up you'll gain access to: <b>Enhanced Visibility</b>, <b>Marketing Support</b> & <b>Community Engagement</b> Don't miss out! Sign up today and take your dog training business to the next level with Pawsitive Dog Care <b>(Completely Free)</b></p>.
                     <br>
                     <a href="/trainer-signup" id="partnership" class="btn bgteal bwhite mt-3 fs-4">Sign Up as a Trainer!</a>
                 </div>
-                <div class="col-4 text-center pt-3">
+                <div class="col-4 text-center pt-3 bottomimage">
                     <img src="img/group2.png" alt="" class="w-100" style="">
                 </div>
             </div>

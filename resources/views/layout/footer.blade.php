@@ -1,7 +1,7 @@
 <footer>
     <div class="container mt-5">
         <div class="row">
-            <div class="col-md-4 mt-3">
+            <div class="col-lg-4 mt-3">
                 <img src="/img/pawsitive-logo1.png" alt="" class="w-100 p-0 m-0">
                 <p class="text-white m-0 mt-2">Stay in the loop.</p>
                 <form action="/email-notif">

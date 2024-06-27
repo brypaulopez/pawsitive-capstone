@@ -41,7 +41,7 @@
                 <div class="content-box-lg">
                     <div class="container">
                         <div class="row">
-                            <div class="col-md-4">
+                            <div class="col-xl-4 col-lg-12 col-md-12">
                                 <div class="about-item text-center bgteal">
                                     <i class="fa fa-book"></i>
                                     <h3>MISSION</h3>
@@ -50,7 +50,7 @@
                                     <br><br>
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-xl-4 col-lg-12 col-md-12">
                                 <div class="about-item text-center bgteal">
                                     <i class="fa fa-globe"></i>
                                     <h3>VISION</h3>
@@ -59,7 +59,7 @@
                                     <br><br>
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-xl-4 col-lg-12 col-md-12">
                                 <div class="about-item text-center bgteal">
                                     <i class="fa fa-pencil"></i>
                                     <h3>ACHIEVEMENTS</h3>
